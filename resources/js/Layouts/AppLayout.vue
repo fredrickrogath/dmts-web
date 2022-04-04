@@ -52,6 +52,38 @@ const logout = () => {
                                 <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Dashboard
                                 </JetNavLink>
+
+                                <JetNavLink :href="route('patient.management')" :active="route().current('patient.management')">
+                                    Patients Management
+                                </JetNavLink>
+
+                                <!-- <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                                    Reports
+                                </JetNavLink> -->
+
+                                <!-- <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                                    Referrals
+                                </JetNavLink> -->
+
+                                <!-- <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                                    Dashboard sup adm
+                                </JetNavLink> -->
+
+                                <!-- <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                                    Dashboard hop
+                                </JetNavLink> -->
+
+                                <!-- <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                                    Recommendations
+                                </JetNavLink> -->
+<!-- 
+                                <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                                    Treatments
+                                </JetNavLink>
+
+                                <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
+                                    Diagnosis
+                                </JetNavLink> -->
                             </div>
                         </div>
 
@@ -152,7 +184,8 @@ const logout = () => {
                                     <template #content>
                                         <!-- Account Management -->
                                         <div class="block px-4 py-2 text-xs text-gray-400">
-                                            Manage Account
+                                            <div class="py-2 text-center">Patient</div>
+                                            <div>Manage Account</div>
                                         </div>
 
                                         <JetDropdownLink :href="route('profile.show')">
