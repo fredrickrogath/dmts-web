@@ -33,7 +33,7 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
-    Route::get('/patient', function () {
-        return Inertia::render('Patient');
-    })->name('patient.management');
+    Route::get('/management', function () {
+        return Inertia::render('Management');
+    })->name('management');
 });
