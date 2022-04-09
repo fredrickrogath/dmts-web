@@ -29,6 +29,11 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
+
+    Route::group(['prefix' => 'superadmin', 'middleware' => 'is_superadmin', 'as' => 'superadmin.',], function(){Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->name('dashboard');});
+
     Route::get('/dashboard', function () {
         return Inertia::render('Dashboard');
     })->name('dashboard');
