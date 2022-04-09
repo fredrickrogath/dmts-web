@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class IsSuperAdminMiddleware
+class IsHospitalAdminMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,10 +16,10 @@ class IsSuperAdminMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(!auth()->check() || !auth()->user()->role == \App\Models\User::is_super_admin){
+        if(!auth()->check() || !auth()->user()->role == \App\Models\User::is_hospital_admin){
             abort(403);
         }
-
+        
         return $next($request);
     }
 }

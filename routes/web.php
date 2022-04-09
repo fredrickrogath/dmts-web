@@ -30,10 +30,16 @@ Route::middleware([
     'verified',
 ])->group(function () {
 
-    Route::group(['prefix' => 'superadmin', 'middleware' => 'is_super_admin', 'as' => 'superadmin.',], function(){
-        Route::get('/dashboard',[\App\Http\Controllers\SuperAdmin\TaskController::class,'index'])->name('dashboard');});
+    Route::group(['prefix' => 'super_admin', 'middleware' => 'is_super_admin', 'as' => 'admin.super.',], function(){
+        Route::get('/dashboard',[\App\Http\Controllers\SuperAdmin\TaskController::class,'index'])->name('dashboard');
+    });
+
+    Route::group(['prefix' => 'hospital_admin', 'middleware' => 'is_hospital_admin', 'as' => 'admin.hospital.',], function(){
+        Route::get('/dashboard',[\App\Http\Controllers\HospitalAdmin\TaskController::class,'index'])->name('dashboard');
+    });
 
     Route::get('/dashboard', function () {
+        
         return Inertia::render('Dashboard');
     })->name('dashboard');
 
