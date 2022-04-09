@@ -4,6 +4,7 @@ namespace App\Http\Controllers\SuperAdmin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class TaskController extends Controller
 {
@@ -14,7 +15,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        return Inertia::render('SuperAdmin.Dashboard');
+        return Inertia::render('SuperAdmin/Dashboard');
     }
 
     /**

@@ -30,7 +30,7 @@ Route::middleware([
     'verified',
 ])->group(function () {
 
-    Route::group(['prefix' => 'superadmin', 'middleware' => 'is_superadmin', 'as' => 'superadmin.',], function(){
+    Route::group(['prefix' => 'superadmin', 'middleware' => 'is_super_admin', 'as' => 'superadmin.',], function(){
         Route::get('/dashboard',[\App\Http\Controllers\SuperAdmin\TaskController::class,'index'])->name('dashboard');});
 
     Route::get('/dashboard', function () {
