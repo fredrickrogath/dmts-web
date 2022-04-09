@@ -39,8 +39,14 @@ Route::middleware([
     });
 
     Route::get('/dashboard', function () {
-        
-        return Inertia::render('Dashboard');
+        if(auth()->user()->role == \App\Models\User::is_super_admin)
+        return redirect()->route('admin.super.dashboard');
+        if(auth()->user()->role == \App\Models\User::is_hospital_admin)
+        return redirect()->route('admin.hospital.dashboard');
+        if(auth()->user()->role == \App\Models\User::is_a_doctor)
+        return redirect()->route('home');
+        if(auth()->user()->role == \App\Models\User::is_a_patient)
+        return redirect()->route('home');
     })->name('dashboard');
 
     Route::get('/management', function () {
