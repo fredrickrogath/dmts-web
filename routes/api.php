@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/test', function () {
+    // return json_encode(\App\Models\User::paginate(5));
+    $data = \App\Models\User::paginate(2);
+    return response()->json($data);
+});

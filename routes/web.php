@@ -53,7 +53,7 @@ Route::middleware([
         return Inertia::render('Management');
     })->name('management');
 
-    Route::get('/test', function () {
+        Route::get('/test', function () {
         return json_encode(\App\Models\User::all());
     });
 });
