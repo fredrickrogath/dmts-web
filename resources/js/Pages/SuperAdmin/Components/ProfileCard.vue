@@ -12,23 +12,18 @@
     "
   >
     <td class="pl-4 pr-2 whitespace-no-wrap hover:cursor-pointer">
-      <img
-        class="h-8 w-8 rounded-full object-cover"
-        :src="$page.props.user.profile_photo_url"
-        :alt="$page.props.user.name"
-        @mouseenter="toggleProfile"
-        @mouseleave="toggleProfile"
-      />
-      <div class="text-red-500 text-xm pt-2 py-1">OFFLINE</div>
-      <div class="text-gray-900 text-xm">Today</div>
-      <div class="text-gray-900 text-xm">07:45 AM</div>
+      <transition name="profile" appear>
+        <profile @toggle-profile="toggleProfile"></profile>
+      </transition>
     </td>
 
     <td class="px-2 py-2 whitespace-no-wrap">
       <div class="flex justify-center items-center">
         <div class="relative z-0">
-          <info :name="name" :email="email" :id="id"></info>
-          <transition name="profile" appear>
+          <transition name="info" appear>
+            <info :name="name" :email="email" :id="id"></info>
+          </transition>
+          <transition name="profile-hover" appear>
             <div
               v-if="hideProfile"
               class="
@@ -52,10 +47,12 @@
 
 <script>
 import HoverProfile from "./HoverProfile.vue";
+import Profile from "./Profile.vue";
 import Info from "./Info.vue";
 export default {
   components: {
     Info,
+    Profile,
     HoverProfile,
   },
   props: {
@@ -95,9 +92,41 @@ export default {
 </script>
 
 <style scoped>
+/* animate information */
+
+.info-enter-from {
+  opacity: 0;
+  transform: translateY(-50px);
+}
+
+.info-enter-active {
+  transition: all 0.5s ease-out;
+}
+
+.info-enter-to {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.info-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.info-leave-active {
+  transition: all 0.5s ease-in;
+}
+
+.info-leave-to {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+/* animate profile avatar */
+
 .profile-enter-from {
   opacity: 0;
-  transform: translateX(50px);
+  transform: translateY(50px);
 }
 
 .profile-enter-active {
@@ -106,12 +135,12 @@ export default {
 
 .profile-enter-to {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateY(0);
 }
 
 .profile-leave-from {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateY(0);
 }
 
 .profile-leave-active {
@@ -119,6 +148,36 @@ export default {
 }
 
 .profile-leave-to {
+  opacity: 0;
+  transform: translateY(-30px);
+}
+
+/* animate profile hover */
+
+.profile-hover-enter-from {
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+.profile-hover-enter-active {
+  transition: all 0.5s ease-out;
+}
+
+.profile-hover-enter-to {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.profile-hover-leave-from {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.profile-hover-leave-active {
+  transition: all 0.5s ease-in;
+}
+
+.profile-hover-leave-to {
   opacity: 0;
   transform: translateX(-30px);
 }
