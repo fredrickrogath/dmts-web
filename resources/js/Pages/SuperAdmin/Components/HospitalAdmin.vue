@@ -91,10 +91,12 @@
 
 
 <script>
+import AddForm from "./Forms/AddForm.vue";
 import ProfileCard from "./ProfileCard.vue";
 export default {
   components: {
     ProfileCard,
+    AddForm,
   },
   created() {
     this.testDataFn();
