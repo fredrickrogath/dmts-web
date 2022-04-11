@@ -22022,51 +22022,45 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       dummyData: [],
-      url: "http://127.0.0.1:8000/test?page=",
-      currentPage: 1
+      url: "http://127.0.0.1:8000/super_admin/",
+      keyword: null,
+      emptyResult: false,
+      hideProfile: true
     };
   },
+  watch: {
+    keyword: function keyword() {
+      this.searchHospitalAdministrators();
+    }
+  },
+  computed: {},
   methods: {
-    // testDataFn(data) {
-    //   //         fetch('http://127.0.0.1:8000/test')
-    //   // .then(res => res.json())
-    //   // .then(json => {this.testData = json;console.log(this.testData)})
-    //   // POST request using fetch with error handling
-    //   const requestOptions = {
-    //     method: "GET",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //       // Authorization: "Bearer 1|H1OrjYLqsPL92YYs9FNjsB311IL9riHIzx0gzL9y",
-    //     },
-    //     // body: JSON.stringify({ title: 'Vue POST Request Example' })
-    //   };
-    //   fetch(this.url + page, requestOptions)
-    //     .then(async (response) => {
-    //       const data = await response.json();
-    //       this.dummyData = data;
-    //       // console.log(this.dummyData);
-    //       // check for error response
-    //       if (!response.ok) {
-    //         // get error message from body or default to response status
-    //         const error = (data && data.message) || response.status;
-    //         return Promise.reject(error);
-    //       }
-    //       // this.postId = data.id;
-    //     })
-    //     .catch((error) => {
-    //       this.errorMessage = error;
-    //       console.error("There was an error!", error);
-    //     });
-    // },
-    testDataFn: function testDataFn(page) {
+    searchHospitalAdministrators: function searchHospitalAdministrators() {
       var _this = this;
 
-      // if (typeof page === "undefined") {
-      //   page = 1;
-      // }
+      axios.get(this.url + "searchHospitalAdministrators", {
+        params: {
+          keyword: this.keyword
+        }
+      }).then(function (res) {
+        _this.dummyData = res.data;
+
+        if (res.data.length == 0) {
+          _this.emptyResult = true;
+        } else {
+          _this.emptyResult = false;
+        }
+      })["catch"](function (error) {});
+    },
+    testDataFn: function testDataFn() {
+      var _this2 = this;
+
       this.axios.get("http://127.0.0.1:8000/test").then(function (response) {
-        _this.dummyData = response.data;
+        _this2.dummyData = response.data;
       });
+    },
+    toggleProfile: function toggleProfile() {
+      this.hideProfile = !this.hideProfile;
     }
   }
 });
@@ -22103,15 +22097,15 @@ var __default__ = {
     return {
       dummyData: [],
       url: "http://127.0.0.1:8000/test?page=",
-      selectedTab: "dmts-monitoring"
+      selectedTab: "general-management"
     };
   },
   computed: {
     dmtsMonitoringSelected: function dmtsMonitoringSelected() {
-      return this.selectedTab == "dmts-monitoring" ? "border-blue-900" : "border-gray-300";
+      return this.selectedTab == "dmts-monitoring" ? "border-blue-800" : "border-gray-300";
     },
     generalManagementSelected: function generalManagementSelected() {
-      return this.selectedTab == "general-management" ? "border-blue-900" : "border-gray-300";
+      return this.selectedTab == "general-management" ? "border-blue-800" : "border-gray-300";
     }
   },
   methods: {
@@ -27571,84 +27565,161 @@ var _hoisted_2 = {
 var _hoisted_3 = {
   "class": "pl-4 h-full flex flex-col"
 };
-
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"text-sm text-gray-500 font-bold px-5 py-2 shadow border-b border-gray-300\"><div class=\"grid grid-cols-1 divide-y-2\"><div class=\"flex justify-between pb-2\"><span> Hospital Administrators</span><i class=\"fas fa-add pt-1 hover:cursor-pointer\"></i><i class=\"fas fa-sort pt-1 hover:cursor-pointer\"></i><i class=\"fas fa-expand pt-1 hover:cursor-pointer\"></i></div><div class=\"flex justify-between py-2\"><!-- &lt;span&gt; Hospital Administrators&lt;/span&gt;\n                          &lt;i\n                            class=&quot;fas fa-expand pt-1 hover:cursor-pointer&quot;\n                          &gt;&lt;/i&gt; --><!-- &lt;div\n                            class=&quot;\n                              border\n                              mx-auto\n                              border-[2px]\n                              w-10/12\n                              justify-center\n                              flex\n                              items-center\n                              rounded-md\n                            &quot;\n                          &gt;\n                            &lt;div class=&quot;w-full&quot;&gt;\n\n                              \n                              \n                              &lt;input\n                                type=&quot;search&quot;\n                                x-model=&quot;input3&quot;\n                                class=&quot;\n                                  w-full\n                                  h-6\n                                  px-4\n                                  py-1\n                                  rounded-r-md\n                                  border border-gray-200\n                                  text-sm\n                                  text-gray-800\n                                  focus:outline-none\n                                &quot;\n                                placeholder=&quot;Search...&quot;\n                              /&gt; --><!-- &lt;/div&gt;\n                          &lt;/div&gt; --><div class=\"relative flex w-full flex-wrap items-stretch\"><span class=\"z-10 h-full leading-snug font-normal absolute text-center text-slate-300 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-1\"><i class=\"fas fa-search\"></i></span><input type=\"text\" placeholder=\"Placeholder\" class=\"px-2 py-1 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm outline-0 outline-gray-600 focus:ring-0 border border-slate-300 w-full pl-10\"></div></div></div></div>", 1);
-
+var _hoisted_4 = {
+  "class": "text-sm text-gray-500 font-bold px-5 py-2 shadow border-b border-gray-300"
+};
 var _hoisted_5 = {
-  "class": "w-full h-full overflow-auto shadow",
-  id: "journal-scroll"
+  "class": "grid grid-cols-1 divide-y-2"
 };
-var _hoisted_6 = {
-  "class": "w-full"
-};
-var _hoisted_7 = {
-  "class": ""
-};
-var _hoisted_8 = {
-  "class": "pl-5 pr-3 whitespace-no-wrap"
-};
-var _hoisted_9 = ["src", "alt"];
 
-var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "text-red-500 pt-2 py-1"
-}, "Offline", -1
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "flex justify-between pb-2"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, " Hospital Administrators"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "fas fa-add pt-1 hover:cursor-pointer"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "fas fa-sort pt-1 hover:cursor-pointer"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "fas fa-expand pt-1 hover:cursor-pointer"
+})], -1
 /* HOISTED */
 );
 
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "text-gray-700"
+var _hoisted_7 = {
+  "class": "flex justify-between py-2"
+};
+var _hoisted_8 = {
+  "class": "relative flex w-full flex-wrap items-stretch"
+};
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+  "class": "z-10 h-full leading-snug font-normal absolute text-center text-slate-300 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-1"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  "class": "fas fa-search"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_10 = {
+  "class": "w-full h-full overflow-auto shadow",
+  id: "journal-scroll"
+};
+var _hoisted_11 = {
+  key: 0,
+  "class": "m-20 text-sm text-gray-500"
+};
+var _hoisted_12 = {
+  "class": "w-full"
+};
+var _hoisted_13 = {
+  "class": ""
+};
+var _hoisted_14 = ["src", "alt"];
+
+var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "text-red-500 text-xm pt-2 py-1"
+}, "OFFLINE", -1
+/* HOISTED */
+);
+
+var _hoisted_16 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "text-gray-900 text-xm"
 }, "Today", -1
 /* HOISTED */
 );
 
-var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, "07:45", -1
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "text-gray-900 text-xm"
+}, "07:45 AM", -1
 /* HOISTED */
 );
 
-var _hoisted_13 = {
+var _hoisted_18 = {
   "class": "px-2 py-2 whitespace-no-wrap"
 };
-var _hoisted_14 = {
-  "class": "leading-5 text-gray-500 font-medium"
+var _hoisted_19 = {
+  key: 0
+};
+var _hoisted_20 = {
+  "class": "leading-5 text-gray-900 font-medium px-1"
 };
 
-var _hoisted_15 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"leading-5 text-gray-500\"><span>At</span> Mwimbili <span>Hospital</span></div><div class=\"leading-5 text-gray-900\"> Manages <a class=\"px-1 text-green-700 hover:underline\" href=\"#\">78 <span class=\"text-gray-900\">Doc</span></a><a class=\"text-green-700 hover:underline\" href=\"#\">308 <span class=\"text-gray-900\">Pat</span></a></div>", 2);
+var _hoisted_21 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"leading-5 text-green-700\"><span class=\"text-gray-900\">At</span> Mwimbili <span>Hospital</span></div><div class=\"leading-5 text-gray-900\"> Manages <a class=\"px-1 text-green-700 hover:underline\" href=\"#\">78 <span class=\"text-gray-900\">Doc</span></a><a class=\"text-green-700 hover:underline\" href=\"#\">308 <span class=\"text-gray-900\">Pat</span></a></div>", 2);
 
-var _hoisted_17 = {
+var _hoisted_23 = {
   "class": "leading-5 text-gray-700"
 };
 
-var _hoisted_18 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+var _hoisted_24 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
   "class": "fa-solid fa-envelope pr-2"
 }, null, -1
 /* HOISTED */
 );
 
-var _hoisted_19 = {
+var _hoisted_25 = {
   "class": "text-green-700 hover:underline",
   href: "#"
 };
 
-var _hoisted_20 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"leading-5 text-gray-700\"><i class=\"fa-solid fa-mobile-screen-button fa-lg pr-2\"></i><span class=\"text-green-700 hover:underline\" href=\"#\">+255 715 983 180</span></div><div class=\"leading-5 text-gray-700\"><!-- &lt;i\n                                    class=&quot;\n                                      fas\n                                      fa-mobile\n                                      pt-1\n                                      hover:cursor-pointer\n                                      hover:text-green-700\n                                    &quot;\n                                  &gt;&lt;/i&gt; --><i class=\"fa-solid fa-mobile-screen-button fa-lg pr-2\"></i><span class=\"text-green-700 hover:underline\" href=\"#\">+255 685 501 748</span></div>", 2);
+var _hoisted_26 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"leading-5 text-gray-700\"><i class=\"fa-solid fa-mobile-screen-button fa-lg pr-2\"></i><span class=\"text-green-700 hover:underline\" href=\"#\">+255 715 983 180</span></div><div class=\"leading-5 text-gray-700\"><i class=\"fa-solid fa-mobile-screen-button fa-lg pr-2\"></i><span class=\"text-green-700 hover:underline\" href=\"#\">+255 685 501 748</span></div><div class=\"grid grid-cols-1 divide-y-2\"><div class=\"leading-5 text-gray-800 pb-1\"> Dar es Salaam </div><div class=\"flex text-gray-700\"><i class=\"fas fa-edit pt-1 hover:cursor-pointer hover:text-green-700\"></i><i class=\"fas fa-add px-7 pt-1 hover:cursor-pointer hover:text-green-700\"></i><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"hover:cursor-pointer h-5 w-4 hover:text-green-700\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z\"></path></svg><i class=\"fas fa-trash pt-1 px-7 hover:cursor-pointer hover:text-red-700\"></i></div></div>", 3);
 
-var _hoisted_22 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"grid grid-cols-1 divide-y-2\"><div class=\"leading-5 text-gray-800 pb-1\"> Dar es Salaam </div><div class=\"flex justify-between px-4 text-gray-700\"><i class=\"fas fa-edit pt-1 hover:cursor-pointer hover:text-green-700\"></i><i class=\"fas fa-add pt-1 hover:cursor-pointer hover:text-green-700\"></i><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"hover:cursor-pointer h-5 w-4 hover:text-green-700\" fill=\"none\" viewBox=\"0 0 24 24\" stroke=\"currentColor\"><path stroke-linecap=\"round\" stroke-linejoin=\"round\" stroke-width=\"2\" d=\"M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z\"></path></svg><i class=\"fas fa-trash pt-1 hover:cursor-pointer hover:text-red-700\"></i></div></div>", 1);
-
+var _hoisted_29 = {
+  key: 1
+};
+var _hoisted_30 = {
+  "class": "rounded-3xl overflow-hidden shadow-xl max-w-xs bg-blue-500"
+};
+var _hoisted_31 = ["src", "alt"];
+var _hoisted_32 = {
+  "class": "flex justify-center -mt-8"
+};
+var _hoisted_33 = ["src", "alt"];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_7, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.dummyData, function (test) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    placeholder: "Placeholder",
+    "class": "px-2 py-1 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm outline-0 outline-gray-600 focus:ring-0 border border-slate-300 w-full pl-10",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $data.keyword = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.keyword]])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [$data.emptyResult == true ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_11, " Nothing found ! ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_13, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.dummyData, function (test) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("tr", {
       "class": "relative transform scale-100 text-xs py-1 border-b-2 border-blue-100 cursor-default bg-opacity-25",
       key: test.id
-    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", {
+      "class": "pl-5 pr-3 whitespace-no-wrap hover:cursor-pointer",
+      onMouseover: _cache[1] || (_cache[1] = function ($event) {
+        return $data.hideProfile = false;
+      }),
+      onMouseleave: _cache[2] || (_cache[2] = function ($event) {
+        return $data.hideProfile = true;
+      })
+    }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
       "class": "h-8 w-8 rounded-full object-cover",
       src: _ctx.$page.props.user.profile_photo_url,
       alt: _ctx.$page.props.user.name
     }, null, 8
     /* PROPS */
-    , _hoisted_9), _hoisted_10, _hoisted_11, _hoisted_12]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(test.name), 1
+    , _hoisted_14), _hoisted_15, _hoisted_16, _hoisted_17], 32
+    /* HYDRATE_EVENTS */
+    ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("td", _hoisted_18, [$data.hideProfile ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(test.name), 1
     /* TEXT */
-    ), _hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [_hoisted_18, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(test.email), 1
+    ), _hoisted_21, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_23, [_hoisted_24, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_25, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)(test.email), 1
     /* TEXT */
-    )]), _hoisted_20, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"leading-5 text-green-700\">\n                                +255 715 983 180\n                              </div>\n                              <div class=\"leading-5 text-green-700\">\n                                +255 685 501 748\n                              </div> "), _hoisted_22])]);
+    )]), _hoisted_26])) : ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_29, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_30, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+      src: _ctx.$page.props.user.profile_photo_url,
+      alt: _ctx.$page.props.user.name,
+      "class": "w-full"
+    }, null, 8
+    /* PROPS */
+    , _hoisted_31), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_32, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+      src: _ctx.$page.props.user.profile_photo_url,
+      alt: _ctx.$page.props.user.name,
+      "class": "rounded-full border-solid border-white border-2"
+    }, null, 8
+    /* PROPS */
+    , _hoisted_33)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"text-center px-3\">\n                      <h3 class=\"text-white text-sm bold font-sans\">\n                        {{ test.name }}\n                      </h3>\n                      <p class=\"font-sans font-light text-white\">\n                        Hello, i'm from another the other side!\n                      </p>\n                    </div> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"flex justify-center text-white\">\n                      <div class=\"text-center mr-3 border-r pr-3\">\n                        <h2>34</h2>\n                        <span>Photos</span>\n                      </div>\n                      <div class=\"text-center\">\n                        <h2>42</h2>\n                        <span>Friends</span>\n                      </div>\n                    </div> ")])]))])]);
   }), 128
   /* KEYED_FRAGMENT */
   ))])])])])])]);
@@ -27691,7 +27762,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <template #header>\n            <h2 class=\"font-semibold text-xl text-gray-800 leading-tight\">\n                Dashboard\n            </h2>\n        </template> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <Welcome /> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Tabs "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
-        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["px-4 py-2 -mb-px text-gray-800 border-b-2 rounded-t opacity-50 hover:border-gray-300", $options.dmtsMonitoringSelected])
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["px-4 py-2 -mb-px text-gray-800 border-b-2 rounded-t hover:border-gray-300", $options.dmtsMonitoringSelected])
       }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
         id: "default-tab",
         onClick: _cache[0] || (_cache[0] = function ($event) {

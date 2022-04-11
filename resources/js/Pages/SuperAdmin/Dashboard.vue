@@ -27,7 +27,6 @@ import Welcome from "@/Jetstream/Welcome.vue";
                   text-gray-800
                   border-b-2
                   rounded-t
-                  opacity-50
                   hover:border-gray-300
                 "
                 :class="dmtsMonitoringSelected"
@@ -86,18 +85,18 @@ export default {
     return {
       dummyData: [],
       url: "http://127.0.0.1:8000/test?page=",
-      selectedTab: "dmts-monitoring",
+      selectedTab: "general-management",
     };
   },
   computed: {
     dmtsMonitoringSelected() {
       return this.selectedTab == "dmts-monitoring"
-        ? "border-blue-900"
+        ? "border-blue-800"
         : "border-gray-300";
     },
     generalManagementSelected() {
       return this.selectedTab == "general-management"
-        ? "border-blue-900"
+        ? "border-blue-800"
         : "border-gray-300";
     },
   },

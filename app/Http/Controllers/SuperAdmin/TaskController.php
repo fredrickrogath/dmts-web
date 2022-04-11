@@ -20,6 +20,13 @@ class TaskController extends Controller
         return Inertia::render('SuperAdmin/Dashboard');
     }
 
+    // Search for hospital administrators
+    public function searchHospitalAdministrators(Request $request)
+    {
+        $data = \App\Models\User::where('name', 'LIKE', '%' . $request->keyword . '%')->orWhere('email', 'LIKE', '%' . $request->keyword . '%')->orWhere('email', 'LIKE', '%' . $request->keyword . '%')->get();
+        return response()->json($data);
+    }
+
     /**
      * Show the form for creating a new resource.
      *
