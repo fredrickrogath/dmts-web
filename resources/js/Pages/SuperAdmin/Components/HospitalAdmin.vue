@@ -74,175 +74,13 @@
 
           <table class="w-full">
             <tbody class="">
-              <tr
-                class="
-                  relative
-                  transform
-                  scale-100
-                  text-xs
-                  py-1
-                  border-b-2 border-blue-100
-                  cursor-default
-                  bg-opacity-25
-                "
-                v-for="test in dummyData"
-                :key="test.id"
-              >
-                <td
-                  class="pl-5 pr-3 whitespace-no-wrap hover:cursor-pointer"
-                  @mouseover="hideProfile = false"
-                  @mouseleave="hideProfile = true"
-                >
-                  <img
-                    class="h-8 w-8 rounded-full object-cover"
-                    :src="$page.props.user.profile_photo_url"
-                    :alt="$page.props.user.name"
-                  />
-                  <div class="text-red-500 text-xm pt-2 py-1">OFFLINE</div>
-                  <div class="text-gray-900 text-xm">Today</div>
-                  <div class="text-gray-900 text-xm">07:45 AM</div>
-                </td>
-
-                <td class="px-2 py-2 whitespace-no-wrap">
-                  <div v-if="hideProfile">
-                    <div class="leading-5 text-gray-900 font-medium px-1">
-                      {{ test.name }}
-                    </div>
-                    <div class="leading-5 text-green-700">
-                      <span class="text-gray-900">At</span> Mwimbili
-                      <span>Hospital</span>
-                    </div>
-                    <div class="leading-5 text-gray-900">
-                      Manages
-                      <a class="px-1 text-green-700 hover:underline" href="#"
-                        >78 <span class="text-gray-900">Doc</span></a
-                      >
-                      <a class="text-green-700 hover:underline" href="#"
-                        >308 <span class="text-gray-900">Pat</span></a
-                      >
-                    </div>
-                    <div class="leading-5 text-gray-700">
-                      <i class="fa-solid fa-envelope pr-2"></i>
-                      <span class="text-green-700 hover:underline" href="#">{{
-                        test.email
-                      }}</span>
-                    </div>
-
-                    <div class="leading-5 text-gray-700">
-                      <i
-                        class="fa-solid fa-mobile-screen-button fa-lg pr-2"
-                      ></i>
-                      <span class="text-green-700 hover:underline" href="#"
-                        >+255 715 983 180</span
-                      >
-                    </div>
-
-                    <div class="leading-5 text-gray-700">
-                      <i
-                        class="fa-solid fa-mobile-screen-button fa-lg pr-2"
-                      ></i>
-                      <span class="text-green-700 hover:underline" href="#"
-                        >+255 685 501 748</span
-                      >
-                    </div>
-                    <div class="grid grid-cols-1 divide-y-2">
-                      <div class="leading-5 text-gray-800 pb-1">
-                        Dar es Salaam
-                      </div>
-                      <div class="flex text-gray-700">
-                        <i
-                          class="
-                            fas
-                            fa-edit
-                            pt-1
-                            hover:cursor-pointer hover:text-green-700
-                          "
-                        ></i>
-                        <i
-                          class="
-                            fas
-                            fa-add
-                            px-7
-                            pt-1
-                            hover:cursor-pointer hover:text-green-700
-                          "
-                        ></i>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          class="
-                            hover:cursor-pointer
-                            h-5
-                            w-4
-                            hover:text-green-700
-                          "
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
-                          />
-                        </svg>
-                        <i
-                          class="
-                            fas
-                            fa-trash
-                            pt-1
-                            px-7
-                            hover:cursor-pointer hover:text-red-700
-                          "
-                        ></i>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div v-else>
-                    <div
-                    class="
-                      rounded-3xl
-                      overflow-hidden
-                      shadow-xl
-                      max-w-xs
-                      bg-blue-500
-                    "
-                  >
-                    <img
-                      :src="$page.props.user.profile_photo_url"
-                      :alt="$page.props.user.name"
-                      class="w-full"
-                    />
-                    <div class="flex justify-center -mt-8">
-                      <img
-                        :src="$page.props.user.profile_photo_url"
-                        :alt="$page.props.user.name"
-                        class="rounded-full border-solid border-white border-2"
-                      />
-                    </div>
-                    <!-- <div class="text-center px-3">
-                      <h3 class="text-white text-sm bold font-sans">
-                        {{ test.name }}
-                      </h3>
-                      <p class="font-sans font-light text-white">
-                        Hello, i'm from another the other side!
-                      </p>
-                    </div> -->
-                    <!-- <div class="flex justify-center text-white">
-                      <div class="text-center mr-3 border-r pr-3">
-                        <h2>34</h2>
-                        <span>Photos</span>
-                      </div>
-                      <div class="text-center">
-                        <h2>42</h2>
-                        <span>Friends</span>
-                      </div>
-                    </div> -->
-                  </div>
-                  </div>
-                </td>
-              </tr>
+              <profile-card
+                v-for="hospitaAdmin in dummyData"
+                :key="hospitaAdmin.id"
+                :id="hospitaAdmin.id"
+                :name="hospitaAdmin.name"
+                :email="hospitaAdmin.email"
+              ></profile-card>
             </tbody>
           </table>
         </div>
@@ -253,7 +91,11 @@
 
 
 <script>
+import ProfileCard from "./ProfileCard.vue";
 export default {
+  components: {
+    ProfileCard,
+  },
   created() {
     this.testDataFn();
   },
