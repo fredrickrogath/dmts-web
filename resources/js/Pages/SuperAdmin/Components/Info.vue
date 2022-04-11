@@ -1,5 +1,5 @@
 <template>
-    <div class="leading-5 text-gray-900 font-medium px-1">
+    <div class="leading-5 text-sm text-gray-900 font-medium">
               {{ name }}
             </div>
             <div class="leading-5 text-green-700">

@@ -42,6 +42,7 @@ import Welcome from "@/Jetstream/Welcome.vue";
                 class="
                   mx-4
                   py-2
+                  -mb-px
                   text-gray-800
                   border-b-2
                   rounded-t

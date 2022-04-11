@@ -8,7 +8,7 @@
               :alt="$page.props.user.name"
               class="w-full"
             />
-            <div class="flex justify-center -mt-8">
+            <div class="flex justify-center -mt-12">
               <img
                 :src="$page.props.user.profile_photo_url"
                 :alt="$page.props.user.name"
@@ -16,23 +16,33 @@
               />
             </div>
             <div class="text-center px-3">
-              <h3 class="text-white text-sm bold font-sans">
-                {{ name }}
-              </h3>
-              <p class="font-sans font-light text-white">
-                dmts test
-              </p>
+              <h4 class="text-white text-sm bold font-sans text-ellipsis w-30">
+                <!-- {{ name }} -->
+              </h4>
             </div>
             <div class="flex justify-center text-white">
               <div class="text-center mr-3 border-r pr-3">
                 <h2>34</h2>
-                <span>Photos</span>
+                <span>Doctors</span>
               </div>
               <div class="text-center">
-                <h2>42</h2>
-                <span>Friends</span>
+                <h2>242</h2>
+                <span>Patients</span>
               </div>
             </div>
           </div>
         </div>
 </template>
+
+
+<script>
+export default {
+  props: {
+    name: {
+      type: String,
+      required: true,
+      default: "Not found",
+    },
+  },
+}
+</script>

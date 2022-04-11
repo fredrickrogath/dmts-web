@@ -11,15 +11,13 @@
       bg-opacity-25
     "
   >
-    <td
-      class="pl-5 pr-3 whitespace-no-wrap hover:cursor-pointer"
-      @mouseenter="toggleProfile"
-      @mouseleave="toggleProfile"
-    >
+    <td class="pl-4 pr-2 whitespace-no-wrap hover:cursor-pointer">
       <img
         class="h-8 w-8 rounded-full object-cover"
         :src="$page.props.user.profile_photo_url"
         :alt="$page.props.user.name"
+        @mouseenter="toggleProfile"
+        @mouseleave="toggleProfile"
       />
       <div class="text-red-500 text-xm pt-2 py-1">OFFLINE</div>
       <div class="text-gray-900 text-xm">Today</div>
@@ -27,17 +25,27 @@
     </td>
 
     <td class="px-2 py-2 whitespace-no-wrap">
-      <transition name="profile">
+      <div class="flex justify-center items-center">
         <div class="relative z-0">
-          <div v-if="hideProfile" :class="hideProfile">
-            <info :name="name" :email="email" :id="id"></info>
-          </div>
-
-          <div v-else class="relative inset-0 z-10">
-            <hover-profile></hover-profile>
-          </div>
+          <info :name="name" :email="email" :id="id"></info>
+          <transition name="profile" appear>
+            <div
+              v-if="hideProfile"
+              class="
+                absolute
+                inset-0
+                flex
+                justify-center
+                items-center
+                z-10
+                h-40
+              "
+            >
+              <hover-profile :name="name"></hover-profile>
+            </div>
+          </transition>
         </div>
-      </transition>
+      </div>
     </td>
   </tr>
 </template>
@@ -70,14 +78,8 @@ export default {
 
   data() {
     return {
-      hideProfile: true,
+      hideProfile: false,
     };
-  },
-
-  computed: {
-    modifieHeight() {
-      return this.hideProfile ? "h-0" : null;
-    },
   },
 
   methods: {
@@ -94,8 +96,8 @@ export default {
 
 <style scoped>
 .profile-enter-from {
-  opacity: 0;
-  transform: translateY(0px);
+  opacity: .5;
+  transform: translateX(30px);
 }
 
 .profile-enter-active {
@@ -103,13 +105,13 @@ export default {
 }
 
 .profile-enter-to {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 0;
+  transform: translateX(0);
 }
 
 .profile-leave-from {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateX(0);
 }
 
 .profile-leave-active {
@@ -118,6 +120,6 @@ export default {
 
 .profile-leave-to {
   opacity: 0;
-  transform: translateY(-0px);
+  transform: translateX(-30px);
 }
 </style>
