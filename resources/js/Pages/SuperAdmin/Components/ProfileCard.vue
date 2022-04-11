@@ -96,16 +96,16 @@ export default {
 
 <style scoped>
 .profile-enter-from {
-  opacity: .5;
-  transform: translateX(30px);
+  opacity: 0;
+  transform: translateX(50px);
 }
 
 .profile-enter-active {
-  transition: all 0.4s ease-out;
+  transition: all 0.5s ease-out;
 }
 
 .profile-enter-to {
-  opacity: 0;
+  opacity: 1;
   transform: translateX(0);
 }
 
@@ -115,7 +115,7 @@ export default {
 }
 
 .profile-leave-active {
-  transition: all 0.4s ease-in;
+  transition: all 0.5s ease-in;
 }
 
 .profile-leave-to {

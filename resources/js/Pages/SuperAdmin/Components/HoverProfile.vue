@@ -21,11 +21,11 @@
               </h4>
             </div>
             <div class="flex justify-center text-white">
-              <div class="text-center mr-3 border-r pr-3">
+              <div class="text-center mr-3 border-r pr-3 text-gray-900 py-1">
                 <h2>34</h2>
                 <span>Doctors</span>
               </div>
-              <div class="text-center">
+              <div class="text-center text-gray-900 py-1">
                 <h2>242</h2>
                 <span>Patients</span>
               </div>

@@ -27534,7 +27534,7 @@ var _hoisted_3 = {
 };
 var _hoisted_4 = ["src", "alt"];
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"text-center px-3\"><h4 class=\"text-white text-sm bold font-sans text-ellipsis w-30\"><!-- {{ name }} --></h4></div><div class=\"flex justify-center text-white\"><div class=\"text-center mr-3 border-r pr-3\"><h2>34</h2><span>Doctors</span></div><div class=\"text-center\"><h2>242</h2><span>Patients</span></div></div>", 2);
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"text-center px-3\"><h4 class=\"text-white text-sm bold font-sans text-ellipsis w-30\"><!-- {{ name }} --></h4></div><div class=\"flex justify-center text-white\"><div class=\"text-center mr-3 border-r pr-3 text-gray-900 py-1\"><h2>34</h2><span>Doctors</span></div><div class=\"text-center text-gray-900 py-1\"><h2>242</h2><span>Patients</span></div></div>", 2);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
@@ -28140,7 +28140,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.profile-enter-from[data-v-7d2c30e2] {\n  opacity: .5;\n  transform: translateX(30px);\n}\n.profile-enter-active[data-v-7d2c30e2] {\n  transition: all 0.4s ease-out;\n}\n.profile-enter-to[data-v-7d2c30e2] {\n  opacity: 0;\n  transform: translateX(0);\n}\n.profile-leave-from[data-v-7d2c30e2] {\n  opacity: 1;\n  transform: translateX(0);\n}\n.profile-leave-active[data-v-7d2c30e2] {\n  transition: all 0.4s ease-in;\n}\n.profile-leave-to[data-v-7d2c30e2] {\n  opacity: 0;\n  transform: translateX(-30px);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.profile-enter-from[data-v-7d2c30e2] {\n  opacity: 0;\n  transform: translateX(50px);\n}\n.profile-enter-active[data-v-7d2c30e2] {\n  transition: all 0.5s ease-out;\n}\n.profile-enter-to[data-v-7d2c30e2] {\n  opacity: 1;\n  transform: translateX(0);\n}\n.profile-leave-from[data-v-7d2c30e2] {\n  opacity: 1;\n  transform: translateX(0);\n}\n.profile-leave-active[data-v-7d2c30e2] {\n  transition: all 0.5s ease-in;\n}\n.profile-leave-to[data-v-7d2c30e2] {\n  opacity: 0;\n  transform: translateX(-30px);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
