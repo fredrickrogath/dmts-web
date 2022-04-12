@@ -21930,6 +21930,31 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Forms/AddForm.vue?vue&type=script&lang=js":
+/*!************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Forms/AddForm.vue?vue&type=script&lang=js ***!
+  \************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  emits: ["toggle-form"],
+  data: function data() {
+    return {};
+  },
+  methods: {
+    toggleProfile: function toggleProfile() {
+      this.$emit("toggle-form");
+    }
+  }
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/GeneralManagement.vue?vue&type=script&lang=js":
 /*!****************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/GeneralManagement.vue?vue&type=script&lang=js ***!
@@ -21958,7 +21983,7 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    testDataFn: function testDataFn(page) {
+    testDataFn: function testDataFn() {
       var _this = this;
 
       this.axios.get("http://127.0.0.1:8000/test").then(function (response) {
@@ -22024,6 +22049,11 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     this.testDataFn();
   },
+  provide: function provide() {
+    return {
+      resources: this.storedResources
+    };
+  },
   data: function data() {
     return {
       dummyData: [],
@@ -22039,7 +22069,11 @@ __webpack_require__.r(__webpack_exports__);
       this.searchHospitalAdministrators();
     }
   },
-  computed: {},
+  computed: {
+    closeAllModals: function closeAllModals() {
+      this.showAddForm = false;
+    }
+  },
   methods: {
     searchHospitalAdministrators: function searchHospitalAdministrators() {
       var _this = this;
@@ -22067,6 +22101,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     toggleProfile: function toggleProfile() {
       this.hideProfile = !this.hideProfile;
+    },
+    toggleAddForm: function toggleAddForm() {
+      this.showAddForm = !this.showAddForm;
     }
   }
 });
@@ -27501,225 +27538,13 @@ __webpack_require__.r(__webpack_exports__);
 var _hoisted_1 = {
   "class": "container mx-auto"
 };
-
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_2 = {
   "class": "relative py-2 px-5 bg-gray-100 shadow-md rounded border border-gray-400"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"w-full flex justify-start text-gray-600 mb-3\">\n          <svg\n            xmlns=\"http://www.w3.org/2000/svg\"\n            class=\"icon icon-profile icon-profile\"\n            width=\"52\"\n            height=\"52\"\n            viewBox=\"0 0 24 24\"\n            stroke-width=\"1\"\n            stroke=\"currentColor\"\n            fill=\"none\"\n            stroke-linecap=\"round\"\n            stroke-linejoin=\"round\"\n          >\n            <path stroke=\"none\" d=\"M0 0h24v24H0z\" />\n            <path\n              d=\"M17 8v-3a1 1 0 0 0 -1 -1h-10a2 2 0 0 0 0 4h12a1 1 0 0 1 1 1v3m0 4v3a1 1 0 0 1 -1 1h-12a2 2 0 0 1 -2 -2v-12\"\n            />\n            <path d=\"M20 12v4h-4a2 2 0 0 1 0 -4h4\" />\n          </svg>\n        </div> "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
-  "class": "text-gray-800 font-lg font-bold tracking-normal leading-tight mb-2"
-}, " Hospital Admin Details "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <label\n          for=\"name\"\n          class=\"text-gray-800 text-sm font-bold leading-tight tracking-normal\"\n          >Name</label\n        >\n        <input\n          id=\"name\"\n          class=\"\n            mb-5\n            mt-2\n            text-gray-600\n            focus:outline-none focus:border focus:border-indigo-700\n            font-normal\n            w-full\n            h-8\n            flex\n            items-center\n            pl-3\n            text-sm\n            border-gray-300\n            rounded\n            border\n          \"\n          placeholder=\"James\"\n        /> "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <label\n          for=\"email2\"\n          class=\"text-gray-800 text-sm font-bold leading-tight tracking-normal\"\n          >Card Number</label\n        >\n        <div class=\"relative mb-5 mt-2\">\n          <div\n            class=\"\n              absolute\n              text-gray-600\n              flex\n              items-center\n              px-4\n              border-r\n              h-full\n            \"\n          >\n            <svg\n              xmlns=\"http://www.w3.org/2000/svg\"\n              class=\"icon icon-tabler icon-tabler-credit-card\"\n              width=\"20\"\n              height=\"20\"\n              viewBox=\"0 0 24 24\"\n              stroke-width=\"1.5\"\n              stroke=\"currentColor\"\n              fill=\"none\"\n              stroke-linecap=\"round\"\n              stroke-linejoin=\"round\"\n            >\n              <path stroke=\"none\" d=\"M0 0h24v24H0z\" />\n              <rect x=\"3\" y=\"5\" width=\"18\" height=\"14\" rx=\"3\" />\n              <line x1=\"3\" y1=\"10\" x2=\"21\" y2=\"10\" />\n              <line x1=\"7\" y1=\"15\" x2=\"7.01\" y2=\"15\" />\n              <line x1=\"11\" y1=\"15\" x2=\"13\" y2=\"15\" />\n            </svg>\n          </div>\n          <input\n            id=\"email2\"\n            class=\"\n              text-gray-600\n              focus:outline-none focus:border focus:border-indigo-700\n              font-normal\n              w-full\n              h-10\n              flex\n              items-center\n              pl-16\n              text-sm\n              border-gray-300\n              rounded\n              border\n            \"\n            placeholder=\"XXXX - XXXX - XXXX - XXXX\"\n          />\n        </div> "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "expiry",
-  "class": "text-gray-800 text-sm font-bold leading-tight tracking-normal"
-}, "Name"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "relative mb-2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  "class": "icon icon-tabler icon-tabler-calendar-event",
-  width: "20",
-  height: "20",
-  viewBox: "0 0 24 24",
-  "stroke-width": "1.5",
-  stroke: "currentColor",
-  fill: "none",
-  "stroke-linecap": "round",
-  "stroke-linejoin": "round"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
-  stroke: "none",
-  d: "M0 0h24v24H0z"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("rect", {
-  x: "4",
-  y: "5",
-  width: "16",
-  height: "16",
-  rx: "2"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("line", {
-  x1: "16",
-  y1: "3",
-  x2: "16",
-  y2: "7"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("line", {
-  x1: "8",
-  y1: "3",
-  x2: "8",
-  y2: "7"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("line", {
-  x1: "4",
-  y1: "11",
-  x2: "20",
-  y2: "11"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("rect", {
-  x: "8",
-  y: "15",
-  width: "2",
-  height: "2"
-})])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  id: "expiry",
-  "class": "text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border",
-  placeholder: "Name"
-})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "expiry",
-  "class": "text-gray-800 text-sm font-bold leading-tight tracking-normal"
-}, "Name"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "relative mb-2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  "class": "icon icon-tabler icon-tabler-calendar-event",
-  width: "20",
-  height: "20",
-  viewBox: "0 0 24 24",
-  "stroke-width": "1.5",
-  stroke: "currentColor",
-  fill: "none",
-  "stroke-linecap": "round",
-  "stroke-linejoin": "round"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
-  stroke: "none",
-  d: "M0 0h24v24H0z"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("rect", {
-  x: "4",
-  y: "5",
-  width: "16",
-  height: "16",
-  rx: "2"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("line", {
-  x1: "16",
-  y1: "3",
-  x2: "16",
-  y2: "7"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("line", {
-  x1: "8",
-  y1: "3",
-  x2: "8",
-  y2: "7"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("line", {
-  x1: "4",
-  y1: "11",
-  x2: "20",
-  y2: "11"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("rect", {
-  x: "8",
-  y: "15",
-  width: "2",
-  height: "2"
-})])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  id: "expiry",
-  "class": "text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border",
-  placeholder: "Name"
-})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "expiry",
-  "class": "text-gray-800 text-sm font-bold leading-tight tracking-normal"
-}, "Name"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "relative mb-2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  "class": "icon icon-tabler icon-tabler-calendar-event",
-  width: "20",
-  height: "20",
-  viewBox: "0 0 24 24",
-  "stroke-width": "1.5",
-  stroke: "currentColor",
-  fill: "none",
-  "stroke-linecap": "round",
-  "stroke-linejoin": "round"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
-  stroke: "none",
-  d: "M0 0h24v24H0z"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("rect", {
-  x: "4",
-  y: "5",
-  width: "16",
-  height: "16",
-  rx: "2"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("line", {
-  x1: "16",
-  y1: "3",
-  x2: "16",
-  y2: "7"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("line", {
-  x1: "8",
-  y1: "3",
-  x2: "8",
-  y2: "7"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("line", {
-  x1: "4",
-  y1: "11",
-  x2: "20",
-  y2: "11"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("rect", {
-  x: "8",
-  y: "15",
-  width: "2",
-  height: "2"
-})])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  id: "expiry",
-  "class": "text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border",
-  placeholder: "Name"
-})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
-  "for": "expiry",
-  "class": "text-gray-800 text-sm font-bold leading-tight tracking-normal"
-}, "Name"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "relative mb-5"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
-  xmlns: "http://www.w3.org/2000/svg",
-  "class": "icon icon-tabler icon-tabler-calendar-event",
-  width: "20",
-  height: "20",
-  viewBox: "0 0 24 24",
-  "stroke-width": "1.5",
-  stroke: "currentColor",
-  fill: "none",
-  "stroke-linecap": "round",
-  "stroke-linejoin": "round"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
-  stroke: "none",
-  d: "M0 0h24v24H0z"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("rect", {
-  x: "4",
-  y: "5",
-  width: "16",
-  height: "16",
-  rx: "2"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("line", {
-  x1: "16",
-  y1: "3",
-  x2: "16",
-  y2: "7"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("line", {
-  x1: "8",
-  y1: "3",
-  x2: "8",
-  y2: "7"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("line", {
-  x1: "4",
-  y1: "11",
-  x2: "20",
-  y2: "11"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("rect", {
-  x: "8",
-  y: "15",
-  width: "2",
-  height: "2"
-})])]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-  id: "expiry",
-  "class": "text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border",
-  placeholder: "Name"
-})]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <label\n          for=\"cvc\"\n          class=\"text-gray-800 text-sm font-bold leading-tight tracking-normal\"\n          >CVC</label\n        >\n        <div class=\"relative mb-5 mt-2\">\n          <div\n            class=\"\n              absolute\n              right-0\n              text-gray-600\n              flex\n              items-center\n              pr-3\n              h-full\n              cursor-pointer\n            \"\n          >\n            <svg\n              xmlns=\"http://www.w3.org/2000/svg\"\n              class=\"icon icon-tabler icon-tabler-info-circle\"\n              width=\"20\"\n              height=\"20\"\n              viewBox=\"0 0 24 24\"\n              stroke-width=\"1.5\"\n              stroke=\"currentColor\"\n              fill=\"none\"\n              stroke-linecap=\"round\"\n              stroke-linejoin=\"round\"\n            >\n              <path stroke=\"none\" d=\"M0 0h24v24H0z\"></path>\n              <circle cx=\"12\" cy=\"12\" r=\"9\"></circle>\n              <line x1=\"12\" y1=\"8\" x2=\"12.01\" y2=\"8\"></line>\n              <polyline points=\"11 12 12 12 12 16 13 16\"></polyline>\n            </svg>\n          </div>\n          <input\n            id=\"cvc\"\n            class=\"\n              mb-8\n              text-gray-600\n              focus:outline-none focus:border focus:border-indigo-700\n              font-normal\n              w-full\n              h-10\n              flex\n              items-center\n              pl-3\n              text-sm\n              border-gray-300\n              rounded\n              border\n            \"\n            placeholder=\"MM/YY\"\n          />\n        </div> "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
-  "class": "flex items-center justify-end w-full"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700 transition duration-150 ease-in-out hover:bg-green-600 bg-green-700 rounded text-white px-8 h-7 text-sm"
-}, " Add "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <button\n            class=\"\n              focus:outline-none\n              focus:ring-2\n              focus:ring-offset-2\n              focus:ring-gray-400\n              ml-3\n              bg-gray-100\n              transition\n              duration-150\n              text-gray-600\n              ease-in-out\n              hover:border-gray-400 hover:bg-gray-300\n              border\n              rounded\n              px-8\n              py-2\n              text-sm\n            \"\n            onclick=\"modalHandler()\"\n          >\n            Cancel\n          </button> ")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
-  "class": "cursor-pointer absolute top-0 right-0 mt-2 mr-5 text-gray-400 hover:text-gray-600 transition duration-150 ease-in-out rounded focus:ring-2 focus:outline-none focus:ring-gray-600",
-  onclick: "modalHandler()",
-  "aria-label": "close modal",
-  role: "button"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+};
+
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<h1 class=\"text-gray-800 font-lg font-bold tracking-normal leading-tight mb-2\"> Hospital Admin Details </h1><label class=\"text-gray-800 text-sm font-bold leading-tight tracking-normal\">Hospital</label><div class=\"relative mb-2\"><div class=\"absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"icon icon-tabler icon-tabler-calendar-event\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\"></path><rect x=\"4\" y=\"5\" width=\"16\" height=\"16\" rx=\"2\"></rect><line x1=\"16\" y1=\"3\" x2=\"16\" y2=\"7\"></line><line x1=\"8\" y1=\"3\" x2=\"8\" y2=\"7\"></line><line x1=\"4\" y1=\"11\" x2=\"20\" y2=\"11\"></line><rect x=\"8\" y=\"15\" width=\"2\" height=\"2\"></rect></svg></div><input class=\"text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border\" placeholder=\"Hospital\"></div><label class=\"text-gray-800 text-sm font-bold leading-tight tracking-normal\">Name</label><div class=\"relative mb-2\"><div class=\"absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"icon icon-tabler icon-tabler-calendar-event\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\"></path><rect x=\"4\" y=\"5\" width=\"16\" height=\"16\" rx=\"2\"></rect><line x1=\"16\" y1=\"3\" x2=\"16\" y2=\"7\"></line><line x1=\"8\" y1=\"3\" x2=\"8\" y2=\"7\"></line><line x1=\"4\" y1=\"11\" x2=\"20\" y2=\"11\"></line><rect x=\"8\" y=\"15\" width=\"2\" height=\"2\"></rect></svg></div><input class=\"text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border\" placeholder=\"Name\"></div><label for=\"expiry\" class=\"text-gray-800 text-sm font-bold leading-tight tracking-normal\">Email</label><div class=\"relative mb-2\"><div class=\"absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"icon icon-tabler icon-tabler-calendar-event\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\"></path><rect x=\"4\" y=\"5\" width=\"16\" height=\"16\" rx=\"2\"></rect><line x1=\"16\" y1=\"3\" x2=\"16\" y2=\"7\"></line><line x1=\"8\" y1=\"3\" x2=\"8\" y2=\"7\"></line><line x1=\"4\" y1=\"11\" x2=\"20\" y2=\"11\"></line><rect x=\"8\" y=\"15\" width=\"2\" height=\"2\"></rect></svg></div><input class=\"text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border\" placeholder=\"Email\"></div><label for=\"expiry\" class=\"text-gray-800 text-sm font-bold leading-tight tracking-normal\">Mobile</label><div class=\"relative mb-2\"><div class=\"absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"icon icon-tabler icon-tabler-calendar-event\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\"></path><rect x=\"4\" y=\"5\" width=\"16\" height=\"16\" rx=\"2\"></rect><line x1=\"16\" y1=\"3\" x2=\"16\" y2=\"7\"></line><line x1=\"8\" y1=\"3\" x2=\"8\" y2=\"7\"></line><line x1=\"4\" y1=\"11\" x2=\"20\" y2=\"11\"></line><rect x=\"8\" y=\"15\" width=\"2\" height=\"2\"></rect></svg></div><input class=\"text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border\" placeholder=\"Mobile\"></div><label for=\"expiry\" class=\"text-gray-800 text-sm font-bold leading-tight tracking-normal\">Mobile <span class=\"text-gray-500 font-thin italic px-1\">(Optional)</span></label><div class=\"relative mb-2\"><div class=\"absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"icon icon-tabler icon-tabler-calendar-event\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\"></path><rect x=\"4\" y=\"5\" width=\"16\" height=\"16\" rx=\"2\"></rect><line x1=\"16\" y1=\"3\" x2=\"16\" y2=\"7\"></line><line x1=\"8\" y1=\"3\" x2=\"8\" y2=\"7\"></line><line x1=\"4\" y1=\"11\" x2=\"20\" y2=\"11\"></line><rect x=\"8\" y=\"15\" width=\"2\" height=\"2\"></rect></svg></div><input class=\"text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border\" placeholder=\"Mobile\"></div><label for=\"expiry\" class=\"text-gray-800 text-sm font-bold leading-tight tracking-normal\">Birth Date </label><div class=\"relative mb-2\"><input class=\"text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border\" placeholder=\"Birth Date\" type=\"date\"></div><div class=\"flex items-center justify-end w-full\"><button class=\"focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700 transition duration-150 ease-in-out hover:bg-green-600 bg-green-700 rounded text-white px-8 h-7 text-sm\"> Add </button><!-- &lt;button\n            class=&quot;\n              focus:outline-none\n              focus:ring-2\n              focus:ring-offset-2\n              focus:ring-gray-400\n              ml-3\n              bg-gray-100\n              transition\n              duration-150\n              text-gray-600\n              ease-in-out\n              hover:border-gray-400 hover:bg-gray-300\n              border\n              rounded\n              px-8\n              py-2\n              text-sm\n            &quot;\n            onclick=&quot;modalHandler()&quot;\n          &gt;\n            Cancel\n          &lt;/button&gt; --></div>", 14);
+
+var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
   "class": "icon icon-tabler icon-tabler-x",
   width: "20",
@@ -27743,13 +27568,18 @@ var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
   y1: "6",
   x2: "18",
   y2: "18"
-})])])], -1
+})], -1
 /* HOISTED */
 );
 
-var _hoisted_3 = [_hoisted_2];
-function render(_ctx, _cache) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, _hoisted_3);
+var _hoisted_18 = [_hoisted_17];
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    "class": "cursor-pointer absolute top-0 right-0 mt-2 mr-5 text-gray-400 hover:text-gray-600 transition duration-150 ease-in-out rounded focus:ring-2 focus:outline-none focus:ring-gray-600",
+    onClick: _cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
+      return $options.toggleProfile && $options.toggleProfile.apply($options, arguments);
+    }, ["prevent"]))
+  }, _hoisted_18)])]);
 }
 
 /***/ }),
@@ -27768,12 +27598,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "grid grid-cols-4 gap-1"
+  "class": "grid grid-cols-2 gap-1"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_hospital_admin = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("hospital-admin");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Hospital administrators "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_hospital_admin), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Doctors "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_hospital_admin), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Patients "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_hospital_admin), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Hospitals "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_hospital_admin)]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Hospital administrators "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_hospital_admin), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Doctors "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_hospital_admin), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Patients "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <hospital-admin></hospital-admin> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Hospitals "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <hospital-admin></hospital-admin> ")]);
 }
 
 /***/ }),
@@ -27910,10 +27740,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=template&id=060af77e":
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=template&id=060af77e ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=template&id=060af77e&scoped=true":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=template&id=060af77e&scoped=true ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -27922,6 +27752,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* binding */ render)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+var _withScopeId = function _withScopeId(n) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-060af77e"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
+};
 
 var _hoisted_1 = {
   "class": "relative bg-blueGray-50"
@@ -27944,49 +27779,64 @@ var _hoisted_6 = {
 var _hoisted_7 = {
   "class": "grid grid-cols-1 divide-y-2"
 };
-
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+var _hoisted_8 = {
   "class": "flex justify-between pb-2"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, " Hospital Administrators"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fas fa-add pt-1 hover:cursor-pointer"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fas fa-sort pt-1 hover:cursor-pointer"
-}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fas fa-expand pt-1 hover:cursor-pointer"
-})], -1
-/* HOISTED */
-);
+};
 
-var _hoisted_9 = {
+var _hoisted_9 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, " Hospital Administrators", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_10 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    "class": "fas fa-sort pt-1 hover:cursor-pointer"
+  }, null, -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_11 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    "class": "fas fa-expand pt-1 hover:cursor-pointer"
+  }, null, -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_12 = {
   "class": "flex justify-between py-2"
 };
-var _hoisted_10 = {
+var _hoisted_13 = {
   "class": "relative flex w-full flex-wrap items-stretch"
 };
 
-var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-  "class": "z-10 h-full leading-snug font-normal absolute text-center text-slate-300 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-1"
-}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-  "class": "fas fa-search"
-})], -1
-/* HOISTED */
-);
+var _hoisted_14 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+    "class": "z-10 h-full leading-snug font-normal absolute text-center text-slate-300 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-1"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    "class": "fas fa-search"
+  })], -1
+  /* HOISTED */
+  );
+});
 
-var _hoisted_12 = {
+var _hoisted_15 = {
   "class": "w-full h-full overflow-auto shadow",
   id: "journal-scroll"
 };
-var _hoisted_13 = {
+var _hoisted_16 = {
   key: 0,
   "class": "m-20 text-sm text-gray-500"
 };
-var _hoisted_14 = {
+var _hoisted_17 = {
   "class": "w-full"
 };
-var _hoisted_15 = {
+var _hoisted_18 = {
   "class": ""
 };
-var _hoisted_16 = {
+var _hoisted_19 = {
   key: 0,
   "class": "absolute inset-0 z-10 h-70 px-4 pt-10"
 };
@@ -27995,16 +27845,21 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
   var _component_add_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("add-form");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    "class": "fas fa-add pt-1 hover:cursor-pointer hover:text-green-700",
+    onClick: _cache[0] || (_cache[0] = function () {
+      return $options.toggleAddForm && $options.toggleAddForm.apply($options, arguments);
+    })
+  }), _hoisted_10, _hoisted_11]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
     placeholder: "Placeholder",
     "class": "px-2 py-1 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm outline-0 outline-gray-600 focus:ring-0 border border-slate-300 w-full pl-10",
-    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return $data.keyword = $event;
     })
   }, null, 512
   /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.keyword]])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [$data.emptyResult == true ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_13, " Nothing found ! ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_14, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_15, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.dummyData, function (hospitaAdmin) {
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.keyword]])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [$data.emptyResult == true ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_16, " Nothing found ! ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_18, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.dummyData, function (hospitaAdmin) {
     return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_profile_card, {
       key: hospitaAdmin.id,
       id: hospitaAdmin.id,
@@ -28015,7 +27870,20 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     , ["id", "name", "email"]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))])])])])]), $data.showAddForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_16, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_add_form)])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)])])]);
+  ))])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, {
+    name: "add-form"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [$data.showAddForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_add_form, {
+        onToggleForm: $options.toggleAddForm
+      }, null, 8
+      /* PROPS */
+      , ["onToggleForm"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
+    }),
+    _: 1
+    /* STABLE */
+
+  })])])]);
 }
 
 /***/ }),
@@ -30831,6 +30699,30 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "\n/* <link href=\"https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap\" rel=\"stylesheet\">\n  <link href=\"https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css\" rel=\"stylesheet\">\n  <script src=\"https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js\" defer></script> */\nbody[data-v-679555e4] {\n  font-family: \"IBM Plex Mono\", sans-serif;\n}\n[x-cloak][data-v-679555e4] {\n  display: none;\n}\n.line[data-v-679555e4] {\n  background: repeating-linear-gradient(\n    to bottom,\n    #eee,\n    #eee 1px,\n    #fff 1px,\n    #fff 8%\n  );\n}\n.tick[data-v-679555e4] {\n  background: repeating-linear-gradient(\n    to right,\n    #eee,\n    #eee 1px,\n    #fff 1px,\n    #fff 5%\n  );\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=style&index=0&id=060af77e&scoped=true&lang=css":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=style&index=0&id=060af77e&scoped=true&lang=css ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n/* animate add form */\n.add-form-enter-from[data-v-060af77e] {\n  opacity: 0;\n  transform: translateY(-50px);\n}\n.add-form-enter-active[data-v-060af77e] {\n  transition: all 0.4s ease-out;\n}\n.add-form-enter-to[data-v-060af77e] {\n  opacity: 1;\n  transform: translateY(0);\n}\n.add-form-leave-from[data-v-060af77e] {\n  opacity: 1;\n  transform: translateY(0);\n}\n.add-form-leave-active[data-v-060af77e] {\n  transition: all 0.4s ease-in;\n}\n.add-form-leave-to[data-v-060af77e] {\n  opacity: 0;\n  transform: translateY(-50px);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -55560,6 +55452,36 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=style&index=0&id=060af77e&scoped=true&lang=css":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=style&index=0&id=060af77e&scoped=true&lang=css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_HospitalAdmin_vue_vue_type_style_index_0_id_060af77e_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./HospitalAdmin.vue?vue&type=style&index=0&id=060af77e&scoped=true&lang=css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=style&index=0&id=060af77e&scoped=true&lang=css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_HospitalAdmin_vue_vue_type_style_index_0_id_060af77e_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_HospitalAdmin_vue_vue_type_style_index_0_id_060af77e_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Info.vue?vue&type=style&index=0&id=673526f5&scoped=true&lang=css":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Info.vue?vue&type=style&index=0&id=673526f5&scoped=true&lang=css ***!
@@ -57425,12 +57347,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _AddForm_vue_vue_type_template_id_12a1ad64__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AddForm.vue?vue&type=template&id=12a1ad64 */ "./resources/js/Pages/SuperAdmin/Components/Forms/AddForm.vue?vue&type=template&id=12a1ad64");
-/* harmony import */ var _home_felidrick_Projects_dmts_web_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var _AddForm_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AddForm.vue?vue&type=script&lang=js */ "./resources/js/Pages/SuperAdmin/Components/Forms/AddForm.vue?vue&type=script&lang=js");
+/* harmony import */ var _home_felidrick_Projects_dmts_web_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
-const script = {}
+
+
 
 ;
-const __exports__ = /*#__PURE__*/(0,_home_felidrick_Projects_dmts_web_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(script, [['render',_AddForm_vue_vue_type_template_id_12a1ad64__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/SuperAdmin/Components/Forms/AddForm.vue"]])
+const __exports__ = /*#__PURE__*/(0,_home_felidrick_Projects_dmts_web_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_AddForm_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_AddForm_vue_vue_type_template_id_12a1ad64__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/SuperAdmin/Components/Forms/AddForm.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -57512,15 +57436,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _HospitalAdmin_vue_vue_type_template_id_060af77e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HospitalAdmin.vue?vue&type=template&id=060af77e */ "./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=template&id=060af77e");
+/* harmony import */ var _HospitalAdmin_vue_vue_type_template_id_060af77e_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HospitalAdmin.vue?vue&type=template&id=060af77e&scoped=true */ "./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=template&id=060af77e&scoped=true");
 /* harmony import */ var _HospitalAdmin_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HospitalAdmin.vue?vue&type=script&lang=js */ "./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=script&lang=js");
-/* harmony import */ var _home_felidrick_Projects_dmts_web_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+/* harmony import */ var _HospitalAdmin_vue_vue_type_style_index_0_id_060af77e_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./HospitalAdmin.vue?vue&type=style&index=0&id=060af77e&scoped=true&lang=css */ "./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=style&index=0&id=060af77e&scoped=true&lang=css");
+/* harmony import */ var _home_felidrick_Projects_dmts_web_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,_home_felidrick_Projects_dmts_web_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_HospitalAdmin_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_HospitalAdmin_vue_vue_type_template_id_060af77e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue"]])
+
+
+const __exports__ = /*#__PURE__*/(0,_home_felidrick_Projects_dmts_web_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_HospitalAdmin_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_HospitalAdmin_vue_vue_type_template_id_060af77e_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-060af77e"],['__file',"resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -58462,6 +58389,22 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Show_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Show_vue_vue_type_script_setup_true_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Show.vue?vue&type=script&setup=true&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/Profile/Show.vue?vue&type=script&setup=true&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/SuperAdmin/Components/Forms/AddForm.vue?vue&type=script&lang=js":
+/*!********************************************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/Forms/AddForm.vue?vue&type=script&lang=js ***!
+  \********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AddForm_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_AddForm_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./AddForm.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Forms/AddForm.vue?vue&type=script&lang=js");
  
 
 /***/ }),
@@ -59466,18 +59409,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=template&id=060af77e":
-/*!**************************************************************************************************!*\
-  !*** ./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=template&id=060af77e ***!
-  \**************************************************************************************************/
+/***/ "./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=template&id=060af77e&scoped=true":
+/*!**************************************************************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=template&id=060af77e&scoped=true ***!
+  \**************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_HospitalAdmin_vue_vue_type_template_id_060af77e__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_HospitalAdmin_vue_vue_type_template_id_060af77e_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_HospitalAdmin_vue_vue_type_template_id_060af77e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./HospitalAdmin.vue?vue&type=template&id=060af77e */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=template&id=060af77e");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_HospitalAdmin_vue_vue_type_template_id_060af77e_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./HospitalAdmin.vue?vue&type=template&id=060af77e&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=template&id=060af77e&scoped=true");
 
 
 /***/ }),
@@ -59635,6 +59578,19 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_BarGraph_vue_vue_type_style_index_0_id_679555e4_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/style-loader/dist/cjs.js!../../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./BarGraph.vue?vue&type=style&index=0&id=679555e4&scoped=true&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Graphs/BarGraph.vue?vue&type=style&index=0&id=679555e4&scoped=true&lang=css");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=style&index=0&id=060af77e&scoped=true&lang=css":
+/*!****************************************************************************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=style&index=0&id=060af77e&scoped=true&lang=css ***!
+  \****************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_HospitalAdmin_vue_vue_type_style_index_0_id_060af77e_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader/dist/cjs.js!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./HospitalAdmin.vue?vue&type=style&index=0&id=060af77e&scoped=true&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=style&index=0&id=060af77e&scoped=true&lang=css");
 
 
 /***/ }),

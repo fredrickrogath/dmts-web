@@ -1,13 +1,13 @@
 <template>
-  <div class="grid grid-cols-4 gap-1">
+  <div class="grid grid-cols-2 gap-1">
     <!-- Hospital administrators -->
     <hospital-admin></hospital-admin>
     <!-- Doctors -->
     <hospital-admin></hospital-admin>
     <!-- Patients -->
-    <hospital-admin></hospital-admin>
+    <!-- <hospital-admin></hospital-admin> -->
     <!-- Hospitals -->
-    <hospital-admin></hospital-admin>
+    <!-- <hospital-admin></hospital-admin> -->
   </div>
 </template>
 
@@ -26,7 +26,7 @@ export default {
     };
   },
   methods: {
-    testDataFn(page) {
+    testDataFn() {
       this.axios.get("http://127.0.0.1:8000/test").then((response) => {
         this.dummyData = response.data;
       });
