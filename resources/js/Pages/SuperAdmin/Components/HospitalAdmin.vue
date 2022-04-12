@@ -1,6 +1,9 @@
 <template>
   <section class="relative bg-blueGray-50">
-    <div class="container mx-auto py-1 flex justify-center h-screen">
+
+    <div class="w-full h-screen flex justify-center items-center">
+      <div class="relative z-0">
+        <div class="container mx-auto py-1 flex justify-center h-screen">
       <div class="pl-4 h-full flex flex-col">
         <div
           class="
@@ -86,6 +89,12 @@
         </div>
       </div>
     </div>
+        <div v-if="showAddForm" class="absolute inset-0 z-10 h-70 px-4 pt-10">
+          <add-form></add-form>
+        </div>
+      </div>
+    </div>
+    
   </section>
 </template>
 
@@ -108,6 +117,7 @@ export default {
       keyword: null,
       emptyResult: false,
       hideProfile: true,
+      showAddForm: false,
     };
   },
   watch: {

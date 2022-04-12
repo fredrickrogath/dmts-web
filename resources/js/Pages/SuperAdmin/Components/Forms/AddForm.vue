@@ -1,37 +1,21 @@
 <template>
-  <div
-    class="
-      py-12
-      bg-gray-700
-      transition
-      duration-150
-      ease-in-out
-      z-10
-      absolute
-      top-0
-      right-0
-      bottom-0
-      left-0
-    "
-    id="modal"
-  >
-    <div role="alert" class="container mx-auto w-11/12 md:w-2/3 max-w-lg">
+    <div class="container mx-auto">
       <div
         class="
           relative
-          py-8
+          py-2
           px-5
-          md:px-10
-          bg-white
+         
+          bg-gray-100
           shadow-md
           rounded
           border border-gray-400
         "
       >
-        <div class="w-full flex justify-start text-gray-600 mb-3">
+        <!-- <div class="w-full flex justify-start text-gray-600 mb-3">
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="icon icon-tabler icon-tabler-wallet"
+            class="icon icon-profile icon-profile"
             width="52"
             height="52"
             viewBox="0 0 24 24"
@@ -47,22 +31,22 @@
             />
             <path d="M20 12v4h-4a2 2 0 0 1 0 -4h4" />
           </svg>
-        </div>
+        </div> -->
         <h1
           class="
             text-gray-800
             font-lg font-bold
             tracking-normal
             leading-tight
-            mb-4
+            mb-2
           "
         >
-          Enter Billing Details
+          Hospital Admin Details
         </h1>
-        <label
+        <!-- <label
           for="name"
           class="text-gray-800 text-sm font-bold leading-tight tracking-normal"
-          >Owner Name</label
+          >Name</label
         >
         <input
           id="name"
@@ -73,7 +57,7 @@
             focus:outline-none focus:border focus:border-indigo-700
             font-normal
             w-full
-            h-10
+            h-8
             flex
             items-center
             pl-3
@@ -83,8 +67,8 @@
             border
           "
           placeholder="James"
-        />
-        <label
+        /> -->
+        <!-- <label
           for="email2"
           class="text-gray-800 text-sm font-bold leading-tight tracking-normal"
           >Card Number</label
@@ -138,13 +122,13 @@
             "
             placeholder="XXXX - XXXX - XXXX - XXXX"
           />
-        </div>
+        </div> -->
         <label
           for="expiry"
           class="text-gray-800 text-sm font-bold leading-tight tracking-normal"
-          >Expiry Date</label
+          >Name</label
         >
-        <div class="relative mb-5 mt-2">
+        <div class="relative mb-2">
           <div
             class="
               absolute
@@ -184,7 +168,7 @@
               focus:outline-none focus:border focus:border-indigo-700
               font-normal
               w-full
-              h-10
+              h-7
               flex
               items-center
               pl-3
@@ -193,10 +177,184 @@
               rounded
               border
             "
-            placeholder="MM/YY"
+            placeholder="Name"
           />
         </div>
+
         <label
+          for="expiry"
+          class="text-gray-800 text-sm font-bold leading-tight tracking-normal"
+          >Name</label
+        >
+        <div class="relative mb-2">
+          <div
+            class="
+              absolute
+              right-0
+              text-gray-600
+              flex
+              items-center
+              pr-3
+              h-full
+              cursor-pointer
+            "
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-calendar-event"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" />
+              <rect x="4" y="5" width="16" height="16" rx="2" />
+              <line x1="16" y1="3" x2="16" y2="7" />
+              <line x1="8" y1="3" x2="8" y2="7" />
+              <line x1="4" y1="11" x2="20" y2="11" />
+              <rect x="8" y="15" width="2" height="2" />
+            </svg>
+          </div>
+          <input
+            id="expiry"
+            class="
+              text-gray-600
+              focus:outline-none focus:border focus:border-indigo-700
+              font-normal
+              w-full
+              h-7
+              flex
+              items-center
+              pl-3
+              text-sm
+              border-gray-300
+              rounded
+              border
+            "
+            placeholder="Name"
+          />
+        </div>
+
+        <label
+          for="expiry"
+          class="text-gray-800 text-sm font-bold leading-tight tracking-normal"
+          >Name</label
+        >
+        <div class="relative mb-2">
+          <div
+            class="
+              absolute
+              right-0
+              text-gray-600
+              flex
+              items-center
+              pr-3
+              h-full
+              cursor-pointer
+            "
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-calendar-event"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" />
+              <rect x="4" y="5" width="16" height="16" rx="2" />
+              <line x1="16" y1="3" x2="16" y2="7" />
+              <line x1="8" y1="3" x2="8" y2="7" />
+              <line x1="4" y1="11" x2="20" y2="11" />
+              <rect x="8" y="15" width="2" height="2" />
+            </svg>
+          </div>
+          <input
+            id="expiry"
+            class="
+              text-gray-600
+              focus:outline-none focus:border focus:border-indigo-700
+              font-normal
+              w-full
+              h-7
+              flex
+              items-center
+              pl-3
+              text-sm
+              border-gray-300
+              rounded
+              border
+            "
+            placeholder="Name"
+          />
+        </div>
+
+        <label
+          for="expiry"
+          class="text-gray-800 text-sm font-bold leading-tight tracking-normal"
+          >Name</label
+        >
+        <div class="relative mb-5">
+          <div
+            class="
+              absolute
+              right-0
+              text-gray-600
+              flex
+              items-center
+              pr-3
+              h-full
+              cursor-pointer
+            "
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="icon icon-tabler icon-tabler-calendar-event"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              fill="none"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path stroke="none" d="M0 0h24v24H0z" />
+              <rect x="4" y="5" width="16" height="16" rx="2" />
+              <line x1="16" y1="3" x2="16" y2="7" />
+              <line x1="8" y1="3" x2="8" y2="7" />
+              <line x1="4" y1="11" x2="20" y2="11" />
+              <rect x="8" y="15" width="2" height="2" />
+            </svg>
+          </div>
+          <input
+            id="expiry"
+            class="
+              text-gray-600
+              focus:outline-none focus:border focus:border-indigo-700
+              font-normal
+              w-full
+              h-7
+              flex
+              items-center
+              pl-3
+              text-sm
+              border-gray-300
+              rounded
+              border
+            "
+            placeholder="Name"
+          />
+        </div>
+        <!-- <label
           for="cvc"
           class="text-gray-800 text-sm font-bold leading-tight tracking-normal"
           >CVC</label
@@ -251,29 +409,29 @@
             "
             placeholder="MM/YY"
           />
-        </div>
-        <div class="flex items-center justify-start w-full">
+        </div> -->
+        <div class="flex items-center justify-end w-full">
           <button
             class="
               focus:outline-none
               focus:ring-2
               focus:ring-offset-2
-              focus:ring-indigo-700
+              focus:ring-green-700
               transition
               duration-150
               ease-in-out
-              hover:bg-indigo-600
-              bg-indigo-700
+              hover:bg-green-600
+              bg-green-700
               rounded
               text-white
               px-8
-              py-2
+              h-7
               text-sm
             "
           >
-            Submit
+            Add
           </button>
-          <button
+          <!-- <button
             class="
               focus:outline-none
               focus:ring-2
@@ -295,7 +453,7 @@
             onclick="modalHandler()"
           >
             Cancel
-          </button>
+          </button> -->
         </div>
         <button
           class="
@@ -303,7 +461,7 @@
             absolute
             top-0
             right-0
-            mt-4
+            mt-2
             mr-5
             text-gray-400
             hover:text-gray-600
@@ -336,31 +494,4 @@
         </button>
       </div>
     </div>
-  </div>
-  <div class="w-full flex justify-center py-12" id="button">
-    <button
-      class="
-        focus:outline-none
-        focus:ring-2
-        focus:ring-offset-2
-        focus:ring-indigo-700
-        mx-auto
-        transition
-        duration-150
-        ease-in-out
-        hover:bg-indigo-600
-        bg-indigo-700
-        rounded
-        text-white
-        px-4
-        sm:px-8
-        py-2
-        text-xs
-        sm:text-sm
-      "
-      onclick="modalHandler(true)"
-    >
-      Open Modal
-    </button>
-  </div>
 </template>
