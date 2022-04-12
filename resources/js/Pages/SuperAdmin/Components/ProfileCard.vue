@@ -21,7 +21,7 @@
       <div class="flex justify-center items-center">
         <div class="relative z-0">
           <transition name="info" appear>
-            <info :name="name" :email="email" :id="id"></info>
+            <info :id="id" :name="name" :email="email" ></info>
           </transition>
           <transition name="profile-hover" appear>
             <div
@@ -70,6 +70,21 @@ export default {
       type: String,
       required: true,
       default: "Not found",
+    },
+    mobile1: {
+      type: String,
+      required: false,
+      default: "+255 715 983 180",
+    },
+    mobile2: {
+      type: String,
+      required: false,
+      default: "+255 685 501 748",
+    },
+    dob: {
+      type: String,
+      required: false,
+      default: "01-04-1997",
     },
   },
 

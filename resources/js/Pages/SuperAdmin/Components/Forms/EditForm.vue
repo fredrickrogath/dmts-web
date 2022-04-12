@@ -21,8 +21,13 @@
           mb-2
         "
       >
-        Hospital Admin - Add
+        Hospital Admin - Edit
       </h1>
+
+      <input
+          type="hidden"
+          v-model="id"
+        />
 
       <label
         class="text-gray-800 text-sm font-bold leading-tight tracking-normal"
@@ -133,6 +138,7 @@
             border
           "
           placeholder="Name"
+          v-model="name"
         />
       </div>
 
@@ -190,6 +196,7 @@
             border
           "
           placeholder="Email"
+          v-model="email"
         />
       </div>
 
@@ -353,7 +360,7 @@
             text-sm
           "
         >
-          Add
+          Update
         </button>
         <!-- <button
             class="
@@ -395,7 +402,7 @@
           rounded
           focus:ring-2 focus:outline-none focus:ring-gray-600
         "
-        @click="toggleAddForm"
+        @click="toggleEditForm"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -421,14 +428,55 @@
 
 <script>
 export default {
-  emits: ["toggle-form-add"],
-  data() {
-    return {};
-  },
-  methods: {
-    toggleAddForm() {
-      this.$emit("toggle-form-add");
+  emits: ["toggle-form-edit"],
+  props: {
+    id: {
+      type: Number,
+      required: true,
+      default: "Not found",
     },
+    name: {
+      type: String,
+      required: true,
+      default: "Not found",
+    },
+    email: {
+      type: String,
+      required: true,
+      default: "Not found",
+    },
+    mobile1: {
+      type: String,
+      required: true,
+      default: "Not found",
+    },
+    mobile2: {
+      type: String,
+      required: true,
+      default: "Not found",
+    },
+    dob: {
+      type: String,
+      required: true,
+      default: "Not found",
+    },
+  },
+//   data() {
+//     return {
+//         name:'',
+//     };
+//   },
+//    provide() {
+//     return {
+      
+//     };
+//   },
+  methods: {
+    toggleEditForm() {
+      this.$emit("toggle-form-edit");
+    },
+
+    
   },
 };
 </script>

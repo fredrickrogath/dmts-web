@@ -39,6 +39,7 @@
       <div class="flex text-gray-700">
         <i
           class="fas fa-edit pt-1 hover:cursor-pointer hover:text-green-700"
+          @click="toggleEditForm"
         ></i>
         <i
           class="fas fa-add px-7 pt-1 hover:cursor-pointer hover:text-green-700"
@@ -68,6 +69,7 @@
 
 <script>
 export default {
+  inject: ["toggleFormEdit", "formDetails"],
   props: {
     id: {
       type: Number,
@@ -83,6 +85,39 @@ export default {
       type: String,
       required: true,
       default: "Not found",
+    },
+    mobile1: {
+      type: String,
+      required: false,
+      default: "+255 715 983 180",
+    },
+    mobile2: {
+      type: String,
+      required: false,
+      default: "+255 685 501 748",
+    },
+    dob: {
+      type: String,
+      required: false,
+      default: "01-04-1997",
+    },
+  },
+  // provide() {
+  //   return {
+  //     formDetails: this.formDetails,
+  //   };
+  // },
+  methods: {
+    toggleEditForm() {
+      this.formDetails(
+        this.id,
+        this.name,
+        this.email,
+        this.mobile1,
+        this.mobile2,
+        this.dob
+      );
+      this.toggleFormEdit();
     },
   },
 };

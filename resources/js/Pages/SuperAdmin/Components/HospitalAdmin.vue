@@ -17,7 +17,15 @@
               <div class="grid grid-cols-1 divide-y-2">
                 <div class="flex justify-between pb-2">
                   <span> Hospital Administrators</span>
-                  <i class="fas fa-add pt-1 hover:cursor-pointer hover:text-green-700" @click="toggleAddForm"></i>
+                  <i
+                    class="
+                      fas
+                      fa-add
+                      pt-1
+                      hover:cursor-pointer hover:text-green-700
+                    "
+                    @click="toggleAddForm"
+                  ></i>
                   <i class="fas fa-sort pt-1 hover:cursor-pointer"></i>
                   <i class="fas fa-expand pt-1 hover:cursor-pointer"></i>
                 </div>
@@ -91,11 +99,25 @@
             </div>
           </div>
         </div>
-        <transition name="add-form">
-        <div v-if="showAddForm" class="absolute inset-0 z-10 h-70 px-4 pt-10">
-          <add-form @toggle-form="toggleAddForm"></add-form>
-        </div>
-        </transition>
+        <transition-group name="add-form">
+          <div v-if="showAddForm" class="absolute inset-0 z-10 h-70 px-4 pt-10">
+            <add-form @toggle-form-add="toggleAddForm"></add-form>
+          </div>
+          <div
+            v-if="showEditForm"
+            class="absolute inset-0 z-10 h-70 px-4 pt-10"
+          >
+            <edit-form
+              :id="formEditId"
+              :name="formEditName"
+              :email="formEditEmail"
+              :mobile1="formEditMobile1"
+              :mobile2="formEditMobile2"
+              :dob="formEditDOB"
+              @toggle-form-edit="toggleEditForm"
+            ></edit-form>
+          </div>
+        </transition-group>
       </div>
     </div>
   </section>
@@ -104,18 +126,21 @@
 
 <script>
 import AddForm from "./Forms/AddForm.vue";
+import EditForm from "./Forms/EditForm.vue";
 import ProfileCard from "./ProfileCard.vue";
 export default {
   components: {
     ProfileCard,
     AddForm,
+    EditForm,
   },
   created() {
     this.testDataFn();
   },
   provide() {
     return {
-      resources: this.storedResources,
+      toggleFormEdit: this.toggleEditForm,
+      formDetails: this.formDetails,
     };
   },
   data() {
@@ -126,6 +151,14 @@ export default {
       emptyResult: false,
       hideProfile: true,
       showAddForm: false,
+      showEditForm: false,
+
+      formEditId: null,
+      formEditName: "",
+      formEditEmail: "",
+      formEditMobile1: "",
+      formEditMobile2: "",
+      formEditDOB: null,
     };
   },
   watch: {
@@ -167,6 +200,19 @@ export default {
 
     toggleAddForm() {
       this.showAddForm = !this.showAddForm;
+    },
+
+    toggleEditForm() {
+      this.showEditForm = !this.showEditForm;
+    },
+
+    formDetails(id, name, email, mobile1, mobile2, dob) {
+      this.formEditId = id;
+      this.formEditName = name;
+      this.formEditEmail = email;
+      this.formEditMobile1 = mobile1;
+      this.formEditMobile2 = mobile2;
+      this.formEditDOB = dob;
     },
   },
 };

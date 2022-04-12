@@ -21942,13 +21942,76 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  emits: ["toggle-form"],
+  emits: ["toggle-form-add"],
   data: function data() {
     return {};
   },
   methods: {
-    toggleProfile: function toggleProfile() {
-      this.$emit("toggle-form");
+    toggleAddForm: function toggleAddForm() {
+      this.$emit("toggle-form-add");
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue?vue&type=script&lang=js":
+/*!*************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue?vue&type=script&lang=js ***!
+  \*************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  emits: ["toggle-form-edit"],
+  props: {
+    id: {
+      type: Number,
+      required: true,
+      "default": "Not found"
+    },
+    name: {
+      type: String,
+      required: true,
+      "default": "Not found"
+    },
+    email: {
+      type: String,
+      required: true,
+      "default": "Not found"
+    },
+    mobile1: {
+      type: String,
+      required: true,
+      "default": "Not found"
+    },
+    mobile2: {
+      type: String,
+      required: true,
+      "default": "Not found"
+    },
+    dob: {
+      type: String,
+      required: true,
+      "default": "Not found"
+    }
+  },
+  //   data() {
+  //     return {
+  //         name:'',
+  //     };
+  //   },
+  //    provide() {
+  //     return {
+  //     };
+  //   },
+  methods: {
+    toggleEditForm: function toggleEditForm() {
+      this.$emit("toggle-form-edit");
     }
   }
 });
@@ -22038,20 +22101,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _Forms_AddForm_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Forms/AddForm.vue */ "./resources/js/Pages/SuperAdmin/Components/Forms/AddForm.vue");
-/* harmony import */ var _ProfileCard_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ProfileCard.vue */ "./resources/js/Pages/SuperAdmin/Components/ProfileCard.vue");
+/* harmony import */ var _Forms_EditForm_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Forms/EditForm.vue */ "./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue");
+/* harmony import */ var _ProfileCard_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProfileCard.vue */ "./resources/js/Pages/SuperAdmin/Components/ProfileCard.vue");
+
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    ProfileCard: _ProfileCard_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    AddForm: _Forms_AddForm_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    ProfileCard: _ProfileCard_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    AddForm: _Forms_AddForm_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    EditForm: _Forms_EditForm_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
   },
   created: function created() {
     this.testDataFn();
   },
   provide: function provide() {
     return {
-      resources: this.storedResources
+      toggleFormEdit: this.toggleEditForm,
+      formDetails: this.formDetails
     };
   },
   data: function data() {
@@ -22061,7 +22128,14 @@ __webpack_require__.r(__webpack_exports__);
       keyword: null,
       emptyResult: false,
       hideProfile: true,
-      showAddForm: false
+      showAddForm: false,
+      showEditForm: false,
+      formEditId: null,
+      formEditName: "",
+      formEditEmail: "",
+      formEditMobile1: "",
+      formEditMobile2: "",
+      formEditDOB: null
     };
   },
   watch: {
@@ -22104,6 +22178,17 @@ __webpack_require__.r(__webpack_exports__);
     },
     toggleAddForm: function toggleAddForm() {
       this.showAddForm = !this.showAddForm;
+    },
+    toggleEditForm: function toggleEditForm() {
+      this.showEditForm = !this.showEditForm;
+    },
+    formDetails: function formDetails(id, name, email, mobile1, mobile2, dob) {
+      this.formEditId = id;
+      this.formEditName = name;
+      this.formEditEmail = email;
+      this.formEditMobile1 = mobile1;
+      this.formEditMobile2 = mobile2;
+      this.formEditDOB = dob;
     }
   }
 });
@@ -22145,6 +22230,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  inject: ["toggleFormEdit", "formDetails"],
   props: {
     id: {
       type: Number,
@@ -22160,6 +22246,32 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       required: true,
       "default": "Not found"
+    },
+    mobile1: {
+      type: String,
+      required: false,
+      "default": "+255 715 983 180"
+    },
+    mobile2: {
+      type: String,
+      required: false,
+      "default": "+255 685 501 748"
+    },
+    dob: {
+      type: String,
+      required: false,
+      "default": "01-04-1997"
+    }
+  },
+  // provide() {
+  //   return {
+  //     formDetails: this.formDetails,
+  //   };
+  // },
+  methods: {
+    toggleEditForm: function toggleEditForm() {
+      this.formDetails(this.id, this.name, this.email, this.mobile1, this.mobile2, this.dob);
+      this.toggleFormEdit();
     }
   }
 });
@@ -22238,6 +22350,21 @@ __webpack_require__.r(__webpack_exports__);
       type: String,
       required: true,
       "default": "Not found"
+    },
+    mobile1: {
+      type: String,
+      required: false,
+      "default": "+255 715 983 180"
+    },
+    mobile2: {
+      type: String,
+      required: false,
+      "default": "+255 685 501 748"
+    },
+    dob: {
+      type: String,
+      required: false,
+      "default": "01-04-1997"
     }
   },
   data: function data() {
@@ -27542,7 +27669,7 @@ var _hoisted_2 = {
   "class": "relative py-2 px-5 bg-gray-100 shadow-md rounded border border-gray-400"
 };
 
-var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<h1 class=\"text-gray-800 font-lg font-bold tracking-normal leading-tight mb-2\"> Hospital Admin Details </h1><label class=\"text-gray-800 text-sm font-bold leading-tight tracking-normal\">Hospital</label><div class=\"relative mb-2\"><div class=\"absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"icon icon-tabler icon-tabler-calendar-event\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\"></path><rect x=\"4\" y=\"5\" width=\"16\" height=\"16\" rx=\"2\"></rect><line x1=\"16\" y1=\"3\" x2=\"16\" y2=\"7\"></line><line x1=\"8\" y1=\"3\" x2=\"8\" y2=\"7\"></line><line x1=\"4\" y1=\"11\" x2=\"20\" y2=\"11\"></line><rect x=\"8\" y=\"15\" width=\"2\" height=\"2\"></rect></svg></div><input class=\"text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border\" placeholder=\"Hospital\"></div><label class=\"text-gray-800 text-sm font-bold leading-tight tracking-normal\">Name</label><div class=\"relative mb-2\"><div class=\"absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"icon icon-tabler icon-tabler-calendar-event\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\"></path><rect x=\"4\" y=\"5\" width=\"16\" height=\"16\" rx=\"2\"></rect><line x1=\"16\" y1=\"3\" x2=\"16\" y2=\"7\"></line><line x1=\"8\" y1=\"3\" x2=\"8\" y2=\"7\"></line><line x1=\"4\" y1=\"11\" x2=\"20\" y2=\"11\"></line><rect x=\"8\" y=\"15\" width=\"2\" height=\"2\"></rect></svg></div><input class=\"text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border\" placeholder=\"Name\"></div><label for=\"expiry\" class=\"text-gray-800 text-sm font-bold leading-tight tracking-normal\">Email</label><div class=\"relative mb-2\"><div class=\"absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"icon icon-tabler icon-tabler-calendar-event\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\"></path><rect x=\"4\" y=\"5\" width=\"16\" height=\"16\" rx=\"2\"></rect><line x1=\"16\" y1=\"3\" x2=\"16\" y2=\"7\"></line><line x1=\"8\" y1=\"3\" x2=\"8\" y2=\"7\"></line><line x1=\"4\" y1=\"11\" x2=\"20\" y2=\"11\"></line><rect x=\"8\" y=\"15\" width=\"2\" height=\"2\"></rect></svg></div><input class=\"text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border\" placeholder=\"Email\"></div><label for=\"expiry\" class=\"text-gray-800 text-sm font-bold leading-tight tracking-normal\">Mobile</label><div class=\"relative mb-2\"><div class=\"absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"icon icon-tabler icon-tabler-calendar-event\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\"></path><rect x=\"4\" y=\"5\" width=\"16\" height=\"16\" rx=\"2\"></rect><line x1=\"16\" y1=\"3\" x2=\"16\" y2=\"7\"></line><line x1=\"8\" y1=\"3\" x2=\"8\" y2=\"7\"></line><line x1=\"4\" y1=\"11\" x2=\"20\" y2=\"11\"></line><rect x=\"8\" y=\"15\" width=\"2\" height=\"2\"></rect></svg></div><input class=\"text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border\" placeholder=\"Mobile\"></div><label for=\"expiry\" class=\"text-gray-800 text-sm font-bold leading-tight tracking-normal\">Mobile <span class=\"text-gray-500 font-thin italic px-1\">(Optional)</span></label><div class=\"relative mb-2\"><div class=\"absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"icon icon-tabler icon-tabler-calendar-event\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\"></path><rect x=\"4\" y=\"5\" width=\"16\" height=\"16\" rx=\"2\"></rect><line x1=\"16\" y1=\"3\" x2=\"16\" y2=\"7\"></line><line x1=\"8\" y1=\"3\" x2=\"8\" y2=\"7\"></line><line x1=\"4\" y1=\"11\" x2=\"20\" y2=\"11\"></line><rect x=\"8\" y=\"15\" width=\"2\" height=\"2\"></rect></svg></div><input class=\"text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border\" placeholder=\"Mobile\"></div><label for=\"expiry\" class=\"text-gray-800 text-sm font-bold leading-tight tracking-normal\">Birth Date </label><div class=\"relative mb-2\"><input class=\"text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border\" placeholder=\"Birth Date\" type=\"date\"></div><div class=\"flex items-center justify-end w-full\"><button class=\"focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700 transition duration-150 ease-in-out hover:bg-green-600 bg-green-700 rounded text-white px-8 h-7 text-sm\"> Add </button><!-- &lt;button\n            class=&quot;\n              focus:outline-none\n              focus:ring-2\n              focus:ring-offset-2\n              focus:ring-gray-400\n              ml-3\n              bg-gray-100\n              transition\n              duration-150\n              text-gray-600\n              ease-in-out\n              hover:border-gray-400 hover:bg-gray-300\n              border\n              rounded\n              px-8\n              py-2\n              text-sm\n            &quot;\n            onclick=&quot;modalHandler()&quot;\n          &gt;\n            Cancel\n          &lt;/button&gt; --></div>", 14);
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<h1 class=\"text-gray-800 font-lg font-bold tracking-normal leading-tight text-sm mb-2\"> Hospital Admin - Add </h1><label class=\"text-gray-800 text-sm font-bold leading-tight tracking-normal\">Hospital</label><div class=\"relative mb-1\"><div class=\"absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"icon icon-tabler icon-tabler-calendar-event\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\"></path><rect x=\"4\" y=\"5\" width=\"16\" height=\"16\" rx=\"2\"></rect><line x1=\"16\" y1=\"3\" x2=\"16\" y2=\"7\"></line><line x1=\"8\" y1=\"3\" x2=\"8\" y2=\"7\"></line><line x1=\"4\" y1=\"11\" x2=\"20\" y2=\"11\"></line><rect x=\"8\" y=\"15\" width=\"2\" height=\"2\"></rect></svg></div><input class=\"text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border\" placeholder=\"Hospital\"></div><label class=\"text-gray-800 text-sm font-bold leading-tight tracking-normal\">Name</label><div class=\"relative mb-1\"><div class=\"absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"icon icon-tabler icon-tabler-calendar-event\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\"></path><rect x=\"4\" y=\"5\" width=\"16\" height=\"16\" rx=\"2\"></rect><line x1=\"16\" y1=\"3\" x2=\"16\" y2=\"7\"></line><line x1=\"8\" y1=\"3\" x2=\"8\" y2=\"7\"></line><line x1=\"4\" y1=\"11\" x2=\"20\" y2=\"11\"></line><rect x=\"8\" y=\"15\" width=\"2\" height=\"2\"></rect></svg></div><input class=\"text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border\" placeholder=\"Name\"></div><label for=\"expiry\" class=\"text-gray-800 text-sm font-bold leading-tight tracking-normal\">Email</label><div class=\"relative mb-1\"><div class=\"absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"icon icon-tabler icon-tabler-calendar-event\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\"></path><rect x=\"4\" y=\"5\" width=\"16\" height=\"16\" rx=\"2\"></rect><line x1=\"16\" y1=\"3\" x2=\"16\" y2=\"7\"></line><line x1=\"8\" y1=\"3\" x2=\"8\" y2=\"7\"></line><line x1=\"4\" y1=\"11\" x2=\"20\" y2=\"11\"></line><rect x=\"8\" y=\"15\" width=\"2\" height=\"2\"></rect></svg></div><input class=\"text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border\" placeholder=\"Email\"></div><label for=\"expiry\" class=\"text-gray-800 text-sm font-bold leading-tight tracking-normal\">Mobile</label><div class=\"relative mb-1\"><div class=\"absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"icon icon-tabler icon-tabler-calendar-event\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\"></path><rect x=\"4\" y=\"5\" width=\"16\" height=\"16\" rx=\"2\"></rect><line x1=\"16\" y1=\"3\" x2=\"16\" y2=\"7\"></line><line x1=\"8\" y1=\"3\" x2=\"8\" y2=\"7\"></line><line x1=\"4\" y1=\"11\" x2=\"20\" y2=\"11\"></line><rect x=\"8\" y=\"15\" width=\"2\" height=\"2\"></rect></svg></div><input class=\"text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border\" placeholder=\"Mobile\"></div><label for=\"expiry\" class=\"text-gray-800 text-sm font-bold leading-tight tracking-normal\">Mobile <span class=\"text-gray-500 font-thin italic px-1\">(Optional)</span></label><div class=\"relative mb-2\"><div class=\"absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"icon icon-tabler icon-tabler-calendar-event\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\"></path><rect x=\"4\" y=\"5\" width=\"16\" height=\"16\" rx=\"2\"></rect><line x1=\"16\" y1=\"3\" x2=\"16\" y2=\"7\"></line><line x1=\"8\" y1=\"3\" x2=\"8\" y2=\"7\"></line><line x1=\"4\" y1=\"11\" x2=\"20\" y2=\"11\"></line><rect x=\"8\" y=\"15\" width=\"2\" height=\"2\"></rect></svg></div><input class=\"text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border\" placeholder=\"Mobile\"></div><label for=\"expiry\" class=\"text-gray-800 text-sm font-bold leading-tight tracking-normal\">Birth Date </label><div class=\"relative mb-2\"><input class=\"text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border\" placeholder=\"Birth Date\" type=\"date\"></div><div class=\"flex items-center justify-end w-full\"><button class=\"focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700 transition duration-150 ease-in-out hover:bg-green-600 bg-green-700 rounded text-white px-8 h-7 text-sm\"> Add </button><!-- &lt;button\n            class=&quot;\n              focus:outline-none\n              focus:ring-2\n              focus:ring-offset-2\n              focus:ring-gray-400\n              ml-3\n              bg-gray-100\n              transition\n              duration-150\n              text-gray-600\n              ease-in-out\n              hover:border-gray-400 hover:bg-gray-300\n              border\n              rounded\n              px-8\n              py-2\n              text-sm\n            &quot;\n            onclick=&quot;modalHandler()&quot;\n          &gt;\n            Cancel\n          &lt;/button&gt; --></div>", 14);
 
 var _hoisted_17 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
   xmlns: "http://www.w3.org/2000/svg",
@@ -27576,10 +27703,122 @@ var _hoisted_18 = [_hoisted_17];
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     "class": "cursor-pointer absolute top-0 right-0 mt-2 mr-5 text-gray-400 hover:text-gray-600 transition duration-150 ease-in-out rounded focus:ring-2 focus:outline-none focus:ring-gray-600",
-    onClick: _cache[0] || (_cache[0] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.withModifiers)(function () {
-      return $options.toggleProfile && $options.toggleProfile.apply($options, arguments);
-    }, ["prevent"]))
+    onClick: _cache[0] || (_cache[0] = function () {
+      return $options.toggleAddForm && $options.toggleAddForm.apply($options, arguments);
+    })
   }, _hoisted_18)])]);
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue?vue&type=template&id=31d42b75":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue?vue&type=template&id=31d42b75 ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "container mx-auto"
+};
+var _hoisted_2 = {
+  "class": "relative py-2 px-5 bg-gray-100 shadow-md rounded border border-gray-400"
+};
+
+var _hoisted_3 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h1", {
+  "class": "text-gray-800 font-lg font-bold tracking-normal leading-tight text-sm mb-2"
+}, " Hospital Admin - Edit ", -1
+/* HOISTED */
+);
+
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<label class=\"text-gray-800 text-sm font-bold leading-tight tracking-normal\">Hospital</label><div class=\"relative mb-1\"><div class=\"absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"icon icon-tabler icon-tabler-calendar-event\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\"></path><rect x=\"4\" y=\"5\" width=\"16\" height=\"16\" rx=\"2\"></rect><line x1=\"16\" y1=\"3\" x2=\"16\" y2=\"7\"></line><line x1=\"8\" y1=\"3\" x2=\"8\" y2=\"7\"></line><line x1=\"4\" y1=\"11\" x2=\"20\" y2=\"11\"></line><rect x=\"8\" y=\"15\" width=\"2\" height=\"2\"></rect></svg></div><input class=\"text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border\" placeholder=\"Hospital\"></div><label class=\"text-gray-800 text-sm font-bold leading-tight tracking-normal\">Name</label>", 3);
+
+var _hoisted_7 = {
+  "class": "relative mb-1"
+};
+
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"icon icon-tabler icon-tabler-calendar-event\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\"></path><rect x=\"4\" y=\"5\" width=\"16\" height=\"16\" rx=\"2\"></rect><line x1=\"16\" y1=\"3\" x2=\"16\" y2=\"7\"></line><line x1=\"8\" y1=\"3\" x2=\"8\" y2=\"7\"></line><line x1=\"4\" y1=\"11\" x2=\"20\" y2=\"11\"></line><rect x=\"8\" y=\"15\" width=\"2\" height=\"2\"></rect></svg></div>", 1);
+
+var _hoisted_9 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
+  "for": "expiry",
+  "class": "text-gray-800 text-sm font-bold leading-tight tracking-normal"
+}, "Email", -1
+/* HOISTED */
+);
+
+var _hoisted_10 = {
+  "class": "relative mb-1"
+};
+
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"icon icon-tabler icon-tabler-calendar-event\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\"></path><rect x=\"4\" y=\"5\" width=\"16\" height=\"16\" rx=\"2\"></rect><line x1=\"16\" y1=\"3\" x2=\"16\" y2=\"7\"></line><line x1=\"8\" y1=\"3\" x2=\"8\" y2=\"7\"></line><line x1=\"4\" y1=\"11\" x2=\"20\" y2=\"11\"></line><rect x=\"8\" y=\"15\" width=\"2\" height=\"2\"></rect></svg></div>", 1);
+
+var _hoisted_12 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<label for=\"expiry\" class=\"text-gray-800 text-sm font-bold leading-tight tracking-normal\">Mobile</label><div class=\"relative mb-1\"><div class=\"absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"icon icon-tabler icon-tabler-calendar-event\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\"></path><rect x=\"4\" y=\"5\" width=\"16\" height=\"16\" rx=\"2\"></rect><line x1=\"16\" y1=\"3\" x2=\"16\" y2=\"7\"></line><line x1=\"8\" y1=\"3\" x2=\"8\" y2=\"7\"></line><line x1=\"4\" y1=\"11\" x2=\"20\" y2=\"11\"></line><rect x=\"8\" y=\"15\" width=\"2\" height=\"2\"></rect></svg></div><input class=\"text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border\" placeholder=\"Mobile\"></div><label for=\"expiry\" class=\"text-gray-800 text-sm font-bold leading-tight tracking-normal\">Mobile <span class=\"text-gray-500 font-thin italic px-1\">(Optional)</span></label><div class=\"relative mb-2\"><div class=\"absolute right-0 text-gray-600 flex items-center pr-3 h-full cursor-pointer\"><svg xmlns=\"http://www.w3.org/2000/svg\" class=\"icon icon-tabler icon-tabler-calendar-event\" width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" stroke-width=\"1.5\" stroke=\"currentColor\" fill=\"none\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path stroke=\"none\" d=\"M0 0h24v24H0z\"></path><rect x=\"4\" y=\"5\" width=\"16\" height=\"16\" rx=\"2\"></rect><line x1=\"16\" y1=\"3\" x2=\"16\" y2=\"7\"></line><line x1=\"8\" y1=\"3\" x2=\"8\" y2=\"7\"></line><line x1=\"4\" y1=\"11\" x2=\"20\" y2=\"11\"></line><rect x=\"8\" y=\"15\" width=\"2\" height=\"2\"></rect></svg></div><input class=\"text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border\" placeholder=\"Mobile\"></div><label for=\"expiry\" class=\"text-gray-800 text-sm font-bold leading-tight tracking-normal\">Birth Date </label><div class=\"relative mb-2\"><input class=\"text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border\" placeholder=\"Birth Date\" type=\"date\"></div><div class=\"flex items-center justify-end w-full\"><button class=\"focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700 transition duration-150 ease-in-out hover:bg-green-600 bg-green-700 rounded text-white px-8 h-7 text-sm\"> Update </button><!-- &lt;button\n            class=&quot;\n              focus:outline-none\n              focus:ring-2\n              focus:ring-offset-2\n              focus:ring-gray-400\n              ml-3\n              bg-gray-100\n              transition\n              duration-150\n              text-gray-600\n              ease-in-out\n              hover:border-gray-400 hover:bg-gray-300\n              border\n              rounded\n              px-8\n              py-2\n              text-sm\n            &quot;\n            onclick=&quot;modalHandler()&quot;\n          &gt;\n            Cancel\n          &lt;/button&gt; --></div>", 7);
+
+var _hoisted_19 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  "class": "icon icon-tabler icon-tabler-x",
+  width: "20",
+  height: "20",
+  viewBox: "0 0 24 24",
+  "stroke-width": "2.5",
+  stroke: "currentColor",
+  fill: "none",
+  "stroke-linecap": "round",
+  "stroke-linejoin": "round"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  stroke: "none",
+  d: "M0 0h24v24H0z"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("line", {
+  x1: "18",
+  y1: "6",
+  x2: "6",
+  y2: "18"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("line", {
+  x1: "6",
+  y1: "6",
+  x2: "18",
+  y2: "18"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_20 = [_hoisted_19];
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_hoisted_3, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "hidden",
+    "onUpdate:modelValue": _cache[0] || (_cache[0] = function ($event) {
+      return $props.id = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $props.id]]), _hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [_hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border",
+    placeholder: "Name",
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $props.name = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $props.name]])]), _hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [_hoisted_11, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    "class": "text-gray-600 focus:outline-none focus:border focus:border-indigo-700 font-normal w-full h-7 flex items-center pl-3 text-sm border-gray-300 rounded border",
+    placeholder: "Email",
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = function ($event) {
+      return $props.email = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $props.email]])]), _hoisted_12, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    "class": "cursor-pointer absolute top-0 right-0 mt-2 mr-5 text-gray-400 hover:text-gray-600 transition duration-150 ease-in-out rounded focus:ring-2 focus:outline-none focus:ring-gray-600",
+    onClick: _cache[3] || (_cache[3] = function () {
+      return $options.toggleEditForm && $options.toggleEditForm.apply($options, arguments);
+    })
+  }, _hoisted_20)])]);
 }
 
 /***/ }),
@@ -27598,12 +27837,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "grid grid-cols-2 gap-1"
+  "class": "grid grid-cols-4 gap-1"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_hospital_admin = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("hospital-admin");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Hospital administrators "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_hospital_admin), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Doctors "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_hospital_admin), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Patients "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <hospital-admin></hospital-admin> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Hospitals "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <hospital-admin></hospital-admin> ")]);
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Hospital administrators "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_hospital_admin), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Doctors "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_hospital_admin), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Patients "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_hospital_admin), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Hospitals "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_hospital_admin)]);
 }
 
 /***/ }),
@@ -27840,10 +28079,16 @@ var _hoisted_19 = {
   key: 0,
   "class": "absolute inset-0 z-10 h-70 px-4 pt-10"
 };
+var _hoisted_20 = {
+  key: 1,
+  "class": "absolute inset-0 z-10 h-70 px-4 pt-10"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_profile_card = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("profile-card");
 
   var _component_add_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("add-form");
+
+  var _component_edit_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("edit-form");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
     "class": "fas fa-add pt-1 hover:cursor-pointer hover:text-green-700",
@@ -27870,15 +28115,25 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     , ["id", "name", "email"]);
   }), 128
   /* KEYED_FRAGMENT */
-  ))])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.Transition, {
+  ))])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.TransitionGroup, {
     name: "add-form"
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [$data.showAddForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_add_form, {
-        onToggleForm: $options.toggleAddForm
+        onToggleFormAdd: $options.toggleAddForm
       }, null, 8
       /* PROPS */
-      , ["onToggleForm"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
+      , ["onToggleFormAdd"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showEditForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_edit_form, {
+        id: $data.formEditId,
+        name: $data.formEditName,
+        email: $data.formEditEmail,
+        mobile1: $data.formEditMobile1,
+        mobile2: $data.formEditMobile2,
+        dob: $data.formEditDOB,
+        onToggleFormEdit: $options.toggleEditForm
+      }, null, 8
+      /* PROPS */
+      , ["id", "name", "email", "mobile1", "mobile2", "dob", "onToggleFormEdit"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
     }),
     _: 1
     /* STABLE */
@@ -27991,21 +28246,13 @@ var _hoisted_11 = {
 
 var _hoisted_12 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-    "class": "fas fa-edit pt-1 hover:cursor-pointer hover:text-green-700"
-  }, null, -1
-  /* HOISTED */
-  );
-});
-
-var _hoisted_13 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
     "class": "fas fa-add px-7 pt-1 hover:cursor-pointer hover:text-green-700"
   }, null, -1
   /* HOISTED */
   );
 });
 
-var _hoisted_14 = /*#__PURE__*/_withScopeId(function () {
+var _hoisted_13 = /*#__PURE__*/_withScopeId(function () {
   return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
     xmlns: "http://www.w3.org/2000/svg",
     "class": "hover:cursor-pointer h-5 w-4 hover:text-green-700",
@@ -28027,9 +28274,14 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* TEXT */
   ), _hoisted_2, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_hoisted_5, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", _hoisted_6, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.email), 1
   /* TEXT */
-  )]), _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [_hoisted_12, _hoisted_13, _hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+  )]), _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    "class": "fas fa-edit pt-1 hover:cursor-pointer hover:text-green-700",
+    onClick: _cache[0] || (_cache[0] = function () {
+      return $options.toggleEditForm && $options.toggleEditForm.apply($options, arguments);
+    })
+  }), _hoisted_12, _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
     "class": "fas fa-trash pt-1 px-7 hover:cursor-pointer hover:text-red-700",
-    onClick: _cache[0] || (_cache[0] = function ($event) {
+    onClick: _cache[1] || (_cache[1] = function ($event) {
       return _ctx.toggleDelete($props.id);
     })
   })])])]);
@@ -28293,12 +28545,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_info, {
+        id: $props.id,
         name: $props.name,
-        email: $props.email,
-        id: $props.id
+        email: $props.email
       }, null, 8
       /* PROPS */
-      , ["name", "email", "id"])];
+      , ["id", "name", "email"])];
     }),
     _: 1
     /* STABLE */
@@ -57363,6 +57615,34 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue":
+/*!*********************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue ***!
+  \*********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _EditForm_vue_vue_type_template_id_31d42b75__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditForm.vue?vue&type=template&id=31d42b75 */ "./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue?vue&type=template&id=31d42b75");
+/* harmony import */ var _EditForm_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./EditForm.vue?vue&type=script&lang=js */ "./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue?vue&type=script&lang=js");
+/* harmony import */ var _home_felidrick_Projects_dmts_web_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,_home_felidrick_Projects_dmts_web_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_EditForm_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_EditForm_vue_vue_type_template_id_31d42b75__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/SuperAdmin/Components/GeneralManagement.vue":
 /*!************************************************************************!*\
   !*** ./resources/js/Pages/SuperAdmin/Components/GeneralManagement.vue ***!
@@ -58409,6 +58689,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue?vue&type=script&lang=js":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue?vue&type=script&lang=js ***!
+  \*********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EditForm_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EditForm_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./EditForm.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
 /***/ "./resources/js/Pages/SuperAdmin/Components/GeneralManagement.vue?vue&type=script&lang=js":
 /*!************************************************************************************************!*\
   !*** ./resources/js/Pages/SuperAdmin/Components/GeneralManagement.vue?vue&type=script&lang=js ***!
@@ -59377,6 +59673,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue?vue&type=template&id=31d42b75":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue?vue&type=template&id=31d42b75 ***!
+  \***************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EditForm_vue_vue_type_template_id_31d42b75__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_EditForm_vue_vue_type_template_id_31d42b75__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./EditForm.vue?vue&type=template&id=31d42b75 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue?vue&type=template&id=31d42b75");
+
+
+/***/ }),
+
 /***/ "./resources/js/Pages/SuperAdmin/Components/GeneralManagement.vue?vue&type=template&id=bcde23d8":
 /*!******************************************************************************************************!*\
   !*** ./resources/js/Pages/SuperAdmin/Components/GeneralManagement.vue?vue&type=template&id=bcde23d8 ***!
@@ -59909,6 +60221,7 @@ var map = {
 	"./Profile/Show.vue": "./resources/js/Pages/Profile/Show.vue",
 	"./SuperAdmin/Components/DmtsMonitoring.vue": "./resources/js/Pages/SuperAdmin/Components/DmtsMonitoring.vue",
 	"./SuperAdmin/Components/Forms/AddForm.vue": "./resources/js/Pages/SuperAdmin/Components/Forms/AddForm.vue",
+	"./SuperAdmin/Components/Forms/EditForm.vue": "./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue",
 	"./SuperAdmin/Components/GeneralManagement.vue": "./resources/js/Pages/SuperAdmin/Components/GeneralManagement.vue",
 	"./SuperAdmin/Components/Graphs/BarGraph.vue": "./resources/js/Pages/SuperAdmin/Components/Graphs/BarGraph.vue",
 	"./SuperAdmin/Components/HospitalAdmin.vue": "./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue",
