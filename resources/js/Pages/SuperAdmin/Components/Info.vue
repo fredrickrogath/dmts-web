@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="leading-5 text-sm text-gray-900 font-medium">
+    <div class=" w-22 overflow-clip leading-5 text-sm text-gray-900 font-medium">
       {{ name }}
     </div>
     <div class="leading-5 text-green-700">
@@ -125,7 +125,7 @@ export default {
 
 
 <style scoped>
-.info-enter-from {
+/* .info-enter-from {
   opacity: 0;
   transform: translateX(50px);
 }
@@ -151,5 +151,5 @@ export default {
 .info-leave-to {
   opacity: 0;
   transform: translateX(-30px);
-}
+} */
 </style>

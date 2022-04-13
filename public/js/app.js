@@ -21955,6 +21955,28 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Forms/DeleteForm.vue?vue&type=script&lang=js":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Forms/DeleteForm.vue?vue&type=script&lang=js ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({//   props: {
+  //     name: {
+  //       type: String,
+  //       required: true,
+  //       default: "Not found",
+  //     },
+  //   },
+});
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue?vue&type=script&lang=js":
 /*!*************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue?vue&type=script&lang=js ***!
@@ -27711,6 +27733,48 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Forms/DeleteForm.vue?vue&type=template&id=d6575b54":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Forms/DeleteForm.vue?vue&type=template&id=d6575b54 ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+var _hoisted_1 = {
+  "class": "rounded-3xl overflow-hidden shadow-xl max-w-xs bg-green-500"
+};
+var _hoisted_2 = ["src", "alt"];
+var _hoisted_3 = {
+  "class": "flex justify-center -mt-12"
+};
+var _hoisted_4 = ["src", "alt"];
+
+var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"text-center px-3\"><h4 class=\"text-white text-sm bold font-sans text-ellipsis w-30\"><!-- {{ name }} --></h4></div><div class=\"flex justify-center text-white\"><div class=\"text-center mr-3 border-r pr-3 text-gray-900 py-1\"><h2>34</h2><span>Doctors</span></div><div class=\"text-center text-gray-900 py-1\"><h2>242</h2><span>Patients</span></div></div>", 2);
+
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    src: _ctx.$page.props.user.profile_photo_url,
+    alt: _ctx.$page.props.user.name,
+    "class": "w-full"
+  }, null, 8
+  /* PROPS */
+  , _hoisted_2), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+    src: _ctx.$page.props.user.profile_photo_url,
+    alt: _ctx.$page.props.user.name,
+    "class": "rounded-full border-solid border-white border-2"
+  }, null, 8
+  /* PROPS */
+  , _hoisted_4)]), _hoisted_5])]);
+}
+
+/***/ }),
+
 /***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue?vue&type=template&id=31d42b75":
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue?vue&type=template&id=31d42b75 ***!
@@ -28204,7 +28268,7 @@ var _withScopeId = function _withScopeId(n) {
 };
 
 var _hoisted_1 = {
-  "class": "leading-5 text-sm text-gray-900 font-medium"
+  "class": "w-22 overflow-clip leading-5 text-sm text-gray-900 font-medium"
 };
 
 var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"leading-5 text-green-700\" data-v-673526f5><span class=\"text-gray-900\" data-v-673526f5>At</span> Mwimbili <span data-v-673526f5>Hospital</span></div><div class=\"leading-5 text-gray-900\" data-v-673526f5> Manages <a class=\"px-1 text-green-700 hover:underline\" href=\"#\" data-v-673526f5>78 <span class=\"text-gray-900\" data-v-673526f5>Doc</span></a><a class=\"text-green-700 hover:underline\" href=\"#\" data-v-673526f5>308 <span class=\"text-gray-900\" data-v-673526f5>Pat</span></a></div>", 2);
@@ -30998,7 +31062,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.info-enter-from[data-v-673526f5] {\n  opacity: 0;\n  transform: translateX(50px);\n}\n.info-enter-active[data-v-673526f5] {\n  transition: all 0.5s ease-out;\n}\n.info-enter-to[data-v-673526f5] {\n  opacity: 1;\n  transform: translateX(0);\n}\n.info-leave-from[data-v-673526f5] {\n  opacity: 1;\n  transform: translateX(0);\n}\n.info-leave-active[data-v-673526f5] {\n  transition: all 0.5s ease-in;\n}\n.info-leave-to[data-v-673526f5] {\n  opacity: 0;\n  transform: translateX(-30px);\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n/* .info-enter-from {\n  opacity: 0;\n  transform: translateX(50px);\n}\n\n.info-enter-active {\n  transition: all 0.5s ease-out;\n}\n\n.info-enter-to {\n  opacity: 1;\n  transform: translateX(0);\n}\n\n.info-leave-from {\n  opacity: 1;\n  transform: translateX(0);\n}\n\n.info-leave-active {\n  transition: all 0.5s ease-in;\n}\n\n.info-leave-to {\n  opacity: 0;\n  transform: translateX(-30px);\n} */\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -57615,6 +57679,34 @@ if (false) {}
 
 /***/ }),
 
+/***/ "./resources/js/Pages/SuperAdmin/Components/Forms/DeleteForm.vue":
+/*!***********************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/Forms/DeleteForm.vue ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _DeleteForm_vue_vue_type_template_id_d6575b54__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./DeleteForm.vue?vue&type=template&id=d6575b54 */ "./resources/js/Pages/SuperAdmin/Components/Forms/DeleteForm.vue?vue&type=template&id=d6575b54");
+/* harmony import */ var _DeleteForm_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./DeleteForm.vue?vue&type=script&lang=js */ "./resources/js/Pages/SuperAdmin/Components/Forms/DeleteForm.vue?vue&type=script&lang=js");
+/* harmony import */ var _home_felidrick_Projects_dmts_web_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+const __exports__ = /*#__PURE__*/(0,_home_felidrick_Projects_dmts_web_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_DeleteForm_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_DeleteForm_vue_vue_type_template_id_d6575b54__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/SuperAdmin/Components/Forms/DeleteForm.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
 /***/ "./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue":
 /*!*********************************************************************!*\
   !*** ./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue ***!
@@ -58689,6 +58781,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/SuperAdmin/Components/Forms/DeleteForm.vue?vue&type=script&lang=js":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/Forms/DeleteForm.vue?vue&type=script&lang=js ***!
+  \***********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DeleteForm_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DeleteForm_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./DeleteForm.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Forms/DeleteForm.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
 /***/ "./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue?vue&type=script&lang=js":
 /*!*********************************************************************************************!*\
   !*** ./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue?vue&type=script&lang=js ***!
@@ -59673,6 +59781,22 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/Pages/SuperAdmin/Components/Forms/DeleteForm.vue?vue&type=template&id=d6575b54":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/Forms/DeleteForm.vue?vue&type=template&id=d6575b54 ***!
+  \*****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DeleteForm_vue_vue_type_template_id_d6575b54__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_DeleteForm_vue_vue_type_template_id_d6575b54__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./DeleteForm.vue?vue&type=template&id=d6575b54 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Forms/DeleteForm.vue?vue&type=template&id=d6575b54");
+
+
+/***/ }),
+
 /***/ "./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue?vue&type=template&id=31d42b75":
 /*!***************************************************************************************************!*\
   !*** ./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue?vue&type=template&id=31d42b75 ***!
@@ -60221,6 +60345,7 @@ var map = {
 	"./Profile/Show.vue": "./resources/js/Pages/Profile/Show.vue",
 	"./SuperAdmin/Components/DmtsMonitoring.vue": "./resources/js/Pages/SuperAdmin/Components/DmtsMonitoring.vue",
 	"./SuperAdmin/Components/Forms/AddForm.vue": "./resources/js/Pages/SuperAdmin/Components/Forms/AddForm.vue",
+	"./SuperAdmin/Components/Forms/DeleteForm.vue": "./resources/js/Pages/SuperAdmin/Components/Forms/DeleteForm.vue",
 	"./SuperAdmin/Components/Forms/EditForm.vue": "./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue",
 	"./SuperAdmin/Components/GeneralManagement.vue": "./resources/js/Pages/SuperAdmin/Components/GeneralManagement.vue",
 	"./SuperAdmin/Components/Graphs/BarGraph.vue": "./resources/js/Pages/SuperAdmin/Components/Graphs/BarGraph.vue",
