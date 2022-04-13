@@ -21966,13 +21966,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({//   props: {
-  //     name: {
-  //       type: String,
-  //       required: true,
-  //       default: "Not found",
-  //     },
-  //   },
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: {
+    name: {
+      type: String,
+      required: true,
+      "default": "Not found"
+    }
+  }
 });
 
 /***/ }),
@@ -22124,15 +22125,18 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Forms_AddForm_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Forms/AddForm.vue */ "./resources/js/Pages/SuperAdmin/Components/Forms/AddForm.vue");
 /* harmony import */ var _Forms_EditForm_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Forms/EditForm.vue */ "./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue");
-/* harmony import */ var _ProfileCard_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ProfileCard.vue */ "./resources/js/Pages/SuperAdmin/Components/ProfileCard.vue");
+/* harmony import */ var _Forms_DeleteForm_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Forms/DeleteForm.vue */ "./resources/js/Pages/SuperAdmin/Components/Forms/DeleteForm.vue");
+/* harmony import */ var _ProfileCard_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ProfileCard.vue */ "./resources/js/Pages/SuperAdmin/Components/ProfileCard.vue");
+
 
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    ProfileCard: _ProfileCard_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    ProfileCard: _ProfileCard_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     AddForm: _Forms_AddForm_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    EditForm: _Forms_EditForm_vue__WEBPACK_IMPORTED_MODULE_1__["default"]
+    EditForm: _Forms_EditForm_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    DeleteForm: _Forms_DeleteForm_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
   },
   created: function created() {
     this.testDataFn();
@@ -22152,12 +22156,15 @@ __webpack_require__.r(__webpack_exports__);
       hideProfile: true,
       showAddForm: false,
       showEditForm: false,
+      showDeleteForm: true,
       formEditId: null,
       formEditName: "",
       formEditEmail: "",
       formEditMobile1: "",
       formEditMobile2: "",
-      formEditDOB: null
+      formEditDOB: null,
+      deleteName: "",
+      deleteEmail: ""
     };
   },
   watch: {
@@ -27747,30 +27754,41 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
+  "class": "w-30"
+};
+var _hoisted_2 = {
   "class": "rounded-3xl overflow-hidden shadow-xl max-w-xs bg-green-500"
 };
-var _hoisted_2 = ["src", "alt"];
-var _hoisted_3 = {
+var _hoisted_3 = ["src", "alt"];
+var _hoisted_4 = {
   "class": "flex justify-center -mt-12"
 };
-var _hoisted_4 = ["src", "alt"];
+var _hoisted_5 = ["src", "alt"];
+var _hoisted_6 = {
+  "class": "text-center px-3"
+};
+var _hoisted_7 = {
+  "class": "text-white text-sm bold font-sans text-ellipsis w-30"
+};
 
-var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"text-center px-3\"><h4 class=\"text-white text-sm bold font-sans text-ellipsis w-30\"><!-- {{ name }} --></h4></div><div class=\"flex justify-center text-white\"><div class=\"text-center mr-3 border-r pr-3 text-gray-900 py-1\"><h2>34</h2><span>Doctors</span></div><div class=\"text-center text-gray-900 py-1\"><h2>242</h2><span>Patients</span></div></div>", 2);
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"text-center px-8 py-2\"><select class=\"form-select form-select-sm appearance-none block w-full px-2 py-1 text-sm font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none\" aria-label=\".form-select-sm example\"><option selected>Reason for the action</option><option value=\"1\">Dmts reason one</option><option value=\"2\">Dmts reason two</option><option value=\"3\">Dmts reason three</option></select></div><div class=\"flex justify-center text-white\"><div class=\"text-center mr-3 border-r pr-3 text-gray-900 py-2\"><button class=\"focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700 transition duration-150 ease-in-out hover:bg-green-600 bg-green-700 rounded text-white px-6 h-7 text-sm\"> Delete </button></div><div class=\"text-center text-gray-900 py-2\"><button class=\"focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700 transition duration-150 ease-in-out hover:bg-green-600 bg-green-700 rounded text-white px-4 h-7 text-sm\"> Deactivate </button></div></div>", 2);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", null, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     src: _ctx.$page.props.user.profile_photo_url,
     alt: _ctx.$page.props.user.name,
     "class": "w-full"
   }, null, 8
   /* PROPS */
-  , _hoisted_2), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
+  , _hoisted_3), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
     src: _ctx.$page.props.user.profile_photo_url,
     alt: _ctx.$page.props.user.name,
     "class": "rounded-full border-solid border-white border-2"
   }, null, 8
   /* PROPS */
-  , _hoisted_4)]), _hoisted_5])]);
+  , _hoisted_5)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.name), 1
+  /* TEXT */
+  )]), _hoisted_8])]);
 }
 
 /***/ }),
@@ -28147,12 +28165,18 @@ var _hoisted_20 = {
   key: 1,
   "class": "absolute inset-0 z-10 h-70 px-4 pt-10"
 };
+var _hoisted_21 = {
+  key: 2,
+  "class": "absolute inset-0 z-10 h-70 px-4 pt-10"
+};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_profile_card = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("profile-card");
 
   var _component_add_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("add-form");
 
   var _component_edit_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("edit-form");
+
+  var _component_delete_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("delete-form");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
     "class": "fas fa-add pt-1 hover:cursor-pointer hover:text-green-700",
@@ -28188,6 +28212,16 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, null, 8
       /* PROPS */
       , ["onToggleFormAdd"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showEditForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_edit_form, {
+        id: $data.formEditId,
+        name: $data.formEditName,
+        email: $data.formEditEmail,
+        mobile1: $data.formEditMobile1,
+        mobile2: $data.formEditMobile2,
+        dob: $data.formEditDOB,
+        onToggleFormEdit: $options.toggleEditForm
+      }, null, 8
+      /* PROPS */
+      , ["id", "name", "email", "mobile1", "mobile2", "dob", "onToggleFormEdit"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showDeleteForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_delete_form, {
         id: $data.formEditId,
         name: $data.formEditName,
         email: $data.formEditEmail,

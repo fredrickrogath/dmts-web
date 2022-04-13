@@ -117,6 +117,21 @@
               @toggle-form-edit="toggleEditForm"
             ></edit-form>
           </div>
+
+          <div
+            v-if="showDeleteForm"
+            class="absolute inset-0 z-10 h-70 px-4 pt-10"
+          >
+            <delete-form
+              :id="formEditId"
+              :name="formEditName"
+              :email="formEditEmail"
+              :mobile1="formEditMobile1"
+              :mobile2="formEditMobile2"
+              :dob="formEditDOB"
+              @toggle-form-edit="toggleEditForm"
+            ></delete-form>
+          </div>
         </transition-group>
       </div>
     </div>
@@ -127,12 +142,14 @@
 <script>
 import AddForm from "./Forms/AddForm.vue";
 import EditForm from "./Forms/EditForm.vue";
+import DeleteForm from "./Forms/DeleteForm.vue";
 import ProfileCard from "./ProfileCard.vue";
 export default {
   components: {
     ProfileCard,
     AddForm,
     EditForm,
+    DeleteForm,
   },
   created() {
     this.testDataFn();
@@ -152,6 +169,7 @@ export default {
       hideProfile: true,
       showAddForm: false,
       showEditForm: false,
+      showDeleteForm: true,
 
       formEditId: null,
       formEditName: "",
@@ -159,6 +177,9 @@ export default {
       formEditMobile1: "",
       formEditMobile2: "",
       formEditDOB: null,
+
+      deleteName: "",
+      deleteEmail: "",
     };
   },
   watch: {
