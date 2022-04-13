@@ -100,12 +100,12 @@
           </div>
         </div>
         <transition-group name="add-form">
-          <div v-if="showAddForm" class="absolute inset-0 z-10 h-70 px-4 pt-10">
+          <div v-if="showAddForm" class="absolute inset-0 z-10 h-70 px-4 pt-12">
             <add-form @toggle-form-add="toggleAddForm"></add-form>
           </div>
           <div
             v-if="showEditForm"
-            class="absolute inset-0 z-10 h-70 px-4 pt-10"
+            class="absolute inset-0 z-10 h-70 px-4 pt-12"
           >
             <edit-form
               :id="formEditId"
@@ -120,15 +120,12 @@
 
           <div
             v-if="showDeleteForm"
-            class="absolute inset-0 z-10 h-70 px-4 pt-10"
+            class="absolute inset-0 z-10 h-70 px-8 pt-12"
           >
             <delete-form
-              :id="formEditId"
-              :name="formEditName"
-              :email="formEditEmail"
-              :mobile1="formEditMobile1"
-              :mobile2="formEditMobile2"
-              :dob="formEditDOB"
+              :id="formDeleteId"
+              :name="formDeleteName"
+              :email="formDeleteEmail"
               @toggle-form-edit="toggleEditForm"
             ></delete-form>
           </div>
@@ -157,7 +154,10 @@ export default {
   provide() {
     return {
       toggleFormEdit: this.toggleEditForm,
-      formDetails: this.formDetails,
+      formEditDetails: this.formEditDetails,
+
+      toggleFormDelete: this.toggleFormDelete,
+      formDeleteDetails: this.formDeleteDetails,
     };
   },
   data() {
@@ -178,8 +178,9 @@ export default {
       formEditMobile2: "",
       formEditDOB: null,
 
-      deleteName: "",
-      deleteEmail: "",
+      formDeleteId: null,
+      formDeleteName: "",
+      formDeleteEmail: "",
     };
   },
   watch: {
@@ -227,13 +228,23 @@ export default {
       this.showEditForm = !this.showEditForm;
     },
 
-    formDetails(id, name, email, mobile1, mobile2, dob) {
+    toggleFormDelete() {
+      this.showDeleteForm = !this.showDeleteForm;
+    },
+
+    formEditDetails(id, name, email, mobile1, mobile2, dob) {
       this.formEditId = id;
       this.formEditName = name;
       this.formEditEmail = email;
       this.formEditMobile1 = mobile1;
       this.formEditMobile2 = mobile2;
       this.formEditDOB = dob;
+    },
+
+    formDeleteDetails(id, name, email,) {
+      this.formDeleteId = id;
+      this.formDeleteName = name;
+      this.formDeleteEmail = email;
     },
   },
 };

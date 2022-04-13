@@ -22144,7 +22144,9 @@ __webpack_require__.r(__webpack_exports__);
   provide: function provide() {
     return {
       toggleFormEdit: this.toggleEditForm,
-      formDetails: this.formDetails
+      formEditDetails: this.formEditDetails,
+      toggleFormDelete: this.toggleFormDelete,
+      formDeleteDetails: this.formDeleteDetails
     };
   },
   data: function data() {
@@ -22163,8 +22165,9 @@ __webpack_require__.r(__webpack_exports__);
       formEditMobile1: "",
       formEditMobile2: "",
       formEditDOB: null,
-      deleteName: "",
-      deleteEmail: ""
+      formDeleteId: null,
+      formDeleteName: "",
+      formDeleteEmail: ""
     };
   },
   watch: {
@@ -22211,13 +22214,21 @@ __webpack_require__.r(__webpack_exports__);
     toggleEditForm: function toggleEditForm() {
       this.showEditForm = !this.showEditForm;
     },
-    formDetails: function formDetails(id, name, email, mobile1, mobile2, dob) {
+    toggleFormDelete: function toggleFormDelete() {
+      this.showDeleteForm = !this.showDeleteForm;
+    },
+    formEditDetails: function formEditDetails(id, name, email, mobile1, mobile2, dob) {
       this.formEditId = id;
       this.formEditName = name;
       this.formEditEmail = email;
       this.formEditMobile1 = mobile1;
       this.formEditMobile2 = mobile2;
       this.formEditDOB = dob;
+    },
+    formDeleteDetails: function formDeleteDetails(id, name, email) {
+      this.formDeleteId = id;
+      this.formDeleteName = name;
+      this.formDeleteEmail = email;
     }
   }
 });
@@ -22259,7 +22270,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  inject: ["toggleFormEdit", "formDetails"],
+  inject: ["toggleFormEdit", "formEditDetails", "toggleFormDelete", "formDeleteDetails"],
   props: {
     id: {
       type: Number,
@@ -22299,8 +22310,12 @@ __webpack_require__.r(__webpack_exports__);
   // },
   methods: {
     toggleEditForm: function toggleEditForm() {
-      this.formDetails(this.id, this.name, this.email, this.mobile1, this.mobile2, this.dob);
+      this.formEditDetails(this.id, this.name, this.email, this.mobile1, this.mobile2, this.dob);
       this.toggleFormEdit();
+    },
+    toggleDeleteForm: function toggleDeleteForm() {
+      this.formDeleteDetails(this.id, this.name, this.email);
+      this.toggleFormDelete();
     }
   }
 });
@@ -27768,10 +27783,10 @@ var _hoisted_6 = {
   "class": "text-center px-3"
 };
 var _hoisted_7 = {
-  "class": "text-white text-sm bold font-sans text-ellipsis w-30"
+  "class": "text-gray-800 text-sm bold font-sans text-ellipsis w-30 py-1"
 };
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"text-center px-8 py-2\"><select class=\"form-select form-select-sm appearance-none block w-full px-2 py-1 text-sm font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none\" aria-label=\".form-select-sm example\"><option selected>Reason for the action</option><option value=\"1\">Dmts reason one</option><option value=\"2\">Dmts reason two</option><option value=\"3\">Dmts reason three</option></select></div><div class=\"flex justify-center text-white\"><div class=\"text-center mr-3 border-r pr-3 text-gray-900 py-2\"><button class=\"focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700 transition duration-150 ease-in-out hover:bg-green-600 bg-green-700 rounded text-white px-6 h-7 text-sm\"> Delete </button></div><div class=\"text-center text-gray-900 py-2\"><button class=\"focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700 transition duration-150 ease-in-out hover:bg-green-600 bg-green-700 rounded text-white px-4 h-7 text-sm\"> Deactivate </button></div></div>", 2);
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"text-center px-4 py-1\"><select class=\"form-select form-select-sm appearance-none block w-full px-2 py-1 text-sm font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none\" aria-label=\".form-select-sm example\"><option selected>Reason for the action</option><option value=\"1\">Dmts reason one</option><option value=\"2\">Dmts reason two</option><option value=\"3\">Dmts reason three</option></select></div><div class=\"flex justify-center text-white\"><div class=\"text-center mr-3 border-r pr-3 text-gray-900 py-2\"><button class=\"focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700 transition duration-150 ease-in-out hover:bg-green-600 bg-green-700 rounded text-white px-6 h-7 text-sm\"> Delete </button></div><div class=\"text-center text-gray-900 py-2\"><button class=\"focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700 transition duration-150 ease-in-out hover:bg-green-600 bg-green-700 rounded text-white px-4 h-7 text-sm\"> Deactivate </button></div></div>", 2);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
@@ -28159,15 +28174,15 @@ var _hoisted_18 = {
 };
 var _hoisted_19 = {
   key: 0,
-  "class": "absolute inset-0 z-10 h-70 px-4 pt-10"
+  "class": "absolute inset-0 z-10 h-70 px-4 pt-12"
 };
 var _hoisted_20 = {
   key: 1,
-  "class": "absolute inset-0 z-10 h-70 px-4 pt-10"
+  "class": "absolute inset-0 z-10 h-70 px-4 pt-12"
 };
 var _hoisted_21 = {
   key: 2,
-  "class": "absolute inset-0 z-10 h-70 px-4 pt-10"
+  "class": "absolute inset-0 z-10 h-70 px-8 pt-12"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_profile_card = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("profile-card");
@@ -28222,16 +28237,13 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       }, null, 8
       /* PROPS */
       , ["id", "name", "email", "mobile1", "mobile2", "dob", "onToggleFormEdit"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showDeleteForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_delete_form, {
-        id: $data.formEditId,
-        name: $data.formEditName,
-        email: $data.formEditEmail,
-        mobile1: $data.formEditMobile1,
-        mobile2: $data.formEditMobile2,
-        dob: $data.formEditDOB,
+        id: $data.formDeleteId,
+        name: $data.formDeleteName,
+        email: $data.formDeleteEmail,
         onToggleFormEdit: $options.toggleEditForm
       }, null, 8
       /* PROPS */
-      , ["id", "name", "email", "mobile1", "mobile2", "dob", "onToggleFormEdit"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
+      , ["id", "name", "email", "onToggleFormEdit"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
     }),
     _: 1
     /* STABLE */
@@ -28379,8 +28391,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }), _hoisted_12, _hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
     "class": "fas fa-trash pt-1 px-7 hover:cursor-pointer hover:text-red-700",
-    onClick: _cache[1] || (_cache[1] = function ($event) {
-      return _ctx.toggleDelete($props.id);
+    onClick: _cache[1] || (_cache[1] = function () {
+      return $options.toggleDeleteForm && $options.toggleDeleteForm.apply($options, arguments);
     })
   })])])]);
 }

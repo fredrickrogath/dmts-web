@@ -60,7 +60,7 @@
         </svg>
         <i
           class="fas fa-trash pt-1 px-7 hover:cursor-pointer hover:text-red-700"
-          @click="toggleDelete(id)"
+         @click="toggleDeleteForm"
         ></i>
       </div>
     </div>
@@ -69,7 +69,7 @@
 
 <script>
 export default {
-  inject: ["toggleFormEdit", "formDetails"],
+  inject: ["toggleFormEdit", "formEditDetails", "toggleFormDelete", "formDeleteDetails"],
   props: {
     id: {
       type: Number,
@@ -109,7 +109,7 @@ export default {
   // },
   methods: {
     toggleEditForm() {
-      this.formDetails(
+      this.formEditDetails(
         this.id,
         this.name,
         this.email,
@@ -119,10 +119,18 @@ export default {
       );
       this.toggleFormEdit();
     },
+
+    toggleDeleteForm() {
+      this.formDeleteDetails(
+        this.id,
+        this.name,
+        this.email,
+      );
+      this.toggleFormDelete();
+    },
   },
 };
 </script>
-
 
 <style scoped>
 /* .info-enter-from {

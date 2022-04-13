@@ -24,10 +24,7 @@
         Hospital Admin - Edit
       </h1>
 
-      <input
-          type="hidden"
-          v-model="id"
-        />
+      <input type="hidden" v-model="id" />
 
       <label
         class="text-gray-800 text-sm font-bold leading-tight tracking-normal"
@@ -461,22 +458,20 @@ export default {
       default: "Not found",
     },
   },
-//   data() {
-//     return {
-//         name:'',
-//     };
-//   },
-//    provide() {
-//     return {
-      
-//     };
-//   },
+  //   data() {
+  //     return {
+  //         name:'',
+  //     };
+  //   },
+  //    provide() {
+  //     return {
+
+  //     };
+  //   },
   methods: {
     toggleEditForm() {
       this.$emit("toggle-form-edit");
     },
-
-    
   },
 };
 </script>

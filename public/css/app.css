@@ -1906,10 +1906,6 @@ select {
   padding-left: 1.75rem;
   padding-right: 1.75rem;
 }
-.px-10 {
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-}
 .pt-6 {
   padding-top: 1.5rem;
 }
@@ -1984,6 +1980,12 @@ select {
 }
 .pl-24 {
   padding-left: 6rem;
+}
+.pt-12 {
+  padding-top: 3rem;
+}
+.pt-20 {
+  padding-top: 5rem;
 }
 .text-left {
   text-align: left;
