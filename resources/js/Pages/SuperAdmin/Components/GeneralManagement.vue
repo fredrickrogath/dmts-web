@@ -1,20 +1,23 @@
 <template>
   <div class="grid grid-cols-4 gap-1">
     <!-- Hospital administrators -->
-    <hospital-admin></hospital-admin>
+    <hospital-admins></hospital-admins>
     <!-- Doctors -->
-    <hospital-admin></hospital-admin>
+    <doctors></doctors>
     <!-- Patients -->
-    <hospital-admin></hospital-admin>
+    <patients></patients>
     <!-- Hospitals -->
-    <hospital-admin></hospital-admin>
+    <hospitals></hospitals>
   </div>
 </template>
 
 <script>
-import HospitalAdmin from "./HospitalAdmin.vue";
+import HospitalAdmins from "./Manages/HospitalAdmins.vue";
+import Doctors from "./Manages/Doctors.vue";
+import Patients from "./Manages/Patients.vue";
+import Hospitals from "./Manages/Hospitals.vue";
 export default {
-  components: { HospitalAdmin },
+  components: { HospitalAdmins, Doctors, Patients, Hospitals },
   created() {
     this.testDataFn();
   },

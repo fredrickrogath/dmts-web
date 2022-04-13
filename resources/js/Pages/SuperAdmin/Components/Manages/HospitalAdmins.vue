@@ -137,10 +137,10 @@
 
 
 <script>
-import AddForm from "./Forms/AddForm.vue";
-import EditForm from "./Forms/EditForm.vue";
-import DeleteForm from "./Forms/DeleteForm.vue";
-import ProfileCard from "./ProfileCard.vue";
+import AddForm from "../Forms/AddForm.vue";
+import EditForm from "../Forms/EditForm.vue";
+import DeleteForm from "../Forms/DeleteForm.vue";
+import ProfileCard from "../ProfileCard.vue";
 export default {
   components: {
     ProfileCard,
@@ -169,7 +169,7 @@ export default {
       hideProfile: true,
       showAddForm: false,
       showEditForm: false,
-      showDeleteForm: true,
+      showDeleteForm: false,
 
       // provided data for for edit
 

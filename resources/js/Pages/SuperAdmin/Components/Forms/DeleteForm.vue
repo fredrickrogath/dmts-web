@@ -14,12 +14,35 @@
         />
       </div>
       <div class="text-center px-3">
-        <h4 class="text-gray-800 text-sm bold font-sans text-ellipsis w-30 py-1">
+        <h4
+          class="text-gray-900 text-sm bold font-sans text-ellipsis w-30 py-1"
+        >
           {{ name }}
         </h4>
       </div>
 
-      <div class="text-center px-4 py-1">
+      <div class="text-center px-3">
+        <h4
+          class="text-gray-800 text-sm bold font-sans text-ellipsis w-30 py-1"
+        >
+          <div class="leading-5 text-gray-900">
+            Manages
+            <a class="px-1 text-white hover:underline" href="#"
+              >78 <span class="text-gray-900">Doc</span></a
+            >
+            <a class="text-white hover:underline" href="#"
+              >308 <span class="text-gray-900">Pat</span></a
+            >
+          </div>
+        </h4>
+
+        <div class="text-sm leading-5 text-gray-900">
+          <span class="text-gray-900">At</span> Mwimbili
+          <span>Hospital</span>
+        </div>
+      </div>
+
+      <div class="flex text-center px-4 py-2">
         <select
           class="
             form-select form-select-sm
@@ -49,7 +72,38 @@
           <option value="2">Dmts reason two</option>
           <option value="3">Dmts reason three</option>
         </select>
-        
+
+        <button
+          class="
+            cursor-pointer
+            ml-1
+            text-gray-700
+            hover:text-gray-600
+            transition
+            duration-150
+            ease-in-out
+            rounded
+            focus:ring-2 focus:outline-none focus:ring-gray-600
+          "
+          @click="toggleDeleteForm"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="icon icon-tabler icon-tabler-x"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            stroke-width="2.5"
+            stroke="currentColor"
+            fill="none"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path stroke="none" d="M0 0h24v24H0z" />
+            <line x1="18" y1="6" x2="6" y2="18" />
+            <line x1="6" y1="6" x2="18" y2="18" />
+          </svg>
+        </button>
       </div>
       <div class="flex justify-center text-white">
         <div class="text-center mr-3 border-r pr-3 text-gray-900 py-2">
@@ -104,11 +158,17 @@
 
 <script>
 export default {
+  inject: ["toggleFormDelete"],
   props: {
     name: {
       type: String,
       required: true,
       default: "Not found",
+    },
+  },
+  methods: {
+    toggleDeleteForm() {
+      this.toggleFormDelete();
     },
   },
 };

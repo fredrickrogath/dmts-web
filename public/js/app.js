@@ -21967,11 +21967,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  inject: ["toggleFormDelete"],
   props: {
     name: {
       type: String,
       required: true,
       "default": "Not found"
+    }
+  },
+  methods: {
+    toggleDeleteForm: function toggleDeleteForm() {
+      this.toggleFormDelete();
     }
   }
 });
@@ -22043,11 +22049,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _HospitalAdmin_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HospitalAdmin.vue */ "./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue");
+/* harmony import */ var _Manages_HospitalAdmins_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Manages/HospitalAdmins.vue */ "./resources/js/Pages/SuperAdmin/Components/Manages/HospitalAdmins.vue");
+/* harmony import */ var _Manages_Doctors_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Manages/Doctors.vue */ "./resources/js/Pages/SuperAdmin/Components/Manages/Doctors.vue");
+/* harmony import */ var _Manages_Patients_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Manages/Patients.vue */ "./resources/js/Pages/SuperAdmin/Components/Manages/Patients.vue");
+/* harmony import */ var _Manages_Hospitals_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./Manages/Hospitals.vue */ "./resources/js/Pages/SuperAdmin/Components/Manages/Hospitals.vue");
+
+
+
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    HospitalAdmin: _HospitalAdmin_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    HospitalAdmins: _Manages_HospitalAdmins_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    Doctors: _Manages_Doctors_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    Patients: _Manages_Patients_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
+    Hospitals: _Manages_Hospitals_vue__WEBPACK_IMPORTED_MODULE_3__["default"]
   },
   created: function created() {
     this.testDataFn();
@@ -22100,131 +22115,6 @@ function app() {
     }
   };
 }
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=script&lang=js":
-/*!************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=script&lang=js ***!
-  \************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _Forms_AddForm_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Forms/AddForm.vue */ "./resources/js/Pages/SuperAdmin/Components/Forms/AddForm.vue");
-/* harmony import */ var _Forms_EditForm_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Forms/EditForm.vue */ "./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue");
-/* harmony import */ var _Forms_DeleteForm_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Forms/DeleteForm.vue */ "./resources/js/Pages/SuperAdmin/Components/Forms/DeleteForm.vue");
-/* harmony import */ var _ProfileCard_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ProfileCard.vue */ "./resources/js/Pages/SuperAdmin/Components/ProfileCard.vue");
-
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  components: {
-    ProfileCard: _ProfileCard_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
-    AddForm: _Forms_AddForm_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
-    EditForm: _Forms_EditForm_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
-    DeleteForm: _Forms_DeleteForm_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
-  },
-  created: function created() {
-    this.testDataFn();
-  },
-  provide: function provide() {
-    return {
-      toggleFormEdit: this.toggleEditForm,
-      formEditDetails: this.formEditDetails,
-      toggleFormDelete: this.toggleFormDelete,
-      formDeleteDetails: this.formDeleteDetails
-    };
-  },
-  data: function data() {
-    return {
-      dummyData: [],
-      url: "http://127.0.0.1:8000/super_admin/",
-      keyword: null,
-      emptyResult: false,
-      hideProfile: true,
-      showAddForm: false,
-      showEditForm: false,
-      showDeleteForm: true,
-      // provided data for for edit
-      formEditId: null,
-      formEditName: "",
-      formEditEmail: "",
-      formEditMobile1: "",
-      formEditMobile2: "",
-      formEditDOB: null,
-      // provided data for delete form
-      formDeleteId: null,
-      formDeleteName: "",
-      formDeleteEmail: ""
-    };
-  },
-  watch: {
-    keyword: function keyword() {
-      this.searchHospitalAdministrators();
-    }
-  },
-  computed: {
-    closeAllModals: function closeAllModals() {
-      this.showAddForm = false;
-    }
-  },
-  methods: {
-    searchHospitalAdministrators: function searchHospitalAdministrators() {
-      var _this = this;
-
-      axios.get(this.url + "searchHospitalAdministrators", {
-        params: {
-          keyword: this.keyword
-        }
-      }).then(function (res) {
-        _this.dummyData = res.data;
-
-        if (res.data.length == 0) {
-          _this.emptyResult = true;
-        } else {
-          _this.emptyResult = false;
-        }
-      })["catch"](function (error) {});
-    },
-    testDataFn: function testDataFn() {
-      var _this2 = this;
-
-      this.axios.get("http://127.0.0.1:8000/test").then(function (response) {
-        _this2.dummyData = response.data;
-      });
-    },
-    toggleProfile: function toggleProfile() {
-      this.hideProfile = !this.hideProfile;
-    },
-    toggleAddForm: function toggleAddForm() {
-      this.showAddForm = !this.showAddForm;
-    },
-    toggleEditForm: function toggleEditForm() {
-      this.showEditForm = !this.showEditForm;
-    },
-    toggleFormDelete: function toggleFormDelete() {
-      this.showDeleteForm = !this.showDeleteForm;
-    },
-    formEditDetails: function formEditDetails(id, name, email, mobile1, mobile2, dob) {
-      this.formEditId = id;
-      this.formEditName = name;
-      this.formEditEmail = email;
-      this.formEditMobile1 = mobile1;
-      this.formEditMobile2 = mobile2;
-      this.formEditDOB = dob;
-    },
-    formDeleteDetails: function formDeleteDetails(id, name, email) {
-      this.formDeleteId = id;
-      this.formDeleteName = name;
-      this.formDeleteEmail = email;
-    }
-  }
-});
 
 /***/ }),
 
@@ -22309,6 +22199,506 @@ __webpack_require__.r(__webpack_exports__);
     toggleDeleteForm: function toggleDeleteForm() {
       this.formDeleteDetails(this.id, this.name, this.email);
       this.toggleFormDelete();
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Doctors.vue?vue&type=script&lang=js":
+/*!**************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Doctors.vue?vue&type=script&lang=js ***!
+  \**************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Forms_AddForm_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Forms/AddForm.vue */ "./resources/js/Pages/SuperAdmin/Components/Forms/AddForm.vue");
+/* harmony import */ var _Forms_EditForm_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Forms/EditForm.vue */ "./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue");
+/* harmony import */ var _Forms_DeleteForm_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Forms/DeleteForm.vue */ "./resources/js/Pages/SuperAdmin/Components/Forms/DeleteForm.vue");
+/* harmony import */ var _ProfileCard_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ProfileCard.vue */ "./resources/js/Pages/SuperAdmin/Components/ProfileCard.vue");
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    ProfileCard: _ProfileCard_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    AddForm: _Forms_AddForm_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    EditForm: _Forms_EditForm_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    DeleteForm: _Forms_DeleteForm_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  created: function created() {
+    this.testDataFn();
+  },
+  provide: function provide() {
+    return {
+      toggleFormEdit: this.toggleEditForm,
+      formEditDetails: this.formEditDetails,
+      toggleFormDelete: this.toggleFormDelete,
+      formDeleteDetails: this.formDeleteDetails
+    };
+  },
+  data: function data() {
+    return {
+      dummyData: [],
+      url: "http://127.0.0.1:8000/super_admin/",
+      keyword: null,
+      emptyResult: false,
+      hideProfile: true,
+      showAddForm: false,
+      showEditForm: false,
+      showDeleteForm: false,
+      // provided data for for edit
+      formEditId: null,
+      formEditName: "",
+      formEditEmail: "",
+      formEditMobile1: "",
+      formEditMobile2: "",
+      formEditDOB: null,
+      // provided data for delete form
+      formDeleteId: null,
+      formDeleteName: "",
+      formDeleteEmail: ""
+    };
+  },
+  watch: {
+    keyword: function keyword() {
+      this.searchHospitalAdministrators();
+    }
+  },
+  computed: {
+    closeAllModals: function closeAllModals() {
+      this.showAddForm = false;
+    }
+  },
+  methods: {
+    searchHospitalAdministrators: function searchHospitalAdministrators() {
+      var _this = this;
+
+      axios.get(this.url + "searchHospitalAdministrators", {
+        params: {
+          keyword: this.keyword
+        }
+      }).then(function (res) {
+        _this.dummyData = res.data;
+
+        if (res.data.length == 0) {
+          _this.emptyResult = true;
+        } else {
+          _this.emptyResult = false;
+        }
+      })["catch"](function (error) {});
+    },
+    testDataFn: function testDataFn() {
+      var _this2 = this;
+
+      this.axios.get("http://127.0.0.1:8000/test").then(function (response) {
+        _this2.dummyData = response.data;
+      });
+    },
+    toggleProfile: function toggleProfile() {
+      this.hideProfile = !this.hideProfile;
+    },
+    toggleAddForm: function toggleAddForm() {
+      this.showAddForm = !this.showAddForm;
+    },
+    toggleEditForm: function toggleEditForm() {
+      this.showEditForm = !this.showEditForm;
+    },
+    toggleFormDelete: function toggleFormDelete() {
+      this.showDeleteForm = !this.showDeleteForm;
+    },
+    formEditDetails: function formEditDetails(id, name, email, mobile1, mobile2, dob) {
+      this.formEditId = id;
+      this.formEditName = name;
+      this.formEditEmail = email;
+      this.formEditMobile1 = mobile1;
+      this.formEditMobile2 = mobile2;
+      this.formEditDOB = dob;
+    },
+    formDeleteDetails: function formDeleteDetails(id, name, email) {
+      this.formDeleteId = id;
+      this.formDeleteName = name;
+      this.formDeleteEmail = email;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/HospitalAdmins.vue?vue&type=script&lang=js":
+/*!*********************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/HospitalAdmins.vue?vue&type=script&lang=js ***!
+  \*********************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Forms_AddForm_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Forms/AddForm.vue */ "./resources/js/Pages/SuperAdmin/Components/Forms/AddForm.vue");
+/* harmony import */ var _Forms_EditForm_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Forms/EditForm.vue */ "./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue");
+/* harmony import */ var _Forms_DeleteForm_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Forms/DeleteForm.vue */ "./resources/js/Pages/SuperAdmin/Components/Forms/DeleteForm.vue");
+/* harmony import */ var _ProfileCard_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ProfileCard.vue */ "./resources/js/Pages/SuperAdmin/Components/ProfileCard.vue");
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    ProfileCard: _ProfileCard_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    AddForm: _Forms_AddForm_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    EditForm: _Forms_EditForm_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    DeleteForm: _Forms_DeleteForm_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  created: function created() {
+    this.testDataFn();
+  },
+  provide: function provide() {
+    return {
+      toggleFormEdit: this.toggleEditForm,
+      formEditDetails: this.formEditDetails,
+      toggleFormDelete: this.toggleFormDelete,
+      formDeleteDetails: this.formDeleteDetails
+    };
+  },
+  data: function data() {
+    return {
+      dummyData: [],
+      url: "http://127.0.0.1:8000/super_admin/",
+      keyword: null,
+      emptyResult: false,
+      hideProfile: true,
+      showAddForm: false,
+      showEditForm: false,
+      showDeleteForm: false,
+      // provided data for for edit
+      formEditId: null,
+      formEditName: "",
+      formEditEmail: "",
+      formEditMobile1: "",
+      formEditMobile2: "",
+      formEditDOB: null,
+      // provided data for delete form
+      formDeleteId: null,
+      formDeleteName: "",
+      formDeleteEmail: ""
+    };
+  },
+  watch: {
+    keyword: function keyword() {
+      this.searchHospitalAdministrators();
+    }
+  },
+  computed: {
+    closeAllModals: function closeAllModals() {
+      this.showAddForm = false;
+    }
+  },
+  methods: {
+    searchHospitalAdministrators: function searchHospitalAdministrators() {
+      var _this = this;
+
+      axios.get(this.url + "searchHospitalAdministrators", {
+        params: {
+          keyword: this.keyword
+        }
+      }).then(function (res) {
+        _this.dummyData = res.data;
+
+        if (res.data.length == 0) {
+          _this.emptyResult = true;
+        } else {
+          _this.emptyResult = false;
+        }
+      })["catch"](function (error) {});
+    },
+    testDataFn: function testDataFn() {
+      var _this2 = this;
+
+      this.axios.get("http://127.0.0.1:8000/test").then(function (response) {
+        _this2.dummyData = response.data;
+      });
+    },
+    toggleProfile: function toggleProfile() {
+      this.hideProfile = !this.hideProfile;
+    },
+    toggleAddForm: function toggleAddForm() {
+      this.showAddForm = !this.showAddForm;
+    },
+    toggleEditForm: function toggleEditForm() {
+      this.showEditForm = !this.showEditForm;
+    },
+    toggleFormDelete: function toggleFormDelete() {
+      this.showDeleteForm = !this.showDeleteForm;
+    },
+    formEditDetails: function formEditDetails(id, name, email, mobile1, mobile2, dob) {
+      this.formEditId = id;
+      this.formEditName = name;
+      this.formEditEmail = email;
+      this.formEditMobile1 = mobile1;
+      this.formEditMobile2 = mobile2;
+      this.formEditDOB = dob;
+    },
+    formDeleteDetails: function formDeleteDetails(id, name, email) {
+      this.formDeleteId = id;
+      this.formDeleteName = name;
+      this.formDeleteEmail = email;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Hospitals.vue?vue&type=script&lang=js":
+/*!****************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Hospitals.vue?vue&type=script&lang=js ***!
+  \****************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Forms_AddForm_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Forms/AddForm.vue */ "./resources/js/Pages/SuperAdmin/Components/Forms/AddForm.vue");
+/* harmony import */ var _Forms_EditForm_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Forms/EditForm.vue */ "./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue");
+/* harmony import */ var _Forms_DeleteForm_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Forms/DeleteForm.vue */ "./resources/js/Pages/SuperAdmin/Components/Forms/DeleteForm.vue");
+/* harmony import */ var _ProfileCard_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ProfileCard.vue */ "./resources/js/Pages/SuperAdmin/Components/ProfileCard.vue");
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    ProfileCard: _ProfileCard_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    AddForm: _Forms_AddForm_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    EditForm: _Forms_EditForm_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    DeleteForm: _Forms_DeleteForm_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  created: function created() {
+    this.testDataFn();
+  },
+  provide: function provide() {
+    return {
+      toggleFormEdit: this.toggleEditForm,
+      formEditDetails: this.formEditDetails,
+      toggleFormDelete: this.toggleFormDelete,
+      formDeleteDetails: this.formDeleteDetails
+    };
+  },
+  data: function data() {
+    return {
+      dummyData: [],
+      url: "http://127.0.0.1:8000/super_admin/",
+      keyword: null,
+      emptyResult: false,
+      hideProfile: true,
+      showAddForm: false,
+      showEditForm: false,
+      showDeleteForm: false,
+      // provided data for for edit
+      formEditId: null,
+      formEditName: "",
+      formEditEmail: "",
+      formEditMobile1: "",
+      formEditMobile2: "",
+      formEditDOB: null,
+      // provided data for delete form
+      formDeleteId: null,
+      formDeleteName: "",
+      formDeleteEmail: ""
+    };
+  },
+  watch: {
+    keyword: function keyword() {
+      this.searchHospitalAdministrators();
+    }
+  },
+  computed: {
+    closeAllModals: function closeAllModals() {
+      this.showAddForm = false;
+    }
+  },
+  methods: {
+    searchHospitalAdministrators: function searchHospitalAdministrators() {
+      var _this = this;
+
+      axios.get(this.url + "searchHospitalAdministrators", {
+        params: {
+          keyword: this.keyword
+        }
+      }).then(function (res) {
+        _this.dummyData = res.data;
+
+        if (res.data.length == 0) {
+          _this.emptyResult = true;
+        } else {
+          _this.emptyResult = false;
+        }
+      })["catch"](function (error) {});
+    },
+    testDataFn: function testDataFn() {
+      var _this2 = this;
+
+      this.axios.get("http://127.0.0.1:8000/test").then(function (response) {
+        _this2.dummyData = response.data;
+      });
+    },
+    toggleProfile: function toggleProfile() {
+      this.hideProfile = !this.hideProfile;
+    },
+    toggleAddForm: function toggleAddForm() {
+      this.showAddForm = !this.showAddForm;
+    },
+    toggleEditForm: function toggleEditForm() {
+      this.showEditForm = !this.showEditForm;
+    },
+    toggleFormDelete: function toggleFormDelete() {
+      this.showDeleteForm = !this.showDeleteForm;
+    },
+    formEditDetails: function formEditDetails(id, name, email, mobile1, mobile2, dob) {
+      this.formEditId = id;
+      this.formEditName = name;
+      this.formEditEmail = email;
+      this.formEditMobile1 = mobile1;
+      this.formEditMobile2 = mobile2;
+      this.formEditDOB = dob;
+    },
+    formDeleteDetails: function formDeleteDetails(id, name, email) {
+      this.formDeleteId = id;
+      this.formDeleteName = name;
+      this.formDeleteEmail = email;
+    }
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Patients.vue?vue&type=script&lang=js":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Patients.vue?vue&type=script&lang=js ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Forms_AddForm_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../Forms/AddForm.vue */ "./resources/js/Pages/SuperAdmin/Components/Forms/AddForm.vue");
+/* harmony import */ var _Forms_EditForm_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../Forms/EditForm.vue */ "./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue");
+/* harmony import */ var _Forms_DeleteForm_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../Forms/DeleteForm.vue */ "./resources/js/Pages/SuperAdmin/Components/Forms/DeleteForm.vue");
+/* harmony import */ var _ProfileCard_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../ProfileCard.vue */ "./resources/js/Pages/SuperAdmin/Components/ProfileCard.vue");
+
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  components: {
+    ProfileCard: _ProfileCard_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+    AddForm: _Forms_AddForm_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
+    EditForm: _Forms_EditForm_vue__WEBPACK_IMPORTED_MODULE_1__["default"],
+    DeleteForm: _Forms_DeleteForm_vue__WEBPACK_IMPORTED_MODULE_2__["default"]
+  },
+  created: function created() {
+    this.testDataFn();
+  },
+  provide: function provide() {
+    return {
+      toggleFormEdit: this.toggleEditForm,
+      formEditDetails: this.formEditDetails,
+      toggleFormDelete: this.toggleFormDelete,
+      formDeleteDetails: this.formDeleteDetails
+    };
+  },
+  data: function data() {
+    return {
+      dummyData: [],
+      url: "http://127.0.0.1:8000/super_admin/",
+      keyword: null,
+      emptyResult: false,
+      hideProfile: true,
+      showAddForm: false,
+      showEditForm: false,
+      showDeleteForm: false,
+      // provided data for for edit
+      formEditId: null,
+      formEditName: "",
+      formEditEmail: "",
+      formEditMobile1: "",
+      formEditMobile2: "",
+      formEditDOB: null,
+      // provided data for delete form
+      formDeleteId: null,
+      formDeleteName: "",
+      formDeleteEmail: ""
+    };
+  },
+  watch: {
+    keyword: function keyword() {
+      this.searchHospitalAdministrators();
+    }
+  },
+  computed: {
+    closeAllModals: function closeAllModals() {
+      this.showAddForm = false;
+    }
+  },
+  methods: {
+    searchHospitalAdministrators: function searchHospitalAdministrators() {
+      var _this = this;
+
+      axios.get(this.url + "searchHospitalAdministrators", {
+        params: {
+          keyword: this.keyword
+        }
+      }).then(function (res) {
+        _this.dummyData = res.data;
+
+        if (res.data.length == 0) {
+          _this.emptyResult = true;
+        } else {
+          _this.emptyResult = false;
+        }
+      })["catch"](function (error) {});
+    },
+    testDataFn: function testDataFn() {
+      var _this2 = this;
+
+      this.axios.get("http://127.0.0.1:8000/test").then(function (response) {
+        _this2.dummyData = response.data;
+      });
+    },
+    toggleProfile: function toggleProfile() {
+      this.hideProfile = !this.hideProfile;
+    },
+    toggleAddForm: function toggleAddForm() {
+      this.showAddForm = !this.showAddForm;
+    },
+    toggleEditForm: function toggleEditForm() {
+      this.showEditForm = !this.showEditForm;
+    },
+    toggleFormDelete: function toggleFormDelete() {
+      this.showDeleteForm = !this.showDeleteForm;
+    },
+    formEditDetails: function formEditDetails(id, name, email, mobile1, mobile2, dob) {
+      this.formEditId = id;
+      this.formEditName = name;
+      this.formEditEmail = email;
+      this.formEditMobile1 = mobile1;
+      this.formEditMobile2 = mobile2;
+      this.formEditDOB = dob;
+    },
+    formDeleteDetails: function formDeleteDetails(id, name, email) {
+      this.formDeleteId = id;
+      this.formDeleteName = name;
+      this.formDeleteEmail = email;
     }
   }
 });
@@ -27776,10 +28166,48 @@ var _hoisted_6 = {
   "class": "text-center px-3"
 };
 var _hoisted_7 = {
-  "class": "text-gray-800 text-sm bold font-sans text-ellipsis w-30 py-1"
+  "class": "text-gray-900 text-sm bold font-sans text-ellipsis w-30 py-1"
 };
 
-var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"text-center px-4 py-1\"><select class=\"form-select form-select-sm appearance-none block w-full px-2 py-1 text-sm font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none\" aria-label=\".form-select-sm example\"><option selected>Reason for the action</option><option value=\"1\">Dmts reason one</option><option value=\"2\">Dmts reason two</option><option value=\"3\">Dmts reason three</option></select></div><div class=\"flex justify-center text-white\"><div class=\"text-center mr-3 border-r pr-3 text-gray-900 py-2\"><button class=\"focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700 transition duration-150 ease-in-out hover:bg-green-600 bg-green-700 rounded text-white px-6 h-7 text-sm\"> Delete </button></div><div class=\"text-center text-gray-900 py-2\"><button class=\"focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700 transition duration-150 ease-in-out hover:bg-green-600 bg-green-700 rounded text-white px-4 h-7 text-sm\"> Deactivate </button></div></div>", 2);
+var _hoisted_8 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"text-center px-3\"><h4 class=\"text-gray-800 text-sm bold font-sans text-ellipsis w-30 py-1\"><div class=\"leading-5 text-gray-900\"> Manages <a class=\"px-1 text-white hover:underline\" href=\"#\">78 <span class=\"text-gray-900\">Doc</span></a><a class=\"text-white hover:underline\" href=\"#\">308 <span class=\"text-gray-900\">Pat</span></a></div></h4><div class=\"text-sm leading-5 text-gray-900\"><span class=\"text-gray-900\">At</span> Mwimbili <span>Hospital</span></div></div>", 1);
+
+var _hoisted_9 = {
+  "class": "flex text-center px-4 py-2"
+};
+
+var _hoisted_10 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<select class=\"form-select form-select-sm appearance-none block w-full px-2 py-1 text-sm font-normal text-gray-700 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none\" aria-label=\".form-select-sm example\"><option selected>Reason for the action</option><option value=\"1\">Dmts reason one</option><option value=\"2\">Dmts reason two</option><option value=\"3\">Dmts reason three</option></select>", 1);
+
+var _hoisted_11 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("svg", {
+  xmlns: "http://www.w3.org/2000/svg",
+  "class": "icon icon-tabler icon-tabler-x",
+  width: "20",
+  height: "20",
+  viewBox: "0 0 24 24",
+  "stroke-width": "2.5",
+  stroke: "currentColor",
+  fill: "none",
+  "stroke-linecap": "round",
+  "stroke-linejoin": "round"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("path", {
+  stroke: "none",
+  d: "M0 0h24v24H0z"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("line", {
+  x1: "18",
+  y1: "6",
+  x2: "6",
+  y2: "18"
+}), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("line", {
+  x1: "6",
+  y1: "6",
+  x2: "18",
+  y2: "18"
+})], -1
+/* HOISTED */
+);
+
+var _hoisted_12 = [_hoisted_11];
+
+var _hoisted_13 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div class=\"flex justify-center text-white\"><div class=\"text-center mr-3 border-r pr-3 text-gray-900 py-2\"><button class=\"focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700 transition duration-150 ease-in-out hover:bg-green-600 bg-green-700 rounded text-white px-6 h-7 text-sm\"> Delete </button></div><div class=\"text-center text-gray-900 py-2\"><button class=\"focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-700 transition duration-150 ease-in-out hover:bg-green-600 bg-green-700 rounded text-white px-4 h-7 text-sm\"> Deactivate </button></div></div>", 1);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("img", {
@@ -27796,7 +28224,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   /* PROPS */
   , _hoisted_5)]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("h4", _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.toDisplayString)($props.name), 1
   /* TEXT */
-  )]), _hoisted_8])]);
+  )]), _hoisted_8, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+    "class": "cursor-pointer ml-1 text-gray-700 hover:text-gray-600 transition duration-150 ease-in-out rounded focus:ring-2 focus:outline-none focus:ring-gray-600",
+    onClick: _cache[0] || (_cache[0] = function () {
+      return $options.toggleDeleteForm && $options.toggleDeleteForm.apply($options, arguments);
+    })
+  }, _hoisted_12)]), _hoisted_13])]);
 }
 
 /***/ }),
@@ -27930,9 +28363,15 @@ var _hoisted_1 = {
   "class": "grid grid-cols-4 gap-1"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _component_hospital_admin = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("hospital-admin");
+  var _component_hospital_admins = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("hospital-admins");
 
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Hospital administrators "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_hospital_admin), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Doctors "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_hospital_admin), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Patients "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_hospital_admin), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Hospitals "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_hospital_admin)]);
+  var _component_doctors = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("doctors");
+
+  var _component_patients = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("patients");
+
+  var _component_hospitals = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("hospitals");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Hospital administrators "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_hospital_admins), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Doctors "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_doctors), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Patients "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_patients), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Hospitals "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_hospitals)]);
 }
 
 /***/ }),
@@ -28065,183 +28504,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   ), _hoisted_15])])])])])], 2112
   /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
   );
-}
-
-/***/ }),
-
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=template&id=060af77e&scoped=true":
-/*!****************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=template&id=060af77e&scoped=true ***!
-  \****************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* binding */ render)
-/* harmony export */ });
-/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-
-
-var _withScopeId = function _withScopeId(n) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-060af77e"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
-};
-
-var _hoisted_1 = {
-  "class": "relative bg-blueGray-50"
-};
-var _hoisted_2 = {
-  "class": "w-full h-screen flex justify-center items-center"
-};
-var _hoisted_3 = {
-  "class": "relative z-0"
-};
-var _hoisted_4 = {
-  "class": "container mx-auto py-1 flex justify-center h-screen"
-};
-var _hoisted_5 = {
-  "class": "pl-4 h-full flex flex-col"
-};
-var _hoisted_6 = {
-  "class": "text-sm text-gray-500 font-bold px-5 py-2 shadow border-b border-gray-300"
-};
-var _hoisted_7 = {
-  "class": "grid grid-cols-1 divide-y-2"
-};
-var _hoisted_8 = {
-  "class": "flex justify-between pb-2"
-};
-
-var _hoisted_9 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, " Hospital Administrators", -1
-  /* HOISTED */
-  );
-});
-
-var _hoisted_10 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-    "class": "fas fa-sort pt-1 hover:cursor-pointer"
-  }, null, -1
-  /* HOISTED */
-  );
-});
-
-var _hoisted_11 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-    "class": "fas fa-expand pt-1 hover:cursor-pointer"
-  }, null, -1
-  /* HOISTED */
-  );
-});
-
-var _hoisted_12 = {
-  "class": "flex justify-between py-2"
-};
-var _hoisted_13 = {
-  "class": "relative flex w-full flex-wrap items-stretch"
-};
-
-var _hoisted_14 = /*#__PURE__*/_withScopeId(function () {
-  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
-    "class": "z-10 h-full leading-snug font-normal absolute text-center text-slate-300 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-1"
-  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-    "class": "fas fa-search"
-  })], -1
-  /* HOISTED */
-  );
-});
-
-var _hoisted_15 = {
-  "class": "w-full h-full overflow-auto shadow",
-  id: "journal-scroll"
-};
-var _hoisted_16 = {
-  key: 0,
-  "class": "m-20 text-sm text-gray-500"
-};
-var _hoisted_17 = {
-  "class": "w-full"
-};
-var _hoisted_18 = {
-  "class": ""
-};
-var _hoisted_19 = {
-  key: 0,
-  "class": "absolute inset-0 z-10 h-70 px-4 pt-12"
-};
-var _hoisted_20 = {
-  key: 1,
-  "class": "absolute inset-0 z-10 h-70 px-4 pt-12"
-};
-var _hoisted_21 = {
-  key: 2,
-  "class": "absolute inset-0 z-10 h-70 px-8 pt-12"
-};
-function render(_ctx, _cache, $props, $setup, $data, $options) {
-  var _component_profile_card = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("profile-card");
-
-  var _component_add_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("add-form");
-
-  var _component_edit_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("edit-form");
-
-  var _component_delete_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("delete-form");
-
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
-    "class": "fas fa-add pt-1 hover:cursor-pointer hover:text-green-700",
-    onClick: _cache[0] || (_cache[0] = function () {
-      return $options.toggleAddForm && $options.toggleAddForm.apply($options, arguments);
-    })
-  }), _hoisted_10, _hoisted_11]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
-    type: "text",
-    placeholder: "Placeholder",
-    "class": "px-2 py-1 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm outline-0 outline-gray-600 focus:ring-0 border border-slate-300 w-full pl-10",
-    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
-      return $data.keyword = $event;
-    })
-  }, null, 512
-  /* NEED_PATCH */
-  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.keyword]])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [$data.emptyResult == true ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_16, " Nothing found ! ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_18, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.dummyData, function (hospitaAdmin) {
-    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_profile_card, {
-      key: hospitaAdmin.id,
-      id: hospitaAdmin.id,
-      name: hospitaAdmin.name,
-      email: hospitaAdmin.email
-    }, null, 8
-    /* PROPS */
-    , ["id", "name", "email"]);
-  }), 128
-  /* KEYED_FRAGMENT */
-  ))])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.TransitionGroup, {
-    name: "add-form"
-  }, {
-    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
-      return [$data.showAddForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_add_form, {
-        onToggleFormAdd: $options.toggleAddForm
-      }, null, 8
-      /* PROPS */
-      , ["onToggleFormAdd"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showEditForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_edit_form, {
-        id: $data.formEditId,
-        name: $data.formEditName,
-        email: $data.formEditEmail,
-        mobile1: $data.formEditMobile1,
-        mobile2: $data.formEditMobile2,
-        dob: $data.formEditDOB,
-        onToggleFormEdit: $options.toggleEditForm
-      }, null, 8
-      /* PROPS */
-      , ["id", "name", "email", "mobile1", "mobile2", "dob", "onToggleFormEdit"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showDeleteForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_delete_form, {
-        id: $data.formDeleteId,
-        name: $data.formDeleteName,
-        email: $data.formDeleteEmail,
-        onToggleFormEdit: $options.toggleEditForm
-      }, null, 8
-      /* PROPS */
-      , ["id", "name", "email", "onToggleFormEdit"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
-    }),
-    _: 1
-    /* STABLE */
-
-  })])])]);
 }
 
 /***/ }),
@@ -28529,6 +28791,726 @@ function render(_ctx, _cache) {
   })])], 2112
   /* STABLE_FRAGMENT, DEV_ROOT_FRAGMENT */
   );
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Doctors.vue?vue&type=template&id=89607e88&scoped=true":
+/*!******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Doctors.vue?vue&type=template&id=89607e88&scoped=true ***!
+  \******************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+var _withScopeId = function _withScopeId(n) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-89607e88"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
+};
+
+var _hoisted_1 = {
+  "class": "relative bg-blueGray-50"
+};
+var _hoisted_2 = {
+  "class": "w-full h-screen flex justify-center items-center"
+};
+var _hoisted_3 = {
+  "class": "relative z-0"
+};
+var _hoisted_4 = {
+  "class": "container mx-auto py-1 flex justify-center h-screen"
+};
+var _hoisted_5 = {
+  "class": "pl-4 h-full flex flex-col"
+};
+var _hoisted_6 = {
+  "class": "text-sm text-gray-500 font-bold px-5 py-2 shadow border-b border-gray-300"
+};
+var _hoisted_7 = {
+  "class": "grid grid-cols-1 divide-y-2"
+};
+var _hoisted_8 = {
+  "class": "flex justify-between pb-2"
+};
+
+var _hoisted_9 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, " Hospital Doctors ", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_10 = {
+  "class": "flex justify-end"
+};
+
+var _hoisted_11 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    "class": "fas fa-sort pt-1 px-4 hover:cursor-pointer"
+  }, null, -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_12 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    "class": "fas fa-expand pt-1 hover:cursor-pointer"
+  }, null, -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_13 = {
+  "class": "flex justify-between py-2"
+};
+var _hoisted_14 = {
+  "class": "relative flex w-full flex-wrap items-stretch"
+};
+
+var _hoisted_15 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+    "class": "z-10 h-full leading-snug font-normal absolute text-center text-slate-300 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-1"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    "class": "fas fa-search"
+  })], -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_16 = {
+  "class": "w-full h-full overflow-auto shadow",
+  id: "journal-scroll"
+};
+var _hoisted_17 = {
+  key: 0,
+  "class": "m-20 text-sm text-gray-500"
+};
+var _hoisted_18 = {
+  "class": "w-full"
+};
+var _hoisted_19 = {
+  "class": ""
+};
+var _hoisted_20 = {
+  key: 0,
+  "class": "absolute inset-0 z-10 h-70 px-4 pt-12"
+};
+var _hoisted_21 = {
+  key: 1,
+  "class": "absolute inset-0 z-10 h-70 px-4 pt-12"
+};
+var _hoisted_22 = {
+  key: 2,
+  "class": "absolute inset-0 z-10 h-70 px-8 pt-12"
+};
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_profile_card = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("profile-card");
+
+  var _component_add_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("add-form");
+
+  var _component_edit_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("edit-form");
+
+  var _component_delete_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("delete-form");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    "class": "fas fa-add pt-1 hover:cursor-pointer hover:text-green-700",
+    onClick: _cache[0] || (_cache[0] = function () {
+      return $options.toggleAddForm && $options.toggleAddForm.apply($options, arguments);
+    })
+  }), _hoisted_11, _hoisted_12])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    placeholder: "Placeholder",
+    "class": "px-2 py-1 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm outline-0 outline-gray-600 focus:ring-0 border border-slate-300 w-full pl-10",
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $data.keyword = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.keyword]])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [$data.emptyResult == true ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_17, " Nothing found ! ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_19, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.dummyData, function (hospitaAdmin) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_profile_card, {
+      key: hospitaAdmin.id,
+      id: hospitaAdmin.id,
+      name: hospitaAdmin.name,
+      email: hospitaAdmin.email
+    }, null, 8
+    /* PROPS */
+    , ["id", "name", "email"]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.TransitionGroup, {
+    name: "add-form"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [$data.showAddForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_add_form, {
+        onToggleFormAdd: $options.toggleAddForm
+      }, null, 8
+      /* PROPS */
+      , ["onToggleFormAdd"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showEditForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_edit_form, {
+        id: $data.formEditId,
+        name: $data.formEditName,
+        email: $data.formEditEmail,
+        mobile1: $data.formEditMobile1,
+        mobile2: $data.formEditMobile2,
+        dob: $data.formEditDOB,
+        onToggleFormEdit: $options.toggleEditForm
+      }, null, 8
+      /* PROPS */
+      , ["id", "name", "email", "mobile1", "mobile2", "dob", "onToggleFormEdit"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showDeleteForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_delete_form, {
+        id: $data.formDeleteId,
+        name: $data.formDeleteName,
+        email: $data.formDeleteEmail,
+        onToggleFormEdit: $options.toggleEditForm
+      }, null, 8
+      /* PROPS */
+      , ["id", "name", "email", "onToggleFormEdit"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
+    }),
+    _: 1
+    /* STABLE */
+
+  })])])]);
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/HospitalAdmins.vue?vue&type=template&id=0b5e2e86&scoped=true":
+/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/HospitalAdmins.vue?vue&type=template&id=0b5e2e86&scoped=true ***!
+  \*************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+var _withScopeId = function _withScopeId(n) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-0b5e2e86"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
+};
+
+var _hoisted_1 = {
+  "class": "relative bg-blueGray-50"
+};
+var _hoisted_2 = {
+  "class": "w-full h-screen flex justify-center items-center"
+};
+var _hoisted_3 = {
+  "class": "relative z-0"
+};
+var _hoisted_4 = {
+  "class": "container mx-auto py-1 flex justify-center h-screen"
+};
+var _hoisted_5 = {
+  "class": "pl-4 h-full flex flex-col"
+};
+var _hoisted_6 = {
+  "class": "text-sm text-gray-500 font-bold px-5 py-2 shadow border-b border-gray-300"
+};
+var _hoisted_7 = {
+  "class": "grid grid-cols-1 divide-y-2"
+};
+var _hoisted_8 = {
+  "class": "flex justify-between pb-2"
+};
+
+var _hoisted_9 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, " Hospital Administrators", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_10 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    "class": "fas fa-sort pt-1 hover:cursor-pointer"
+  }, null, -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_11 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    "class": "fas fa-expand pt-1 hover:cursor-pointer"
+  }, null, -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_12 = {
+  "class": "flex justify-between py-2"
+};
+var _hoisted_13 = {
+  "class": "relative flex w-full flex-wrap items-stretch"
+};
+
+var _hoisted_14 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+    "class": "z-10 h-full leading-snug font-normal absolute text-center text-slate-300 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-1"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    "class": "fas fa-search"
+  })], -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_15 = {
+  "class": "w-full h-full overflow-auto shadow",
+  id: "journal-scroll"
+};
+var _hoisted_16 = {
+  key: 0,
+  "class": "m-20 text-sm text-gray-500"
+};
+var _hoisted_17 = {
+  "class": "w-full"
+};
+var _hoisted_18 = {
+  "class": ""
+};
+var _hoisted_19 = {
+  key: 0,
+  "class": "absolute inset-0 z-10 h-70 px-4 pt-12"
+};
+var _hoisted_20 = {
+  key: 1,
+  "class": "absolute inset-0 z-10 h-70 px-4 pt-12"
+};
+var _hoisted_21 = {
+  key: 2,
+  "class": "absolute inset-0 z-10 h-70 px-8 pt-12"
+};
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_profile_card = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("profile-card");
+
+  var _component_add_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("add-form");
+
+  var _component_edit_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("edit-form");
+
+  var _component_delete_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("delete-form");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    "class": "fas fa-add pt-1 hover:cursor-pointer hover:text-green-700",
+    onClick: _cache[0] || (_cache[0] = function () {
+      return $options.toggleAddForm && $options.toggleAddForm.apply($options, arguments);
+    })
+  }), _hoisted_10, _hoisted_11]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    placeholder: "Placeholder",
+    "class": "px-2 py-1 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm outline-0 outline-gray-600 focus:ring-0 border border-slate-300 w-full pl-10",
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $data.keyword = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.keyword]])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [$data.emptyResult == true ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_16, " Nothing found ! ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_17, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_18, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.dummyData, function (hospitaAdmin) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_profile_card, {
+      key: hospitaAdmin.id,
+      id: hospitaAdmin.id,
+      name: hospitaAdmin.name,
+      email: hospitaAdmin.email
+    }, null, 8
+    /* PROPS */
+    , ["id", "name", "email"]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.TransitionGroup, {
+    name: "add-form"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [$data.showAddForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_19, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_add_form, {
+        onToggleFormAdd: $options.toggleAddForm
+      }, null, 8
+      /* PROPS */
+      , ["onToggleFormAdd"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showEditForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_edit_form, {
+        id: $data.formEditId,
+        name: $data.formEditName,
+        email: $data.formEditEmail,
+        mobile1: $data.formEditMobile1,
+        mobile2: $data.formEditMobile2,
+        dob: $data.formEditDOB,
+        onToggleFormEdit: $options.toggleEditForm
+      }, null, 8
+      /* PROPS */
+      , ["id", "name", "email", "mobile1", "mobile2", "dob", "onToggleFormEdit"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showDeleteForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_delete_form, {
+        id: $data.formDeleteId,
+        name: $data.formDeleteName,
+        email: $data.formDeleteEmail,
+        onToggleFormEdit: $options.toggleEditForm
+      }, null, 8
+      /* PROPS */
+      , ["id", "name", "email", "onToggleFormEdit"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
+    }),
+    _: 1
+    /* STABLE */
+
+  })])])]);
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Hospitals.vue?vue&type=template&id=650dd081&scoped=true":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Hospitals.vue?vue&type=template&id=650dd081&scoped=true ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+var _withScopeId = function _withScopeId(n) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-650dd081"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
+};
+
+var _hoisted_1 = {
+  "class": "relative bg-blueGray-50"
+};
+var _hoisted_2 = {
+  "class": "w-full h-screen flex justify-center items-center"
+};
+var _hoisted_3 = {
+  "class": "relative z-0"
+};
+var _hoisted_4 = {
+  "class": "container mx-auto py-1 flex justify-center h-screen"
+};
+var _hoisted_5 = {
+  "class": "pl-4 h-full flex flex-col"
+};
+var _hoisted_6 = {
+  "class": "text-sm text-gray-500 font-bold px-5 py-2 shadow border-b border-gray-300"
+};
+var _hoisted_7 = {
+  "class": "grid grid-cols-1 divide-y-2"
+};
+var _hoisted_8 = {
+  "class": "flex justify-between pb-2"
+};
+
+var _hoisted_9 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, " Hospitals Details ", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_10 = {
+  "class": "flex justify-end"
+};
+
+var _hoisted_11 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    "class": "fas fa-sort pt-1 px-4 hover:cursor-pointer"
+  }, null, -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_12 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    "class": "fas fa-expand pt-1 hover:cursor-pointer"
+  }, null, -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_13 = {
+  "class": "flex justify-between py-2"
+};
+var _hoisted_14 = {
+  "class": "relative flex w-full flex-wrap items-stretch"
+};
+
+var _hoisted_15 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+    "class": "z-10 h-full leading-snug font-normal absolute text-center text-slate-300 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-1"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    "class": "fas fa-search"
+  })], -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_16 = {
+  "class": "w-full h-full overflow-auto shadow",
+  id: "journal-scroll"
+};
+var _hoisted_17 = {
+  key: 0,
+  "class": "m-20 text-sm text-gray-500"
+};
+var _hoisted_18 = {
+  "class": "w-full"
+};
+var _hoisted_19 = {
+  "class": ""
+};
+var _hoisted_20 = {
+  key: 0,
+  "class": "absolute inset-0 z-10 h-70 px-4 pt-12"
+};
+var _hoisted_21 = {
+  key: 1,
+  "class": "absolute inset-0 z-10 h-70 px-4 pt-12"
+};
+var _hoisted_22 = {
+  key: 2,
+  "class": "absolute inset-0 z-10 h-70 px-8 pt-12"
+};
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_profile_card = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("profile-card");
+
+  var _component_add_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("add-form");
+
+  var _component_edit_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("edit-form");
+
+  var _component_delete_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("delete-form");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    "class": "fas fa-add pt-1 hover:cursor-pointer hover:text-green-700",
+    onClick: _cache[0] || (_cache[0] = function () {
+      return $options.toggleAddForm && $options.toggleAddForm.apply($options, arguments);
+    })
+  }), _hoisted_11, _hoisted_12])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    placeholder: "Placeholder",
+    "class": "px-2 py-1 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm outline-0 outline-gray-600 focus:ring-0 border border-slate-300 w-full pl-10",
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $data.keyword = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.keyword]])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [$data.emptyResult == true ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_17, " Nothing found ! ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_19, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.dummyData, function (hospitaAdmin) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_profile_card, {
+      key: hospitaAdmin.id,
+      id: hospitaAdmin.id,
+      name: hospitaAdmin.name,
+      email: hospitaAdmin.email
+    }, null, 8
+    /* PROPS */
+    , ["id", "name", "email"]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.TransitionGroup, {
+    name: "add-form"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [$data.showAddForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_add_form, {
+        onToggleFormAdd: $options.toggleAddForm
+      }, null, 8
+      /* PROPS */
+      , ["onToggleFormAdd"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showEditForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_edit_form, {
+        id: $data.formEditId,
+        name: $data.formEditName,
+        email: $data.formEditEmail,
+        mobile1: $data.formEditMobile1,
+        mobile2: $data.formEditMobile2,
+        dob: $data.formEditDOB,
+        onToggleFormEdit: $options.toggleEditForm
+      }, null, 8
+      /* PROPS */
+      , ["id", "name", "email", "mobile1", "mobile2", "dob", "onToggleFormEdit"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showDeleteForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_delete_form, {
+        id: $data.formDeleteId,
+        name: $data.formDeleteName,
+        email: $data.formDeleteEmail,
+        onToggleFormEdit: $options.toggleEditForm
+      }, null, 8
+      /* PROPS */
+      , ["id", "name", "email", "onToggleFormEdit"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
+    }),
+    _: 1
+    /* STABLE */
+
+  })])])]);
+}
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Patients.vue?vue&type=template&id=39344a94&scoped=true":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Patients.vue?vue&type=template&id=39344a94&scoped=true ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* binding */ render)
+/* harmony export */ });
+/* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
+
+
+var _withScopeId = function _withScopeId(n) {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.pushScopeId)("data-v-39344a94"), n = n(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.popScopeId)(), n;
+};
+
+var _hoisted_1 = {
+  "class": "relative bg-blueGray-50"
+};
+var _hoisted_2 = {
+  "class": "w-full h-screen flex justify-center items-center"
+};
+var _hoisted_3 = {
+  "class": "relative z-0"
+};
+var _hoisted_4 = {
+  "class": "container mx-auto py-1 flex justify-center h-screen"
+};
+var _hoisted_5 = {
+  "class": "pl-4 h-full flex flex-col"
+};
+var _hoisted_6 = {
+  "class": "text-sm text-gray-500 font-bold px-5 py-2 shadow border-b border-gray-300"
+};
+var _hoisted_7 = {
+  "class": "grid grid-cols-1 divide-y-2"
+};
+var _hoisted_8 = {
+  "class": "flex justify-between pb-2"
+};
+
+var _hoisted_9 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", null, " Hospital Patients ", -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_10 = {
+  "class": "flex justify-end"
+};
+
+var _hoisted_11 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    "class": "fas fa-sort pt-1 px-4 hover:cursor-pointer"
+  }, null, -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_12 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    "class": "fas fa-expand pt-1 hover:cursor-pointer"
+  }, null, -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_13 = {
+  "class": "flex justify-between py-2"
+};
+var _hoisted_14 = {
+  "class": "relative flex w-full flex-wrap items-stretch"
+};
+
+var _hoisted_15 = /*#__PURE__*/_withScopeId(function () {
+  return /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("span", {
+    "class": "z-10 h-full leading-snug font-normal absolute text-center text-slate-300 absolute bg-transparent rounded text-base items-center justify-center w-8 pl-3 py-1"
+  }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    "class": "fas fa-search"
+  })], -1
+  /* HOISTED */
+  );
+});
+
+var _hoisted_16 = {
+  "class": "w-full h-full overflow-auto shadow",
+  id: "journal-scroll"
+};
+var _hoisted_17 = {
+  key: 0,
+  "class": "m-20 text-sm text-gray-500"
+};
+var _hoisted_18 = {
+  "class": "w-full"
+};
+var _hoisted_19 = {
+  "class": ""
+};
+var _hoisted_20 = {
+  key: 0,
+  "class": "absolute inset-0 z-10 h-70 px-4 pt-12"
+};
+var _hoisted_21 = {
+  key: 1,
+  "class": "absolute inset-0 z-10 h-70 px-4 pt-12"
+};
+var _hoisted_22 = {
+  key: 2,
+  "class": "absolute inset-0 z-10 h-70 px-8 pt-12"
+};
+function render(_ctx, _cache, $props, $setup, $data, $options) {
+  var _component_profile_card = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("profile-card");
+
+  var _component_add_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("add-form");
+
+  var _component_edit_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("edit-form");
+
+  var _component_delete_form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("delete-form");
+
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("section", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_7, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [_hoisted_9, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("i", {
+    "class": "fas fa-add pt-1 hover:cursor-pointer hover:text-green-700",
+    onClick: _cache[0] || (_cache[0] = function () {
+      return $options.toggleAddForm && $options.toggleAddForm.apply($options, arguments);
+    })
+  }), _hoisted_11, _hoisted_12])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
+    type: "text",
+    placeholder: "Placeholder",
+    "class": "px-2 py-1 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm outline-0 outline-gray-600 focus:ring-0 border border-slate-300 w-full pl-10",
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
+      return $data.keyword = $event;
+    })
+  }, null, 512
+  /* NEED_PATCH */
+  ), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $data.keyword]])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_16, [$data.emptyResult == true ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_17, " Nothing found ! ")) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("table", _hoisted_18, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("tbody", _hoisted_19, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($data.dummyData, function (hospitaAdmin) {
+    return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_profile_card, {
+      key: hospitaAdmin.id,
+      id: hospitaAdmin.id,
+      name: hospitaAdmin.name,
+      email: hospitaAdmin.email
+    }, null, 8
+    /* PROPS */
+    , ["id", "name", "email"]);
+  }), 128
+  /* KEYED_FRAGMENT */
+  ))])])])])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(vue__WEBPACK_IMPORTED_MODULE_0__.TransitionGroup, {
+    name: "add-form"
+  }, {
+    "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
+      return [$data.showAddForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_20, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_add_form, {
+        onToggleFormAdd: $options.toggleAddForm
+      }, null, 8
+      /* PROPS */
+      , ["onToggleFormAdd"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showEditForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_21, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_edit_form, {
+        id: $data.formEditId,
+        name: $data.formEditName,
+        email: $data.formEditEmail,
+        mobile1: $data.formEditMobile1,
+        mobile2: $data.formEditMobile2,
+        dob: $data.formEditDOB,
+        onToggleFormEdit: $options.toggleEditForm
+      }, null, 8
+      /* PROPS */
+      , ["id", "name", "email", "mobile1", "mobile2", "dob", "onToggleFormEdit"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.showDeleteForm ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_22, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_delete_form, {
+        id: $data.formDeleteId,
+        name: $data.formDeleteName,
+        email: $data.formDeleteEmail,
+        onToggleFormEdit: $options.toggleEditForm
+      }, null, 8
+      /* PROPS */
+      , ["id", "name", "email", "onToggleFormEdit"])])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true)];
+    }),
+    _: 1
+    /* STABLE */
+
+  })])])]);
 }
 
 /***/ }),
@@ -31060,30 +32042,6 @@ ___CSS_LOADER_EXPORT___.push([module.id, "\n/* <link href=\"https://fonts.google
 
 /***/ }),
 
-/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=style&index=0&id=060af77e&scoped=true&lang=css":
-/*!*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=style&index=0&id=060af77e&scoped=true&lang=css ***!
-  \*************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
-/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
-// Imports
-
-var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
-// Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n/* animate add form */\n.add-form-enter-from[data-v-060af77e] {\n  opacity: 0;\n  transform: translateY(-50px);\n}\n.add-form-enter-active[data-v-060af77e] {\n  transition: all 0.4s ease-out;\n}\n.add-form-enter-to[data-v-060af77e] {\n  opacity: 1;\n  transform: translateY(0);\n}\n.add-form-leave-from[data-v-060af77e] {\n  opacity: 1;\n  transform: translateY(0);\n}\n.add-form-leave-active[data-v-060af77e] {\n  transition: all 0.4s ease-in;\n}\n.add-form-leave-to[data-v-060af77e] {\n  opacity: 0;\n  transform: translateY(-50px);\n}\n", ""]);
-// Exports
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
-
-
-/***/ }),
-
 /***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Info.vue?vue&type=style&index=0&id=673526f5&scoped=true&lang=css":
 /*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Info.vue?vue&type=style&index=0&id=673526f5&scoped=true&lang=css ***!
@@ -31102,6 +32060,102 @@ __webpack_require__.r(__webpack_exports__);
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
 ___CSS_LOADER_EXPORT___.push([module.id, "\n/* .info-enter-from {\n  opacity: 0;\n  transform: translateX(50px);\n}\n\n.info-enter-active {\n  transition: all 0.5s ease-out;\n}\n\n.info-enter-to {\n  opacity: 1;\n  transform: translateX(0);\n}\n\n.info-leave-from {\n  opacity: 1;\n  transform: translateX(0);\n}\n\n.info-leave-active {\n  transition: all 0.5s ease-in;\n}\n\n.info-leave-to {\n  opacity: 0;\n  transform: translateX(-30px);\n} */\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Doctors.vue?vue&type=style&index=0&id=89607e88&scoped=true&lang=css":
+/*!***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Doctors.vue?vue&type=style&index=0&id=89607e88&scoped=true&lang=css ***!
+  \***************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n/* animate add form */\n.add-form-enter-from[data-v-89607e88] {\n  opacity: 0;\n  transform: translateY(-60px);\n}\n.add-form-enter-active[data-v-89607e88] {\n  transition: all 0.4s ease-out;\n}\n.add-form-enter-to[data-v-89607e88] {\n  opacity: 1;\n  transform: translateY(0);\n}\n.add-form-leave-from[data-v-89607e88] {\n  opacity: 1;\n  transform: translateY(0);\n}\n.add-form-leave-active[data-v-89607e88] {\n  transition: all 0.4s ease-in;\n}\n.add-form-leave-to[data-v-89607e88] {\n  opacity: 0;\n  transform: translateY(-60px);\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/HospitalAdmins.vue?vue&type=style&index=0&id=0b5e2e86&scoped=true&lang=css":
+/*!**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/HospitalAdmins.vue?vue&type=style&index=0&id=0b5e2e86&scoped=true&lang=css ***!
+  \**********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n/* animate add form */\n.add-form-enter-from[data-v-0b5e2e86] {\n  opacity: 0;\n  transform: translateY(-50px);\n}\n.add-form-enter-active[data-v-0b5e2e86] {\n  transition: all 0.4s ease-out;\n}\n.add-form-enter-to[data-v-0b5e2e86] {\n  opacity: 1;\n  transform: translateY(0);\n}\n.add-form-leave-from[data-v-0b5e2e86] {\n  opacity: 1;\n  transform: translateY(0);\n}\n.add-form-leave-active[data-v-0b5e2e86] {\n  transition: all 0.4s ease-in;\n}\n.add-form-leave-to[data-v-0b5e2e86] {\n  opacity: 0;\n  transform: translateY(-50px);\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Hospitals.vue?vue&type=style&index=0&id=650dd081&scoped=true&lang=css":
+/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Hospitals.vue?vue&type=style&index=0&id=650dd081&scoped=true&lang=css ***!
+  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n/* animate add form */\n.add-form-enter-from[data-v-650dd081] {\n  opacity: 0;\n  transform: translateY(-80px);\n}\n.add-form-enter-active[data-v-650dd081] {\n  transition: all 0.4s ease-out;\n}\n.add-form-enter-to[data-v-650dd081] {\n  opacity: 1;\n  transform: translateY(0);\n}\n.add-form-leave-from[data-v-650dd081] {\n  opacity: 1;\n  transform: translateY(0);\n}\n.add-form-leave-active[data-v-650dd081] {\n  transition: all 0.4s ease-in;\n}\n.add-form-leave-to[data-v-650dd081] {\n  opacity: 0;\n  transform: translateY(-80px);\n}\n", ""]);
+// Exports
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Patients.vue?vue&type=style&index=0&id=39344a94&scoped=true&lang=css":
+/*!****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Patients.vue?vue&type=style&index=0&id=39344a94&scoped=true&lang=css ***!
+  \****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../../../node_modules/css-loader/dist/runtime/api.js */ "./node_modules/css-loader/dist/runtime/api.js");
+/* harmony import */ var _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0__);
+// Imports
+
+var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, "\n/* animate add form */\n.add-form-enter-from[data-v-39344a94] {\n  opacity: 0;\n  transform: translateY(-70px);\n}\n.add-form-enter-active[data-v-39344a94] {\n  transition: all 0.4s ease-out;\n}\n.add-form-enter-to[data-v-39344a94] {\n  opacity: 1;\n  transform: translateY(0);\n}\n.add-form-leave-from[data-v-39344a94] {\n  opacity: 1;\n  transform: translateY(0);\n}\n.add-form-leave-active[data-v-39344a94] {\n  transition: all 0.4s ease-in;\n}\n.add-form-leave-to[data-v-39344a94] {\n  opacity: 0;\n  transform: translateY(-70px);\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -55807,36 +56861,6 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 /***/ }),
 
-/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=style&index=0&id=060af77e&scoped=true&lang=css":
-/*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=style&index=0&id=060af77e&scoped=true&lang=css ***!
-  \*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
-/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_HospitalAdmin_vue_vue_type_style_index_0_id_060af77e_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./HospitalAdmin.vue?vue&type=style&index=0&id=060af77e&scoped=true&lang=css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=style&index=0&id=060af77e&scoped=true&lang=css");
-
-            
-
-var options = {};
-
-options.insert = "head";
-options.singleton = false;
-
-var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_HospitalAdmin_vue_vue_type_style_index_0_id_060af77e_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
-
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_HospitalAdmin_vue_vue_type_style_index_0_id_060af77e_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
-
-/***/ }),
-
 /***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Info.vue?vue&type=style&index=0&id=673526f5&scoped=true&lang=css":
 /*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Info.vue?vue&type=style&index=0&id=673526f5&scoped=true&lang=css ***!
@@ -55864,6 +56888,126 @@ var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Info_vue_vue_type_style_index_0_id_673526f5_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Doctors.vue?vue&type=style&index=0&id=89607e88&scoped=true&lang=css":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Doctors.vue?vue&type=style&index=0&id=89607e88&scoped=true&lang=css ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Doctors_vue_vue_type_style_index_0_id_89607e88_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Doctors.vue?vue&type=style&index=0&id=89607e88&scoped=true&lang=css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Doctors.vue?vue&type=style&index=0&id=89607e88&scoped=true&lang=css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Doctors_vue_vue_type_style_index_0_id_89607e88_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Doctors_vue_vue_type_style_index_0_id_89607e88_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/HospitalAdmins.vue?vue&type=style&index=0&id=0b5e2e86&scoped=true&lang=css":
+/*!**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/HospitalAdmins.vue?vue&type=style&index=0&id=0b5e2e86&scoped=true&lang=css ***!
+  \**************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_HospitalAdmins_vue_vue_type_style_index_0_id_0b5e2e86_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./HospitalAdmins.vue?vue&type=style&index=0&id=0b5e2e86&scoped=true&lang=css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/HospitalAdmins.vue?vue&type=style&index=0&id=0b5e2e86&scoped=true&lang=css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_HospitalAdmins_vue_vue_type_style_index_0_id_0b5e2e86_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_HospitalAdmins_vue_vue_type_style_index_0_id_0b5e2e86_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Hospitals.vue?vue&type=style&index=0&id=650dd081&scoped=true&lang=css":
+/*!*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Hospitals.vue?vue&type=style&index=0&id=650dd081&scoped=true&lang=css ***!
+  \*********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Hospitals_vue_vue_type_style_index_0_id_650dd081_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Hospitals.vue?vue&type=style&index=0&id=650dd081&scoped=true&lang=css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Hospitals.vue?vue&type=style&index=0&id=650dd081&scoped=true&lang=css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Hospitals_vue_vue_type_style_index_0_id_650dd081_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Hospitals_vue_vue_type_style_index_0_id_650dd081_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
+
+/***/ }),
+
+/***/ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Patients.vue?vue&type=style&index=0&id=39344a94&scoped=true&lang=css":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Patients.vue?vue&type=style&index=0&id=39344a94&scoped=true&lang=css ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! !../../../../../../node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js */ "./node_modules/style-loader/dist/runtime/injectStylesIntoStyleTag.js");
+/* harmony import */ var _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Patients_vue_vue_type_style_index_0_id_39344a94_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! !!../../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Patients.vue?vue&type=style&index=0&id=39344a94&scoped=true&lang=css */ "./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Patients.vue?vue&type=style&index=0&id=39344a94&scoped=true&lang=css");
+
+            
+
+var options = {};
+
+options.insert = "head";
+options.singleton = false;
+
+var update = _node_modules_style_loader_dist_runtime_injectStylesIntoStyleTag_js__WEBPACK_IMPORTED_MODULE_0___default()(_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Patients_vue_vue_type_style_index_0_id_39344a94_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"], options);
+
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Patients_vue_vue_type_style_index_0_id_39344a94_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_1__["default"].locals || {});
 
 /***/ }),
 
@@ -57836,37 +58980,6 @@ if (false) {}
 
 /***/ }),
 
-/***/ "./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue":
-/*!********************************************************************!*\
-  !*** ./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue ***!
-  \********************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _HospitalAdmin_vue_vue_type_template_id_060af77e_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HospitalAdmin.vue?vue&type=template&id=060af77e&scoped=true */ "./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=template&id=060af77e&scoped=true");
-/* harmony import */ var _HospitalAdmin_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HospitalAdmin.vue?vue&type=script&lang=js */ "./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=script&lang=js");
-/* harmony import */ var _HospitalAdmin_vue_vue_type_style_index_0_id_060af77e_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./HospitalAdmin.vue?vue&type=style&index=0&id=060af77e&scoped=true&lang=css */ "./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=style&index=0&id=060af77e&scoped=true&lang=css");
-/* harmony import */ var _home_felidrick_Projects_dmts_web_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
-
-
-
-
-;
-
-
-const __exports__ = /*#__PURE__*/(0,_home_felidrick_Projects_dmts_web_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_HospitalAdmin_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_HospitalAdmin_vue_vue_type_template_id_060af77e_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-060af77e"],['__file',"resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue"]])
-/* hot reload */
-if (false) {}
-
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
-
-/***/ }),
-
 /***/ "./resources/js/Pages/SuperAdmin/Components/HoverProfile.vue":
 /*!*******************************************************************!*\
   !*** ./resources/js/Pages/SuperAdmin/Components/HoverProfile.vue ***!
@@ -57944,6 +59057,130 @@ const script = {}
 
 ;
 const __exports__ = /*#__PURE__*/(0,_home_felidrick_Projects_dmts_web_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_1__["default"])(script, [['render',_InfoCard_vue_vue_type_template_id_132e87a5__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/SuperAdmin/Components/InfoCard.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/SuperAdmin/Components/Manages/Doctors.vue":
+/*!**********************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/Manages/Doctors.vue ***!
+  \**********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Doctors_vue_vue_type_template_id_89607e88_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Doctors.vue?vue&type=template&id=89607e88&scoped=true */ "./resources/js/Pages/SuperAdmin/Components/Manages/Doctors.vue?vue&type=template&id=89607e88&scoped=true");
+/* harmony import */ var _Doctors_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Doctors.vue?vue&type=script&lang=js */ "./resources/js/Pages/SuperAdmin/Components/Manages/Doctors.vue?vue&type=script&lang=js");
+/* harmony import */ var _Doctors_vue_vue_type_style_index_0_id_89607e88_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Doctors.vue?vue&type=style&index=0&id=89607e88&scoped=true&lang=css */ "./resources/js/Pages/SuperAdmin/Components/Manages/Doctors.vue?vue&type=style&index=0&id=89607e88&scoped=true&lang=css");
+/* harmony import */ var _home_felidrick_Projects_dmts_web_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+
+
+const __exports__ = /*#__PURE__*/(0,_home_felidrick_Projects_dmts_web_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Doctors_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Doctors_vue_vue_type_template_id_89607e88_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-89607e88"],['__file',"resources/js/Pages/SuperAdmin/Components/Manages/Doctors.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/SuperAdmin/Components/Manages/HospitalAdmins.vue":
+/*!*****************************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/Manages/HospitalAdmins.vue ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _HospitalAdmins_vue_vue_type_template_id_0b5e2e86_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./HospitalAdmins.vue?vue&type=template&id=0b5e2e86&scoped=true */ "./resources/js/Pages/SuperAdmin/Components/Manages/HospitalAdmins.vue?vue&type=template&id=0b5e2e86&scoped=true");
+/* harmony import */ var _HospitalAdmins_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./HospitalAdmins.vue?vue&type=script&lang=js */ "./resources/js/Pages/SuperAdmin/Components/Manages/HospitalAdmins.vue?vue&type=script&lang=js");
+/* harmony import */ var _HospitalAdmins_vue_vue_type_style_index_0_id_0b5e2e86_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./HospitalAdmins.vue?vue&type=style&index=0&id=0b5e2e86&scoped=true&lang=css */ "./resources/js/Pages/SuperAdmin/Components/Manages/HospitalAdmins.vue?vue&type=style&index=0&id=0b5e2e86&scoped=true&lang=css");
+/* harmony import */ var _home_felidrick_Projects_dmts_web_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+
+
+const __exports__ = /*#__PURE__*/(0,_home_felidrick_Projects_dmts_web_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_HospitalAdmins_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_HospitalAdmins_vue_vue_type_template_id_0b5e2e86_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-0b5e2e86"],['__file',"resources/js/Pages/SuperAdmin/Components/Manages/HospitalAdmins.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/SuperAdmin/Components/Manages/Hospitals.vue":
+/*!************************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/Manages/Hospitals.vue ***!
+  \************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Hospitals_vue_vue_type_template_id_650dd081_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Hospitals.vue?vue&type=template&id=650dd081&scoped=true */ "./resources/js/Pages/SuperAdmin/Components/Manages/Hospitals.vue?vue&type=template&id=650dd081&scoped=true");
+/* harmony import */ var _Hospitals_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Hospitals.vue?vue&type=script&lang=js */ "./resources/js/Pages/SuperAdmin/Components/Manages/Hospitals.vue?vue&type=script&lang=js");
+/* harmony import */ var _Hospitals_vue_vue_type_style_index_0_id_650dd081_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Hospitals.vue?vue&type=style&index=0&id=650dd081&scoped=true&lang=css */ "./resources/js/Pages/SuperAdmin/Components/Manages/Hospitals.vue?vue&type=style&index=0&id=650dd081&scoped=true&lang=css");
+/* harmony import */ var _home_felidrick_Projects_dmts_web_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+
+
+const __exports__ = /*#__PURE__*/(0,_home_felidrick_Projects_dmts_web_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Hospitals_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Hospitals_vue_vue_type_template_id_650dd081_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-650dd081"],['__file',"resources/js/Pages/SuperAdmin/Components/Manages/Hospitals.vue"]])
+/* hot reload */
+if (false) {}
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (__exports__);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/SuperAdmin/Components/Manages/Patients.vue":
+/*!***********************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/Manages/Patients.vue ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _Patients_vue_vue_type_template_id_39344a94_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Patients.vue?vue&type=template&id=39344a94&scoped=true */ "./resources/js/Pages/SuperAdmin/Components/Manages/Patients.vue?vue&type=template&id=39344a94&scoped=true");
+/* harmony import */ var _Patients_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Patients.vue?vue&type=script&lang=js */ "./resources/js/Pages/SuperAdmin/Components/Manages/Patients.vue?vue&type=script&lang=js");
+/* harmony import */ var _Patients_vue_vue_type_style_index_0_id_39344a94_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./Patients.vue?vue&type=style&index=0&id=39344a94&scoped=true&lang=css */ "./resources/js/Pages/SuperAdmin/Components/Manages/Patients.vue?vue&type=style&index=0&id=39344a94&scoped=true&lang=css");
+/* harmony import */ var _home_felidrick_Projects_dmts_web_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
+
+
+
+
+;
+
+
+const __exports__ = /*#__PURE__*/(0,_home_felidrick_Projects_dmts_web_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_3__["default"])(_Patients_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_Patients_vue_vue_type_template_id_39344a94_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render],['__scopeId',"data-v-39344a94"],['__file',"resources/js/Pages/SuperAdmin/Components/Manages/Patients.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -58888,22 +60125,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=script&lang=js":
-/*!********************************************************************************************!*\
-  !*** ./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=script&lang=js ***!
-  \********************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_HospitalAdmin_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_HospitalAdmin_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./HospitalAdmin.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=script&lang=js");
- 
-
-/***/ }),
-
 /***/ "./resources/js/Pages/SuperAdmin/Components/HoverProfile.vue?vue&type=script&lang=js":
 /*!*******************************************************************************************!*\
   !*** ./resources/js/Pages/SuperAdmin/Components/HoverProfile.vue?vue&type=script&lang=js ***!
@@ -58932,6 +60153,70 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Info_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Info_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Info.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Info.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/SuperAdmin/Components/Manages/Doctors.vue?vue&type=script&lang=js":
+/*!**********************************************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/Manages/Doctors.vue?vue&type=script&lang=js ***!
+  \**********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Doctors_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Doctors_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Doctors.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Doctors.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/SuperAdmin/Components/Manages/HospitalAdmins.vue?vue&type=script&lang=js":
+/*!*****************************************************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/Manages/HospitalAdmins.vue?vue&type=script&lang=js ***!
+  \*****************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_HospitalAdmins_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_HospitalAdmins_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./HospitalAdmins.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/HospitalAdmins.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/SuperAdmin/Components/Manages/Hospitals.vue?vue&type=script&lang=js":
+/*!************************************************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/Manages/Hospitals.vue?vue&type=script&lang=js ***!
+  \************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Hospitals_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Hospitals_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Hospitals.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Hospitals.vue?vue&type=script&lang=js");
+ 
+
+/***/ }),
+
+/***/ "./resources/js/Pages/SuperAdmin/Components/Manages/Patients.vue?vue&type=script&lang=js":
+/*!***********************************************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/Manages/Patients.vue?vue&type=script&lang=js ***!
+  \***********************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Patients_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Patients_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Patients.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Patients.vue?vue&type=script&lang=js");
  
 
 /***/ }),
@@ -59884,22 +61169,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=template&id=060af77e&scoped=true":
-/*!**************************************************************************************************************!*\
-  !*** ./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=template&id=060af77e&scoped=true ***!
-  \**************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_HospitalAdmin_vue_vue_type_template_id_060af77e_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render)
-/* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_HospitalAdmin_vue_vue_type_template_id_060af77e_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./HospitalAdmin.vue?vue&type=template&id=060af77e&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=template&id=060af77e&scoped=true");
-
-
-/***/ }),
-
 /***/ "./resources/js/Pages/SuperAdmin/Components/HoverProfile.vue?vue&type=template&id=685a3894":
 /*!*************************************************************************************************!*\
   !*** ./resources/js/Pages/SuperAdmin/Components/HoverProfile.vue?vue&type=template&id=685a3894 ***!
@@ -59944,6 +61213,70 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_InfoCard_vue_vue_type_template_id_132e87a5__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_InfoCard_vue_vue_type_template_id_132e87a5__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./InfoCard.vue?vue&type=template&id=132e87a5 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/InfoCard.vue?vue&type=template&id=132e87a5");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/SuperAdmin/Components/Manages/Doctors.vue?vue&type=template&id=89607e88&scoped=true":
+/*!****************************************************************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/Manages/Doctors.vue?vue&type=template&id=89607e88&scoped=true ***!
+  \****************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Doctors_vue_vue_type_template_id_89607e88_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Doctors_vue_vue_type_template_id_89607e88_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Doctors.vue?vue&type=template&id=89607e88&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Doctors.vue?vue&type=template&id=89607e88&scoped=true");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/SuperAdmin/Components/Manages/HospitalAdmins.vue?vue&type=template&id=0b5e2e86&scoped=true":
+/*!***********************************************************************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/Manages/HospitalAdmins.vue?vue&type=template&id=0b5e2e86&scoped=true ***!
+  \***********************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_HospitalAdmins_vue_vue_type_template_id_0b5e2e86_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_HospitalAdmins_vue_vue_type_template_id_0b5e2e86_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./HospitalAdmins.vue?vue&type=template&id=0b5e2e86&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/HospitalAdmins.vue?vue&type=template&id=0b5e2e86&scoped=true");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/SuperAdmin/Components/Manages/Hospitals.vue?vue&type=template&id=650dd081&scoped=true":
+/*!******************************************************************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/Manages/Hospitals.vue?vue&type=template&id=650dd081&scoped=true ***!
+  \******************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Hospitals_vue_vue_type_template_id_650dd081_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Hospitals_vue_vue_type_template_id_650dd081_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Hospitals.vue?vue&type=template&id=650dd081&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Hospitals.vue?vue&type=template&id=650dd081&scoped=true");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/SuperAdmin/Components/Manages/Patients.vue?vue&type=template&id=39344a94&scoped=true":
+/*!*****************************************************************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/Manages/Patients.vue?vue&type=template&id=39344a94&scoped=true ***!
+  \*****************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Patients_vue_vue_type_template_id_39344a94_scoped_true__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */ });
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Patients_vue_vue_type_template_id_39344a94_scoped_true__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Patients.vue?vue&type=template&id=39344a94&scoped=true */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Patients.vue?vue&type=template&id=39344a94&scoped=true");
 
 
 /***/ }),
@@ -60057,19 +61390,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=style&index=0&id=060af77e&scoped=true&lang=css":
-/*!****************************************************************************************************************************!*\
-  !*** ./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=style&index=0&id=060af77e&scoped=true&lang=css ***!
-  \****************************************************************************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_HospitalAdmin_vue_vue_type_style_index_0_id_060af77e_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader/dist/cjs.js!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./HospitalAdmin.vue?vue&type=style&index=0&id=060af77e&scoped=true&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue?vue&type=style&index=0&id=060af77e&scoped=true&lang=css");
-
-
-/***/ }),
-
 /***/ "./resources/js/Pages/SuperAdmin/Components/Info.vue?vue&type=style&index=0&id=673526f5&scoped=true&lang=css":
 /*!*******************************************************************************************************************!*\
   !*** ./resources/js/Pages/SuperAdmin/Components/Info.vue?vue&type=style&index=0&id=673526f5&scoped=true&lang=css ***!
@@ -60079,6 +61399,58 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Info_vue_vue_type_style_index_0_id_673526f5_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/style-loader/dist/cjs.js!../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Info.vue?vue&type=style&index=0&id=673526f5&scoped=true&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Info.vue?vue&type=style&index=0&id=673526f5&scoped=true&lang=css");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/SuperAdmin/Components/Manages/Doctors.vue?vue&type=style&index=0&id=89607e88&scoped=true&lang=css":
+/*!******************************************************************************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/Manages/Doctors.vue?vue&type=style&index=0&id=89607e88&scoped=true&lang=css ***!
+  \******************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Doctors_vue_vue_type_style_index_0_id_89607e88_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/style-loader/dist/cjs.js!../../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Doctors.vue?vue&type=style&index=0&id=89607e88&scoped=true&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Doctors.vue?vue&type=style&index=0&id=89607e88&scoped=true&lang=css");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/SuperAdmin/Components/Manages/HospitalAdmins.vue?vue&type=style&index=0&id=0b5e2e86&scoped=true&lang=css":
+/*!*************************************************************************************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/Manages/HospitalAdmins.vue?vue&type=style&index=0&id=0b5e2e86&scoped=true&lang=css ***!
+  \*************************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_HospitalAdmins_vue_vue_type_style_index_0_id_0b5e2e86_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/style-loader/dist/cjs.js!../../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./HospitalAdmins.vue?vue&type=style&index=0&id=0b5e2e86&scoped=true&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/HospitalAdmins.vue?vue&type=style&index=0&id=0b5e2e86&scoped=true&lang=css");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/SuperAdmin/Components/Manages/Hospitals.vue?vue&type=style&index=0&id=650dd081&scoped=true&lang=css":
+/*!********************************************************************************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/Manages/Hospitals.vue?vue&type=style&index=0&id=650dd081&scoped=true&lang=css ***!
+  \********************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Hospitals_vue_vue_type_style_index_0_id_650dd081_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/style-loader/dist/cjs.js!../../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Hospitals.vue?vue&type=style&index=0&id=650dd081&scoped=true&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Hospitals.vue?vue&type=style&index=0&id=650dd081&scoped=true&lang=css");
+
+
+/***/ }),
+
+/***/ "./resources/js/Pages/SuperAdmin/Components/Manages/Patients.vue?vue&type=style&index=0&id=39344a94&scoped=true&lang=css":
+/*!*******************************************************************************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/Manages/Patients.vue?vue&type=style&index=0&id=39344a94&scoped=true&lang=css ***!
+  \*******************************************************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_dist_cjs_js_node_modules_css_loader_dist_cjs_js_clonedRuleSet_9_use_1_node_modules_vue_loader_dist_stylePostLoader_js_node_modules_postcss_loader_dist_cjs_js_clonedRuleSet_9_use_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_Patients_vue_vue_type_style_index_0_id_39344a94_scoped_true_lang_css__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/style-loader/dist/cjs.js!../../../../../../node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!../../../../../../node_modules/vue-loader/dist/stylePostLoader.js!../../../../../../node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./Patients.vue?vue&type=style&index=0&id=39344a94&scoped=true&lang=css */ "./node_modules/style-loader/dist/cjs.js!./node_modules/css-loader/dist/cjs.js??clonedRuleSet-9.use[1]!./node_modules/vue-loader/dist/stylePostLoader.js!./node_modules/postcss-loader/dist/cjs.js??clonedRuleSet-9.use[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Manages/Patients.vue?vue&type=style&index=0&id=39344a94&scoped=true&lang=css");
 
 
 /***/ }),
@@ -60388,10 +61760,13 @@ var map = {
 	"./SuperAdmin/Components/Forms/EditForm.vue": "./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue",
 	"./SuperAdmin/Components/GeneralManagement.vue": "./resources/js/Pages/SuperAdmin/Components/GeneralManagement.vue",
 	"./SuperAdmin/Components/Graphs/BarGraph.vue": "./resources/js/Pages/SuperAdmin/Components/Graphs/BarGraph.vue",
-	"./SuperAdmin/Components/HospitalAdmin.vue": "./resources/js/Pages/SuperAdmin/Components/HospitalAdmin.vue",
 	"./SuperAdmin/Components/HoverProfile.vue": "./resources/js/Pages/SuperAdmin/Components/HoverProfile.vue",
 	"./SuperAdmin/Components/Info.vue": "./resources/js/Pages/SuperAdmin/Components/Info.vue",
 	"./SuperAdmin/Components/InfoCard.vue": "./resources/js/Pages/SuperAdmin/Components/InfoCard.vue",
+	"./SuperAdmin/Components/Manages/Doctors.vue": "./resources/js/Pages/SuperAdmin/Components/Manages/Doctors.vue",
+	"./SuperAdmin/Components/Manages/HospitalAdmins.vue": "./resources/js/Pages/SuperAdmin/Components/Manages/HospitalAdmins.vue",
+	"./SuperAdmin/Components/Manages/Hospitals.vue": "./resources/js/Pages/SuperAdmin/Components/Manages/Hospitals.vue",
+	"./SuperAdmin/Components/Manages/Patients.vue": "./resources/js/Pages/SuperAdmin/Components/Manages/Patients.vue",
 	"./SuperAdmin/Components/Profile.vue": "./resources/js/Pages/SuperAdmin/Components/Profile.vue",
 	"./SuperAdmin/Components/ProfileCard.vue": "./resources/js/Pages/SuperAdmin/Components/ProfileCard.vue",
 	"./SuperAdmin/Components/TableData.vue": "./resources/js/Pages/SuperAdmin/Components/TableData.vue",
