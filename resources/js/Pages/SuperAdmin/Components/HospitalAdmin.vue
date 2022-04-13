@@ -171,6 +171,8 @@ export default {
       showEditForm: false,
       showDeleteForm: true,
 
+      // provided data for for edit
+
       formEditId: null,
       formEditName: "",
       formEditEmail: "",
@@ -178,6 +180,8 @@ export default {
       formEditMobile2: "",
       formEditDOB: null,
 
+      // provided data for delete form
+      
       formDeleteId: null,
       formDeleteName: "",
       formDeleteEmail: "",

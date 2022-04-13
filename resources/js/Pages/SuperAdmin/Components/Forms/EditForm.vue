@@ -458,16 +458,6 @@ export default {
       default: "Not found",
     },
   },
-  //   data() {
-  //     return {
-  //         name:'',
-  //     };
-  //   },
-  //    provide() {
-  //     return {
-
-  //     };
-  //   },
   methods: {
     toggleEditForm() {
       this.$emit("toggle-form-edit");

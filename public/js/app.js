@@ -22023,15 +22023,6 @@ __webpack_require__.r(__webpack_exports__);
       "default": "Not found"
     }
   },
-  //   data() {
-  //     return {
-  //         name:'',
-  //     };
-  //   },
-  //    provide() {
-  //     return {
-  //     };
-  //   },
   methods: {
     toggleEditForm: function toggleEditForm() {
       this.$emit("toggle-form-edit");
@@ -22159,12 +22150,14 @@ __webpack_require__.r(__webpack_exports__);
       showAddForm: false,
       showEditForm: false,
       showDeleteForm: true,
+      // provided data for for edit
       formEditId: null,
       formEditName: "",
       formEditEmail: "",
       formEditMobile1: "",
       formEditMobile2: "",
       formEditDOB: null,
+      // provided data for delete form
       formDeleteId: null,
       formDeleteName: "",
       formDeleteEmail: ""
