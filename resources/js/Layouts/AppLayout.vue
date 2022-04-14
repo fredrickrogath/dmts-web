@@ -185,8 +185,8 @@ const logout = () => {
 
                                     <template #content>
                                         <!-- Account Management -->
-                                        <div class="block px-4 py-2 text-xs text-gray-400">
-                                            <div class="py-2 text-center">Patient</div>
+                                        <div class="block px-4 py-2 text-xs text-gray-600">
+                                            <div class="py-2 text-center">{{$page.props.user.name}}</div>
                                             <div>Manage Account</div>
                                         </div>
 

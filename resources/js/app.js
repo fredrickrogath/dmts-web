@@ -7,6 +7,9 @@ import { InertiaProgress } from '@inertiajs/progress';
 import axios from 'axios'
 import VueAxios from 'vue-axios'
 
+import VueChartkick from 'vue-chartkick'
+import 'chartkick/chart.js'
+
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
 createInertiaApp({
@@ -15,6 +18,7 @@ createInertiaApp({
     setup({ el, app, props, plugin }) {
         return createApp({ render: () => h(app, props) })
             .use(plugin)
+            .use(VueChartkick)
             .use(VueAxios, axios)
             .mixin({ methods: { route } })
             .mount(el);

@@ -32,6 +32,8 @@
         "webpack-node-externals": "^3.0.0"
     },
     "dependencies": {
-        "vue-axios": "^3.4.1"
+        "chart.js": "^3.7.1",
+        "vue-axios": "^3.4.1",
+        "vue-chartkick": "^1.1.0"
     }
 }
