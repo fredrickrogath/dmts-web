@@ -156,8 +156,7 @@
                 text-sm
                 font-normal
                 text-gray-700
-                bg-gray-300
-                bg-white bg-clip-padding bg-no-repeat
+                bg-gray-300 bg-white bg-clip-padding bg-no-repeat
                 border border-solid border-gray-300
                 rounded
                 transition
