@@ -56,7 +56,7 @@
                     </span>
                     <input
                       type="text"
-                      placeholder="Placeholder"
+                      placeholder="Search Hospitals"
                       class="
                         px-2
                         py-1

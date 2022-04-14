@@ -27,6 +27,7 @@ import Welcome from "@/Jetstream/Welcome.vue";
                   text-gray-800
                   border-b-2
                   rounded-t
+                  opacity-50
                   hover:border-gray-300
                 "
                 :class="dmtsMonitoringSelected"
@@ -86,7 +87,7 @@ export default {
     return {
       dummyData: [],
       url: "http://127.0.0.1:8000/test?page=",
-      selectedTab: "general-management",
+      selectedTab: "dmts-monitoring",
     };
   },
   computed: {

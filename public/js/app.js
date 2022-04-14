@@ -22864,7 +22864,7 @@ var __default__ = {
     return {
       dummyData: [],
       url: "http://127.0.0.1:8000/test?page=",
-      selectedTab: "general-management"
+      selectedTab: "dmts-monitoring"
     };
   },
   computed: {
@@ -28923,7 +28923,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }), _hoisted_11, _hoisted_12])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
-    placeholder: "Placeholder",
+    placeholder: "Search Doctors",
     "class": "px-2 py-1 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm outline-0 outline-gray-600 focus:ring-0 border border-slate-300 w-full pl-10",
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return $data.keyword = $event;
@@ -29100,7 +29100,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }), _hoisted_10, _hoisted_11]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [_hoisted_14, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
-    placeholder: "Placeholder",
+    placeholder: "Search Hospital Admins",
     "class": "px-2 py-1 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm outline-0 outline-gray-600 focus:ring-0 border border-slate-300 w-full pl-10",
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return $data.keyword = $event;
@@ -29281,7 +29281,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }), _hoisted_11, _hoisted_12])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
-    placeholder: "Placeholder",
+    placeholder: "Search Hospitals",
     "class": "px-2 py-1 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm outline-0 outline-gray-600 focus:ring-0 border border-slate-300 w-full pl-10",
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return $data.keyword = $event;
@@ -29462,7 +29462,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     })
   }), _hoisted_11, _hoisted_12])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_13, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [_hoisted_15, (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
     type: "text",
-    placeholder: "Placeholder",
+    placeholder: "Search Patients",
     "class": "px-2 py-1 placeholder-slate-300 text-slate-600 relative bg-white rounded text-sm outline-0 outline-gray-600 focus:ring-0 border border-slate-300 w-full pl-10",
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return $data.keyword = $event;
@@ -31683,7 +31683,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <template #header>\n            <h2 class=\"font-semibold text-xl text-gray-800 leading-tight\">\n                Dashboard\n            </h2>\n        </template> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <Welcome /> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Tabs "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("ul", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("li", {
-        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["px-4 py-2 -mb-px text-gray-800 border-b-2 rounded-t hover:border-gray-300", $options.dmtsMonitoringSelected])
+        "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["px-4 py-2 -mb-px text-gray-800 border-b-2 rounded-t opacity-50 hover:border-gray-300", $options.dmtsMonitoringSelected])
       }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
         id: "default-tab",
         onClick: _cache[0] || (_cache[0] = function ($event) {
