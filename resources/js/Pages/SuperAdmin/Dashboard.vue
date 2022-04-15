@@ -69,7 +69,6 @@ import Welcome from "@/Jetstream/Welcome.vue";
 </template>
 
 <script>
-// import HospitalAdmin from "./Components/HospitalAdmin.vue";
 import GeneralManagement from "./Components/GeneralManagement.vue";
 import DmtsMonitoring from "./Components/DmtsMonitoring.vue";
 

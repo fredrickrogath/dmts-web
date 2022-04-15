@@ -22916,7 +22916,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Components_DmtsMonitoring_vue__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Components/DmtsMonitoring.vue */ "./resources/js/Pages/SuperAdmin/Components/DmtsMonitoring.vue");
 /* harmony import */ var _Layouts_AppLayout_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Layouts/AppLayout.vue */ "./resources/js/Layouts/AppLayout.vue");
 /* harmony import */ var _Jetstream_Welcome_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @/Jetstream/Welcome.vue */ "./resources/js/Jetstream/Welcome.vue");
-// import HospitalAdmin from "./Components/HospitalAdmin.vue";
 
 
 var __default__ = {
