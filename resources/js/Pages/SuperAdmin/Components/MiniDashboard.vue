@@ -144,6 +144,7 @@
         "
       >
         <div class="flex py-2">
+          <!-- <transition name="graphs"> -->
           <patients-count
             v-if="selectedTab == 'patients-count'"
           ></patients-count>
@@ -153,12 +154,9 @@
           <registered-patients
             v-else-if="selectedTab == 'registered-patients'"
           ></registered-patients>
-          <hospitals
-            v-else-if="selectedTab == 'hospitals'"
-          ></hospitals>
-          <doctors
-            v-else-if="selectedTab == 'doctors'"
-          ></doctors>
+          <hospitals v-else-if="selectedTab == 'hospitals'"></hospitals>
+          <doctors v-else-if="selectedTab == 'doctors'"></doctors>
+          <!-- </transition> -->
 
           <div class="">
             <select
@@ -222,6 +220,7 @@
                   role="menuitem"
                   tabindex="-1"
                   id="menu-item-0"
+                  @click="setSelectedTab('patients-count')"
                   >Patients Count</a
                 >
 
@@ -238,6 +237,7 @@
                   role="menuitem"
                   tabindex="-1"
                   id="menu-item-1"
+                  @click="setSelectedTab('referred-patients')"
                   >Referred Patients</a
                 >
 
@@ -254,6 +254,7 @@
                   role="menuitem"
                   tabindex="-1"
                   id="menu-item-1"
+                  @click="setSelectedTab('registered-patients')"
                   >Registered Patients</a
                 >
               </div>
@@ -271,6 +272,7 @@
                   role="menuitem"
                   tabindex="-1"
                   id="menu-item-2"
+                  @click="setSelectedTab('hospitals')"
                   >DMTS Doctors</a
                 >
               </div>
@@ -289,6 +291,7 @@
                   role="menuitem"
                   tabindex="-1"
                   id="menu-item-2"
+                  @click="setSelectedTab('doctors')"
                   >DMTS Hospitals</a
                 >
               </div>
@@ -328,15 +331,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.monitor-manage-enter,
-.monitor-manage-leave-to {
-  transition: translateX(3em);
-  opacity: 0;
-}
-.monitor-manage-enter-active,
-.monitor-manage-leave-active {
-  transition: all 0.3s ease;
-}
-</style>
