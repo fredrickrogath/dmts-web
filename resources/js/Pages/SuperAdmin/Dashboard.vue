@@ -59,9 +59,11 @@ import Welcome from "@/Jetstream/Welcome.vue";
 
           <!-- <dmts-monitoring></dmts-monitoring> -->
 
-          <keep-alive>
-            <component :is="selectedTab"></component>
-          </keep-alive>
+          <transition name="monitor-manage">
+            <keep-alive>
+              <component :is="selectedTab"></component>
+            </keep-alive>
+          </transition>
         </div>
       </div>
     </div>
@@ -111,3 +113,15 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.monitor-manage-enter,
+.monitor-manage-leave-to {
+  transition: translateX(3em);
+  opacity: 0;
+}
+.monitor-manage-enter-active,
+.monitor-manage-leave-active {
+  transition: all 0.3s ease;
+}
+</style>
