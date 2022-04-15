@@ -211,7 +211,6 @@
                   class="
                     hover:bg-gray-300 hover:text-gray-900
                     text-gray-700
-                    border-l-2 border-green-600
                     block
                     px-4
                     py-2
@@ -220,6 +219,7 @@
                   role="menuitem"
                   tabindex="-1"
                   id="menu-item-0"
+                  :class="patientsCountSelected"
                   @click="setSelectedTab('patients-count')"
                   >Patients Count</a
                 >
@@ -231,12 +231,13 @@
                     text-gray-700
                     block
                     px-4
-                    py-2
+                    py-1
                     text-sm
                   "
                   role="menuitem"
                   tabindex="-1"
                   id="menu-item-1"
+                  :class="referredPatientsSelected"
                   @click="setSelectedTab('referred-patients')"
                   >Referred Patients</a
                 >
@@ -248,17 +249,18 @@
                     text-gray-700
                     block
                     px-4
-                    py-2
+                    py-1
                     text-sm
                   "
                   role="menuitem"
                   tabindex="-1"
                   id="menu-item-1"
+                  :class="registeredPatientsSelected"
                   @click="setSelectedTab('registered-patients')"
                   >Registered Patients</a
                 >
               </div>
-              <div class="py-1" role="none">
+              <div class="py-0" role="none">
                 <a
                   href="#"
                   class="
@@ -266,18 +268,19 @@
                     text-gray-700
                     block
                     px-4
-                    py-2
+                    py-1
                     text-sm
                   "
                   role="menuitem"
                   tabindex="-1"
                   id="menu-item-2"
+                  :class="hospitalsSelected"
                   @click="setSelectedTab('hospitals')"
                   >DMTS Doctors</a
                 >
               </div>
 
-              <div class="py-1" role="none">
+              <div class="py-0" role="none">
                 <a
                   href="#"
                   class="
@@ -285,12 +288,13 @@
                     text-gray-700
                     block
                     px-4
-                    py-2
+                    py-1
                     text-sm
                   "
                   role="menuitem"
                   tabindex="-1"
                   id="menu-item-2"
+                  :class="doctorsSelected"
                   @click="setSelectedTab('doctors')"
                   >DMTS Hospitals</a
                 >
@@ -323,7 +327,34 @@ export default {
       selectedTab: "patients-count",
     };
   },
+  computed: {
+    patientsCountSelected() {
+      return this.selectedTab == "patients-count"
+        ? "border-l-2 border-green-600 bg-gray-300 text-green-900"
+        : null;
+    },
+    referredPatientsSelected() {
+      return this.selectedTab == "referred-patients"
+        ? "border-l-2 border-green-600 bg-gray-300 text-green-900"
+        : null;
+    },
 
+    registeredPatientsSelected() {
+      return this.selectedTab == "registered-patients"
+        ? "border-l-2 border-green-600 bg-gray-300 text-green-900"
+        : null;
+    },
+    hospitalsSelected() {
+      return this.selectedTab == "hospitals"
+        ? "border-l-2 border-green-600 bg-gray-300 text-green-900"
+        : null;
+    },
+    doctorsSelected() {
+      return this.selectedTab == "doctors"
+        ? "border-l-2 border-green-600 bg-gray-300 text-green-900"
+        : null;
+    },
+  },
   methods: {
     setSelectedTab(tab) {
       this.selectedTab = tab;

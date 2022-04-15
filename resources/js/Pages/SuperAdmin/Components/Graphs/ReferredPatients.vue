@@ -7,10 +7,8 @@
           height="240px"
           :download="true"
           :data="[
-            ['0-15 yrs', 5],
-            ['16-30 yrs', 45],
-            ['31-45 yrs', 30],
-            ['48 yrs ->', 200],
+            ['Male', 30],
+            ['Female', 200],
           ]"
         ></pie-chart>
 
@@ -22,13 +20,11 @@
         <bar-chart
           :download="true"
           :data="[
-            ['0-15 yrs', 5],
-            ['16-30 yrs', 45],
-            ['31-45 yrs', 30],
-            ['48 yrs ->', 200],
+            ['Male', 30],
+            ['Female', 200],
           ]"
           width="600px"
-          height="220px"
+          height="130px"
         ></bar-chart>
       </div>
     </div>

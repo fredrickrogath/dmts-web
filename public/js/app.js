@@ -22828,6 +22828,23 @@ __webpack_require__.r(__webpack_exports__);
       selectedTab: "patients-count"
     };
   },
+  computed: {
+    patientsCountSelected: function patientsCountSelected() {
+      return this.selectedTab == "patients-count" ? "border-l-2 border-green-600 bg-gray-300 text-green-900" : null;
+    },
+    referredPatientsSelected: function referredPatientsSelected() {
+      return this.selectedTab == "referred-patients" ? "border-l-2 border-green-600 bg-gray-300 text-green-900" : null;
+    },
+    registeredPatientsSelected: function registeredPatientsSelected() {
+      return this.selectedTab == "registered-patients" ? "border-l-2 border-green-600 bg-gray-300 text-green-900" : null;
+    },
+    hospitalsSelected: function hospitalsSelected() {
+      return this.selectedTab == "hospitals" ? "border-l-2 border-green-600 bg-gray-300 text-green-900" : null;
+    },
+    doctorsSelected: function doctorsSelected() {
+      return this.selectedTab == "doctors" ? "border-l-2 border-green-600 bg-gray-300 text-green-900" : null;
+    }
+  },
   methods: {
     setSelectedTab: function setSelectedTab(tab) {
       this.selectedTab = tab;
@@ -28545,25 +28562,15 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 /* HOISTED */
 );
 
-var _hoisted_5 = {
-  "class": "grid grid-cols-1 gap-1 py-2"
-};
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_pie_chart = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("pie-chart");
-
-  var _component_bar_chart = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("bar-chart");
 
   return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_pie_chart, {
     width: "600px",
     height: "240px",
     download: true,
     data: [['0-15 yrs', 5], ['16-30 yrs', 45], ['31-45 yrs', 30], ['48 yrs ->', 200]]
-  }), _hoisted_4]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_bar_chart, {
-    download: true,
-    data: [['0-15 yrs', 5], ['16-30 yrs', 45], ['31-45 yrs', 30], ['48 yrs ->', 200]],
-    width: "600px",
-    height: "220px"
-  })])])]);
+  }), _hoisted_4]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" <div class=\"grid grid-cols-1 gap-1 py-2\">\n        <bar-chart\n          :download=\"true\"\n          :data=\"[\n            ['0-15 yrs', 5],\n            ['16-30 yrs', 45],\n            ['31-45 yrs', 30],\n            ['48 yrs ->', 200],\n          ]\"\n          width=\"600px\"\n          height=\"220px\"\n        ></bar-chart>\n      </div> ")])]);
 }
 
 /***/ }),
@@ -28713,12 +28720,12 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     width: "600px",
     height: "240px",
     download: true,
-    data: [['0-15 yrs', 5], ['16-30 yrs', 45], ['31-45 yrs', 30], ['48 yrs ->', 200]]
+    data: [['Male', 30], ['Female', 200]]
   }), _hoisted_4]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_bar_chart, {
     download: true,
-    data: [['0-15 yrs', 5], ['16-30 yrs', 45], ['31-45 yrs', 30], ['48 yrs ->', 200]],
+    data: [['Male', 30], ['Female', 200]],
     width: "600px",
-    height: "220px"
+    height: "130px"
   })])])]);
 }
 
@@ -29829,11 +29836,11 @@ var _hoisted_9 = {
   role: "none"
 };
 var _hoisted_10 = {
-  "class": "py-1",
+  "class": "py-0",
   role: "none"
 };
 var _hoisted_11 = {
-  "class": "py-1",
+  "class": "py-0",
   role: "none"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
@@ -29859,50 +29866,60 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     key: 4
   })) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" </transition> "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Active: \"bg-gray-100 text-gray-900\", Not Active: \"text-gray-700\" "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     href: "#",
-    "class": "hover:bg-gray-300 hover:text-gray-900 text-gray-700 border-l-2 border-green-600 block px-4 py-2 text-sm",
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["hover:bg-gray-300 hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm", $options.patientsCountSelected]),
     role: "menuitem",
     tabindex: "-1",
     id: "menu-item-0",
     onClick: _cache[0] || (_cache[0] = function ($event) {
       return $options.setSelectedTab('patients-count');
     })
-  }, "Patients Count"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  }, "Patients Count", 2
+  /* CLASS */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     href: "#",
-    "class": "hover:bg-gray-300 hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm",
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["hover:bg-gray-300 hover:text-gray-900 text-gray-700 block px-4 py-1 text-sm", $options.referredPatientsSelected]),
     role: "menuitem",
     tabindex: "-1",
     id: "menu-item-1",
     onClick: _cache[1] || (_cache[1] = function ($event) {
       return $options.setSelectedTab('referred-patients');
     })
-  }, "Referred Patients"), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  }, "Referred Patients", 2
+  /* CLASS */
+  ), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     href: "#",
-    "class": "hover:bg-gray-300 hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm",
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["hover:bg-gray-300 hover:text-gray-900 text-gray-700 block px-4 py-1 text-sm", $options.registeredPatientsSelected]),
     role: "menuitem",
     tabindex: "-1",
     id: "menu-item-1",
     onClick: _cache[2] || (_cache[2] = function ($event) {
       return $options.setSelectedTab('registered-patients');
     })
-  }, "Registered Patients")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  }, "Registered Patients", 2
+  /* CLASS */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_10, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     href: "#",
-    "class": "hover:bg-gray-300 hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm",
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["hover:bg-gray-300 hover:text-gray-900 text-gray-700 block px-4 py-1 text-sm", $options.hospitalsSelected]),
     role: "menuitem",
     tabindex: "-1",
     id: "menu-item-2",
     onClick: _cache[3] || (_cache[3] = function ($event) {
       return $options.setSelectedTab('hospitals');
     })
-  }, "DMTS Doctors")]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  }, "DMTS Doctors", 2
+  /* CLASS */
+  )]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     href: "#",
-    "class": "hover:bg-gray-300 hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm",
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["hover:bg-gray-300 hover:text-gray-900 text-gray-700 block px-4 py-1 text-sm", $options.doctorsSelected]),
     role: "menuitem",
     tabindex: "-1",
     id: "menu-item-2",
     onClick: _cache[4] || (_cache[4] = function ($event) {
       return $options.setSelectedTab('doctors');
     })
-  }, "DMTS Hospitals")])])])])])])]);
+  }, "DMTS Hospitals", 2
+  /* CLASS */
+  )])])])])])])]);
 }
 
 /***/ }),
