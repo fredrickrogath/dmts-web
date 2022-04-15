@@ -14,7 +14,9 @@
           ]"
         ></pie-chart>
 
-        <div>Description about graph data</div>
+        <div class="w-40 bg-gray-300 rounded px-2 text-start">
+          Number of patients registerd in DMTS
+        </div>
       </div>
       <div class="grid grid-cols-1 gap-1 py-2">
         <bar-chart

@@ -144,6 +144,7 @@ import EditForm from "../Forms/EditForm.vue";
 import DeleteForm from "../Forms/DeleteForm.vue";
 import ProfileCard from "../ProfileCard.vue";
 export default {
+  props: ['doctor'],
   components: {
     ProfileCard,
     AddForm,

@@ -3,6 +3,7 @@
     <nav
       class="
         w-56
+        py-2
         select-none
         overflow-y-auto
         transition
@@ -145,7 +146,7 @@
         <div class="flex py-2">
           <linear-graph></linear-graph>
 
-          <div>
+          <div class="">
             <select
               class="
                 form-select form-select-sm
@@ -173,7 +174,111 @@
               <option value="1">By Age</option>
               <option value="2">By Gender</option>
               <option value="3">By Region</option>
+              <option value="3">By Hospital</option>
             </select>
+
+            <div
+              class="
+                origin-top-right
+                mt-2
+                rounded-md
+                bg-gray-200
+                ring-1 ring-black ring-opacity-5
+                divide-y divide-gray-100
+                focus:outline-none
+              "
+              role="menu"
+              aria-orientation="vertical"
+              aria-labelledby="menu-button"
+              tabindex="-1"
+            >
+              <div class="py-1" role="none">
+                <!-- Active: "bg-gray-100 text-gray-900", Not Active: "text-gray-700" -->
+                <a
+                  href="#"
+                  class="
+                    hover:bg-gray-300 hover:text-gray-900
+                    text-gray-700
+                    border-l-2 border-green-600
+                    block
+                    px-4
+                    py-2
+                    text-sm
+                  "
+                  role="menuitem"
+                  tabindex="-1"
+                  id="menu-item-0"
+                  >Patients Count</a
+                >
+
+                <a
+                  href="#"
+                  class="
+                    hover:bg-gray-300 hover:text-gray-900
+                    text-gray-700
+                    block
+                    px-4
+                    py-2
+                    text-sm
+                  "
+                  role="menuitem"
+                  tabindex="-1"
+                  id="menu-item-1"
+                  >Referred Patients</a
+                >
+
+                <a
+                  href="#"
+                  class="
+                    hover:bg-gray-300 hover:text-gray-900
+                    text-gray-700
+                    block
+                    px-4
+                    py-2
+                    text-sm
+                  "
+                  role="menuitem"
+                  tabindex="-1"
+                  id="menu-item-1"
+                  >Registered Patients</a
+                >
+              </div>
+              <div class="py-1" role="none">
+                <a
+                  href="#"
+                  class="
+                    hover:bg-gray-300 hover:text-gray-900
+                    text-gray-700
+                    block
+                    px-4
+                    py-2
+                    text-sm
+                  "
+                  role="menuitem"
+                  tabindex="-1"
+                  id="menu-item-2"
+                  >DMTS Doctors</a
+                >
+              </div>
+
+              <div class="py-1" role="none">
+                <a
+                  href="#"
+                  class="
+                    hover:bg-gray-300 hover:text-gray-900
+                    text-gray-700
+                    block
+                    px-4
+                    py-2
+                    text-sm
+                  "
+                  role="menuitem"
+                  tabindex="-1"
+                  id="menu-item-2"
+                  >DMTS Hospitals</a
+                >
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -182,7 +287,7 @@
 </template>
 
 <script>
-import LinearGraph from "./Graphs/LinearGraph.vue";
+import LinearGraph from "./Graphs/PatientsCount.vue";
 export default {
   components: { LinearGraph },
   data() {

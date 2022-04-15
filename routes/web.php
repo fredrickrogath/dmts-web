@@ -56,6 +56,6 @@ Route::middleware([
     })->name('management');
 
     Route::get('/test', function () {
-        return json_encode(\App\Models\User::all());
+        return json_encode(\App\Models\User::latest()->get());
     });
 });

@@ -22142,10 +22142,10 @@ function app() {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Graphs/LinearGraph.vue?vue&type=script&lang=js":
-/*!*****************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Graphs/LinearGraph.vue?vue&type=script&lang=js ***!
-  \*****************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Graphs/PatientsCount.vue?vue&type=script&lang=js":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Graphs/PatientsCount.vue?vue&type=script&lang=js ***!
+  \*******************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -22268,6 +22268,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['doctor'],
   components: {
     ProfileCard: _ProfileCard_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     AddForm: _Forms_AddForm_vue__WEBPACK_IMPORTED_MODULE_0__["default"],
@@ -22759,11 +22760,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _Graphs_LinearGraph_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Graphs/LinearGraph.vue */ "./resources/js/Pages/SuperAdmin/Components/Graphs/LinearGraph.vue");
+/* harmony import */ var _Graphs_PatientsCount_vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Graphs/PatientsCount.vue */ "./resources/js/Pages/SuperAdmin/Components/Graphs/PatientsCount.vue");
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   components: {
-    LinearGraph: _Graphs_LinearGraph_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+    LinearGraph: _Graphs_PatientsCount_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
   },
   data: function data() {
     return {};
@@ -28583,10 +28584,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 
 /***/ }),
 
-/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Graphs/LinearGraph.vue?vue&type=template&id=5618db34":
-/*!*********************************************************************************************************************************************************************************************************************************************************************************************************!*\
-  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Graphs/LinearGraph.vue?vue&type=template&id=5618db34 ***!
-  \*********************************************************************************************************************************************************************************************************************************************************************************************************/
+/***/ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Graphs/PatientsCount.vue?vue&type=template&id=4f93f39e":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Graphs/PatientsCount.vue?vue&type=template&id=4f93f39e ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -28606,7 +28607,9 @@ var _hoisted_3 = {
   "class": "flex"
 };
 
-var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", null, "Description about graph data", -1
+var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "w-40 bg-gray-300 rounded px-2 text-start"
+}, " Number of patients registerd in DMTS ", -1
 /* HOISTED */
 );
 
@@ -29657,7 +29660,7 @@ var _hoisted_1 = {
   "class": "flex text-sm"
 };
 
-var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<nav class=\"w-56 select-none overflow-y-auto transition duration-500 ease-in-out\"><ul><li class=\"pl-8 py-1 font-semibold border-l-2 border-green-600 mb-2 transition duration-500 ease-in-out px-4 py-2 -mb-px text-gray-800 rounded-t\"><button class=\"focus:text-green-900 focus:outline-none w-full transition duration-500 ease-in-out\"><span class=\"flex items-center\"><i class=\"fas fa-sort pt-1 hover:cursor-pointer text-green-700\"></i><span class=\"ml-4 capitalize\">General Overview</span></span></button></li><li class=\"pl-8 py-1 font-semibold border-l-2 border-green-600 mb-2 transition duration-500 ease-in-out px-4 py-2 -mb-px text-gray-800 rounded-t\"><button class=\"focus:text-green-900 focus:outline-none w-full transition duration-500 ease-in-out\"><span class=\"flex items-center\"><i class=\"fas fa-sort pt-1 hover:cursor-pointer text-green-700\"></i><span class=\"ml-4 capitalize\">Security Overview</span></span></button></li><li class=\"pl-8 py-1 font-semibold border-l-2 border-green-600 mb-2 transition duration-500 ease-in-out px-4 py-2 -mb-px text-gray-800 rounded-t\"><button class=\"focus:text-green-900 focus:outline-none w-full transition duration-500 ease-in-out\"><span class=\"flex items-center\"><i class=\"fas fa-sort pt-1 hover:cursor-pointer text-green-700\"></i><span class=\"ml-4 capitalize\">Log Activities</span></span></button></li></ul></nav>", 1);
+var _hoisted_2 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<nav class=\"w-56 py-2 select-none overflow-y-auto transition duration-500 ease-in-out\"><ul><li class=\"pl-8 py-1 font-semibold border-l-2 border-green-600 mb-2 transition duration-500 ease-in-out px-4 py-2 -mb-px text-gray-800 rounded-t\"><button class=\"focus:text-green-900 focus:outline-none w-full transition duration-500 ease-in-out\"><span class=\"flex items-center\"><i class=\"fas fa-sort pt-1 hover:cursor-pointer text-green-700\"></i><span class=\"ml-4 capitalize\">General Overview</span></span></button></li><li class=\"pl-8 py-1 font-semibold border-l-2 border-green-600 mb-2 transition duration-500 ease-in-out px-4 py-2 -mb-px text-gray-800 rounded-t\"><button class=\"focus:text-green-900 focus:outline-none w-full transition duration-500 ease-in-out\"><span class=\"flex items-center\"><i class=\"fas fa-sort pt-1 hover:cursor-pointer text-green-700\"></i><span class=\"ml-4 capitalize\">Security Overview</span></span></button></li><li class=\"pl-8 py-1 font-semibold border-l-2 border-green-600 mb-2 transition duration-500 ease-in-out px-4 py-2 -mb-px text-gray-800 rounded-t\"><button class=\"focus:text-green-900 focus:outline-none w-full transition duration-500 ease-in-out\"><span class=\"flex items-center\"><i class=\"fas fa-sort pt-1 hover:cursor-pointer text-green-700\"></i><span class=\"ml-4 capitalize\">Log Activities</span></span></button></li></ul></nav>", 1);
 
 var _hoisted_3 = {
   "class": "flex-1 overflow-y-auto transition bg-gray-200 duration-500 ease-in-out"
@@ -29669,7 +29672,69 @@ var _hoisted_5 = {
   "class": "flex py-2"
 };
 
-var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createStaticVNode)("<div><select class=\"form-select form-select-sm appearance-none block w-full py-1 text-sm font-normal text-gray-700 bg-gray-300 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-gray-300 focus:border-gray-600 focus:outline-none\" aria-label=\".form-select-sm example\"><option selected>Filter Graphs</option><option value=\"1\">By Age</option><option value=\"2\">By Gender</option><option value=\"3\">By Region</option></select></div>", 1);
+var _hoisted_6 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": ""
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
+  "class": "form-select form-select-sm appearance-none block w-full py-1 text-sm font-normal text-gray-700 bg-gray-300 bg-white bg-clip-padding bg-no-repeat border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-gray-300 focus:border-gray-600 focus:outline-none",
+  "aria-label": ".form-select-sm example"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  selected: ""
+}, "Filter Graphs"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "1"
+}, "By Age"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "2"
+}, "By Gender"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "3"
+}, "By Region"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+  value: "3"
+}, "By Hospital")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "origin-top-right mt-2 rounded-md bg-gray-200 ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none",
+  role: "menu",
+  "aria-orientation": "vertical",
+  "aria-labelledby": "menu-button",
+  tabindex: "-1"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "py-1",
+  role: "none"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Active: \"bg-gray-100 text-gray-900\", Not Active: \"text-gray-700\" "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "#",
+  "class": "hover:bg-gray-300 hover:text-gray-900 text-gray-700 border-l-2 border-green-600 block px-4 py-2 text-sm",
+  role: "menuitem",
+  tabindex: "-1",
+  id: "menu-item-0"
+}, "Patients Count"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "#",
+  "class": "hover:bg-gray-300 hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm",
+  role: "menuitem",
+  tabindex: "-1",
+  id: "menu-item-1"
+}, "Referred Patients"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "#",
+  "class": "hover:bg-gray-300 hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm",
+  role: "menuitem",
+  tabindex: "-1",
+  id: "menu-item-1"
+}, "Registered Patients")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "py-1",
+  role: "none"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "#",
+  "class": "hover:bg-gray-300 hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm",
+  role: "menuitem",
+  tabindex: "-1",
+  id: "menu-item-2"
+}, "DMTS Doctors")]), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  "class": "py-1",
+  role: "none"
+}, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
+  href: "#",
+  "class": "hover:bg-gray-300 hover:text-gray-900 text-gray-700 block px-4 py-2 text-sm",
+  role: "menuitem",
+  tabindex: "-1",
+  id: "menu-item-2"
+}, "DMTS Hospitals")])])], -1
+/* HOISTED */
+);
 
 function render(_ctx, _cache, $props, $setup, $data, $options) {
   var _component_linear_graph = (0,vue__WEBPACK_IMPORTED_MODULE_0__.resolveComponent)("linear-graph");
@@ -83203,10 +83268,10 @@ if (false) {}
 
 /***/ }),
 
-/***/ "./resources/js/Pages/SuperAdmin/Components/Graphs/LinearGraph.vue":
-/*!*************************************************************************!*\
-  !*** ./resources/js/Pages/SuperAdmin/Components/Graphs/LinearGraph.vue ***!
-  \*************************************************************************/
+/***/ "./resources/js/Pages/SuperAdmin/Components/Graphs/PatientsCount.vue":
+/*!***************************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/Graphs/PatientsCount.vue ***!
+  \***************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -83214,15 +83279,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _LinearGraph_vue_vue_type_template_id_5618db34__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./LinearGraph.vue?vue&type=template&id=5618db34 */ "./resources/js/Pages/SuperAdmin/Components/Graphs/LinearGraph.vue?vue&type=template&id=5618db34");
-/* harmony import */ var _LinearGraph_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./LinearGraph.vue?vue&type=script&lang=js */ "./resources/js/Pages/SuperAdmin/Components/Graphs/LinearGraph.vue?vue&type=script&lang=js");
+/* harmony import */ var _PatientsCount_vue_vue_type_template_id_4f93f39e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./PatientsCount.vue?vue&type=template&id=4f93f39e */ "./resources/js/Pages/SuperAdmin/Components/Graphs/PatientsCount.vue?vue&type=template&id=4f93f39e");
+/* harmony import */ var _PatientsCount_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PatientsCount.vue?vue&type=script&lang=js */ "./resources/js/Pages/SuperAdmin/Components/Graphs/PatientsCount.vue?vue&type=script&lang=js");
 /* harmony import */ var _home_felidrick_Projects_dmts_web_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./node_modules/vue-loader/dist/exportHelper.js */ "./node_modules/vue-loader/dist/exportHelper.js");
 
 
 
 
 ;
-const __exports__ = /*#__PURE__*/(0,_home_felidrick_Projects_dmts_web_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_LinearGraph_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_LinearGraph_vue_vue_type_template_id_5618db34__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/SuperAdmin/Components/Graphs/LinearGraph.vue"]])
+const __exports__ = /*#__PURE__*/(0,_home_felidrick_Projects_dmts_web_node_modules_vue_loader_dist_exportHelper_js__WEBPACK_IMPORTED_MODULE_2__["default"])(_PatientsCount_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_1__["default"], [['render',_PatientsCount_vue_vue_type_template_id_4f93f39e__WEBPACK_IMPORTED_MODULE_0__.render],['__file',"resources/js/Pages/SuperAdmin/Components/Graphs/PatientsCount.vue"]])
 /* hot reload */
 if (false) {}
 
@@ -84420,18 +84485,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Pages/SuperAdmin/Components/Graphs/LinearGraph.vue?vue&type=script&lang=js":
-/*!*************************************************************************************************!*\
-  !*** ./resources/js/Pages/SuperAdmin/Components/Graphs/LinearGraph.vue?vue&type=script&lang=js ***!
-  \*************************************************************************************************/
+/***/ "./resources/js/Pages/SuperAdmin/Components/Graphs/PatientsCount.vue?vue&type=script&lang=js":
+/*!***************************************************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/Graphs/PatientsCount.vue?vue&type=script&lang=js ***!
+  \***************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_LinearGraph_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
+/* harmony export */   "default": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PatientsCount_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__["default"])
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_LinearGraph_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./LinearGraph.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Graphs/LinearGraph.vue?vue&type=script&lang=js");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PatientsCount_vue_vue_type_script_lang_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./PatientsCount.vue?vue&type=script&lang=js */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Graphs/PatientsCount.vue?vue&type=script&lang=js");
  
 
 /***/ }),
@@ -85496,18 +85561,18 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/js/Pages/SuperAdmin/Components/Graphs/LinearGraph.vue?vue&type=template&id=5618db34":
-/*!*******************************************************************************************************!*\
-  !*** ./resources/js/Pages/SuperAdmin/Components/Graphs/LinearGraph.vue?vue&type=template&id=5618db34 ***!
-  \*******************************************************************************************************/
+/***/ "./resources/js/Pages/SuperAdmin/Components/Graphs/PatientsCount.vue?vue&type=template&id=4f93f39e":
+/*!*********************************************************************************************************!*\
+  !*** ./resources/js/Pages/SuperAdmin/Components/Graphs/PatientsCount.vue?vue&type=template&id=4f93f39e ***!
+  \*********************************************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_LinearGraph_vue_vue_type_template_id_5618db34__WEBPACK_IMPORTED_MODULE_0__.render)
+/* harmony export */   "render": () => (/* reexport safe */ _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PatientsCount_vue_vue_type_template_id_4f93f39e__WEBPACK_IMPORTED_MODULE_0__.render)
 /* harmony export */ });
-/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_LinearGraph_vue_vue_type_template_id_5618db34__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./LinearGraph.vue?vue&type=template&id=5618db34 */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Graphs/LinearGraph.vue?vue&type=template&id=5618db34");
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_clonedRuleSet_5_use_0_node_modules_vue_loader_dist_templateLoader_js_ruleSet_1_rules_2_node_modules_vue_loader_dist_index_js_ruleSet_0_use_0_PatientsCount_vue_vue_type_template_id_4f93f39e__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../../node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!../../../../../../node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!../../../../../../node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./PatientsCount.vue?vue&type=template&id=4f93f39e */ "./node_modules/babel-loader/lib/index.js??clonedRuleSet-5.use[0]!./node_modules/vue-loader/dist/templateLoader.js??ruleSet[1].rules[2]!./node_modules/vue-loader/dist/index.js??ruleSet[0].use[0]!./resources/js/Pages/SuperAdmin/Components/Graphs/PatientsCount.vue?vue&type=template&id=4f93f39e");
 
 
 /***/ }),
@@ -86119,7 +86184,7 @@ var map = {
 	"./SuperAdmin/Components/Forms/EditForm.vue": "./resources/js/Pages/SuperAdmin/Components/Forms/EditForm.vue",
 	"./SuperAdmin/Components/GeneralManagement.vue": "./resources/js/Pages/SuperAdmin/Components/GeneralManagement.vue",
 	"./SuperAdmin/Components/Graphs/BarGraph.vue": "./resources/js/Pages/SuperAdmin/Components/Graphs/BarGraph.vue",
-	"./SuperAdmin/Components/Graphs/LinearGraph.vue": "./resources/js/Pages/SuperAdmin/Components/Graphs/LinearGraph.vue",
+	"./SuperAdmin/Components/Graphs/PatientsCount.vue": "./resources/js/Pages/SuperAdmin/Components/Graphs/PatientsCount.vue",
 	"./SuperAdmin/Components/HoverProfile.vue": "./resources/js/Pages/SuperAdmin/Components/HoverProfile.vue",
 	"./SuperAdmin/Components/Info.vue": "./resources/js/Pages/SuperAdmin/Components/Info.vue",
 	"./SuperAdmin/Components/InfoCard.vue": "./resources/js/Pages/SuperAdmin/Components/InfoCard.vue",
