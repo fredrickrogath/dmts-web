@@ -15,7 +15,7 @@
         ></pie-chart>
 
         <div class="w-40 bg-gray-300 rounded px-2 text-start">
-          Number of patients presents in all hospitals in DMTS
+          Number of patients registerd from defferent hospitals in DMTS
         </div>
       </div>
       <div class="grid grid-cols-1 gap-1 py-2">

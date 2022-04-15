@@ -144,7 +144,21 @@
         "
       >
         <div class="flex py-2">
-          <linear-graph></linear-graph>
+          <patients-count
+            v-if="selectedTab == 'patients-count'"
+          ></patients-count>
+          <referred-patients
+            v-else-if="selectedTab == 'referred-patients'"
+          ></referred-patients>
+          <registered-patients
+            v-else-if="selectedTab == 'registered-patients'"
+          ></registered-patients>
+          <hospitals
+            v-else-if="selectedTab == 'hospitals'"
+          ></hospitals>
+          <doctors
+            v-else-if="selectedTab == 'doctors'"
+          ></doctors>
 
           <div class="">
             <select
@@ -287,11 +301,42 @@
 </template>
 
 <script>
-import LinearGraph from "./Graphs/PatientsCount.vue";
+import PatientsCount from "./Graphs/PatientsCount.vue";
+import ReferredPatients from "./Graphs/ReferredPatients.vue";
+import RegisteredPatients from "./Graphs/RegisteredPatients.vue";
+import Hospitals from "./Graphs/Hospitals.vue";
+import Doctors from "./Graphs/Doctors.vue";
+
 export default {
-  components: { LinearGraph },
+  components: {
+    PatientsCount,
+    ReferredPatients,
+    RegisteredPatients,
+    Hospitals,
+    Doctors,
+  },
   data() {
-    return {};
+    return {
+      selectedTab: "patients-count",
+    };
+  },
+
+  methods: {
+    setSelectedTab(tab) {
+      this.selectedTab = tab;
+    },
   },
 };
 </script>
+
+<style scoped>
+.monitor-manage-enter,
+.monitor-manage-leave-to {
+  transition: translateX(3em);
+  opacity: 0;
+}
+.monitor-manage-enter-active,
+.monitor-manage-leave-active {
+  transition: all 0.3s ease;
+}
+</style>
