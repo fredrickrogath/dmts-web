@@ -58,15 +58,15 @@ const logout = () => {
                   :href="route('dashboard')"
                   :active="route().current('admin.super.dashboard')"
                 >
-                  Dashboard
+                  Diabetes Management And Tracking System
                 </JetNavLink>
 
-                <JetNavLink
+                <!-- <JetNavLink
                   :href="route('management')"
                   :active="route().current('management')"
                 >
                   Management
-                </JetNavLink>
+                </JetNavLink> -->
 
                 <!-- <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
                                     Reports

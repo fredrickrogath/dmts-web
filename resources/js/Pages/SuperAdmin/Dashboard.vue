@@ -16,7 +16,7 @@ import Welcome from "@/Jetstream/Welcome.vue";
         <div class="overflow-hidden shadow-xl sm:rounded-lg">
           <!-- <Welcome /> -->
 
-          <div class="rounded text-sm py-1">
+          <div class="rounded text-sm pb-2">
             <!-- Tabs -->
             <ul id="tabs" class="inline-flex w-full px-1">
               <li
