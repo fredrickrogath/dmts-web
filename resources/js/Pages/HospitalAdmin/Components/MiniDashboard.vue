@@ -50,7 +50,7 @@
           </button>
         </li>
 
-        <li
+        <!-- <li
           class="
             pl-8
             py-1
@@ -86,7 +86,7 @@
               <span class="ml-4 capitalize">Security Overview</span>
             </span>
           </button>
-        </li>
+        </li> -->
 
         <li
           class="

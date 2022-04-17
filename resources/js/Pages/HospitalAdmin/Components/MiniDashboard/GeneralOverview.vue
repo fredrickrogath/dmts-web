@@ -51,7 +51,7 @@
           <option value="1">By Age</option>
           <option value="2">By Gender</option>
           <option value="3">By Region</option>
-          <option value="3">By Hospital</option>
+          <!-- <option value="3">By Hospital</option> -->
         </select>
 
         <div
@@ -145,7 +145,7 @@
             >
           </div>
 
-          <div class="py-0" role="none">
+          <!-- <div class="py-0" role="none">
             <a
               href="#"
               class="
@@ -163,7 +163,7 @@
               @click="setSelectedTab('doctors')"
               >DMTS Hospitals</a
             >
-          </div>
+          </div> -->
         </div>
       </div>
     </div>
