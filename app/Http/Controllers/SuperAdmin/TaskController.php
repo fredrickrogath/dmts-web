@@ -15,7 +15,7 @@ class TaskController extends Controller
      */
     public function index()
     {
-        $this->authorize('adminView', \App\Models\User::class);
+        $this->authorize('adminSuperView', \App\Models\User::class);
 
         return Inertia::render('SuperAdmin/Dashboard');
     }

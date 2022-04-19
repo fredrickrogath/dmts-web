@@ -12,11 +12,27 @@ class UserPolicy
 
 
     //Determine if the user is allowed ti view admin dashboard
-    public function adminView(User $user){
+    public function adminSuperView(User $user){
 
         return $user->role == \App\Models\User::is_super_admin
                 ? Response::allow()
-                : Response::deny('From Dmts : You are not super admin.');
+                : Response::deny('From Dmts : You are not super administrator.');
+    }
+
+    //Determine if the user is allowed ti view doctor dashboard
+    public function doctorView(User $user){
+
+        return $user->role == \App\Models\User::is_a_doctor
+                ? Response::allow()
+                : Response::deny('From Dmts : You are not a doctor.');
+    }
+
+    //Determine if the user is allowed ti view hospital admin dashboard
+    public function adminHospitalView(User $user){
+
+        return $user->role == \App\Models\User::is_a_doctor
+                ? Response::allow()
+                : Response::deny('From Dmts : You are not a hospital administrator.');
     }
 
     /**

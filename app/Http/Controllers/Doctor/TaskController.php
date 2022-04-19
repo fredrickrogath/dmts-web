@@ -17,6 +17,8 @@ class TaskController extends Controller
     public function index()
     {
         //
+        $this->authorize('doctorView', \App\Models\User::class);
+
         return Inertia::render('Doctor/Dashboard');
     }
 
