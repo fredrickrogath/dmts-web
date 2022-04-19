@@ -50,7 +50,7 @@
           </button>
         </li>
 
-        <!-- <li
+        <li
           class="
             pl-8
             py-1
@@ -83,10 +83,10 @@
                 class="fas fa-sort pt-1 hover:cursor-pointer text-green-700"
               ></i>
 
-              <span class="ml-4 capitalize">Security Overview</span>
+              <span class="ml-4 capitalize">Meds & Treats</span>
             </span>
           </button>
-        </li> -->
+        </li>
 
         <li
           class="
@@ -121,7 +121,45 @@
                 class="fas fa-sort pt-1 hover:cursor-pointer text-green-700"
               ></i>
 
-              <span class="ml-4 capitalize">Log Activities</span>
+              <span class="ml-4 capitalize">Patients</span>
+            </span>
+          </button>
+        </li>
+
+        <li
+          class="
+            pl-8
+            py-1
+            font-semibold
+            mb-2
+            transition
+            duration-500
+            ease-in-out
+            px-4
+            py-2
+            -mb-px
+            text-gray-800
+            rounded-t
+          "
+          :class="logActivitiesBoederSelected"
+        >
+          <button
+            class="
+              focus:text-green-900 focus:outline-none
+              w-full
+              transition
+              duration-500
+              ease-in-out
+            "
+            :class="logActivitiesSelected"
+            @click="setSelectedMainTab('log-activities')"
+          >
+            <span class="flex items-center">
+              <i
+                class="fas fa-sort pt-1 hover:cursor-pointer text-green-700"
+              ></i>
+
+              <span class="ml-4 capitalize">Responces</span>
             </span>
           </button>
         </li>

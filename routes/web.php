@@ -41,7 +41,7 @@ Route::middleware([
     });
 
     Route::group(['prefix' => 'doctor', 'middleware' => 'is_doctor', 'as' => 'doctor.',], function () {
-        Route::get('/dashboard', [\App\Http\Controllers\HospitalAdmin\TaskController::class, 'index'])->name('dashboard');
+        Route::get('/dashboard', [\App\Http\Controllers\Doctor\TaskController::class, 'index'])->name('dashboard');
     });
 
     Route::get('/dashboard', function () {
