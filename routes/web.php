@@ -40,15 +40,20 @@ Route::middleware([
         Route::get('/dashboard', [\App\Http\Controllers\HospitalAdmin\TaskController::class, 'index'])->name('dashboard');
     });
 
+    Route::group(['prefix' => 'doctor', 'middleware' => 'is_doctor', 'as' => 'doctor.',], function () {
+        Route::get('/dashboard', [\App\Http\Controllers\HospitalAdmin\TaskController::class, 'index'])->name('dashboard');
+    });
+
     Route::get('/dashboard', function () {
         if (auth()->user()->role == \App\Models\User::is_super_admin)
             return redirect()->route('admin.super.dashboard');
-        if (auth()->user()->role == \App\Models\User::is_hospital_admin)
+        elseif (auth()->user()->role == \App\Models\User::is_hospital_admin)
             return redirect()->route('admin.hospital.dashboard');
-        if (auth()->user()->role == \App\Models\User::is_a_doctor)
-            return redirect()->route('home');
-        if (auth()->user()->role == \App\Models\User::is_a_patient)
-            return redirect()->route('home');
+        elseif (auth()->user()->role == \App\Models\User::is_a_doctor)
+            return redirect()->route('doctor.dashboard');
+        // elseif (auth()->user()->role == \App\Models\User::is_a_patient)
+        //     return redirect()->route('home');
+        else return redirect()->back();
     })->name('dashboard');
 
     Route::get('/management', function () {
