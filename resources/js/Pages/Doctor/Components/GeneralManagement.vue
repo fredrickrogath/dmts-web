@@ -1,15 +1,15 @@
 <template>
-  <div class="flex justify-center items-center">
-  <div class="relative z-0">
-    <div class="grid grid-cols-3 gap-8">
+  <div class="flex w-full">
+  <div class="relative z-0 w-full">
+    <div class="flex w-full">
     <!-- Hospital administrators -->
     <!-- <hospital-admins></hospital-admins> -->
     <!-- Doctors -->
-    <doctors></doctors>
+    <!-- <doctors></doctors> -->
     <!-- Patients -->
     <patients></patients>
     <!-- Hospitals -->
-    <hospitals></hospitals>
+    <!-- <hospitals></hospitals> -->
   </div>
     <div v-if="false" class="bg-gray-300 absolute inset-0 flex justify-center items-center z-10">
       <!-- <hospital-admins-expand></hospital-admins-expand> -->

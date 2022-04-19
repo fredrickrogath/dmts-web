@@ -1,9 +1,9 @@
 <template>
-  <section class="relative bg-blueGray-50">
-    <div class="w-full h-screen flex justify-center items-center">
+  <section class="relative bg-blueGray-50 w-full"> 
+    <div class="w-full h-screen">
       <div class="relative z-0">
         <div class="container mx-auto py-1 flex justify-center h-screen">
-          <div class="pl-4 h-full flex flex-col">
+          <div class="pl-4 h-full w-full flex flex-col">
             <div
               class="
                 text-sm text-gray-500
@@ -16,9 +16,9 @@
             >
               <div class="grid grid-cols-1 divide-y-2">
                 <div class="flex justify-between pb-2">
-                  <span> Hospital Patients </span>
+                  <span> My Patients </span>
                   <div class="flex justify-end">
-                    <i
+                    <!-- <i
                       class="
                         fas
                         fa-add
@@ -26,9 +26,9 @@
                         hover:cursor-pointer hover:text-green-700
                       "
                       @click="toggleAddForm"
-                    ></i>
+                    ></i> -->
                     <i class="fas fa-sort pt-1 px-4 hover:cursor-pointer"></i>
-                    <i class="fas fa-expand pt-1 hover:cursor-pointer"></i>
+                    <!-- <i class="fas fa-expand pt-1 hover:cursor-pointer"></i> -->
                   </div>
                 </div>
                 <div class="flex justify-between py-2">
@@ -88,7 +88,7 @@
               </div>
 
               <table class="w-full">
-                <tbody class="">
+                <tbody class="flex flex-wrap justify-center items-center">
                   <profile-card
                     v-for="hospitaAdmin in dummyData"
                     :key="hospitaAdmin.id"
