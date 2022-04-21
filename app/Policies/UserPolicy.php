@@ -30,7 +30,7 @@ class UserPolicy
     //Determine if the user is allowed ti view hospital admin dashboard
     public function adminHospitalView(User $user){
 
-        return $user->role == \App\Models\User::is_a_doctor
+        return $user->role == \App\Models\User::is_hospital_admin
                 ? Response::allow()
                 : Response::deny('From Dmts : You are not a hospital administrator.');
     }

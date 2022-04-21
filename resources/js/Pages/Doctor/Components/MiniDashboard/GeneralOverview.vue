@@ -125,7 +125,7 @@
               >Registered Patients</a
             >
           </div>
-          <div class="py-0" role="none">
+          <!-- <div class="py-0" role="none">
             <a
               href="#"
               class="
@@ -143,7 +143,7 @@
               @click="setSelectedTab('hospitals')"
               >DMTS Doctors</a
             >
-          </div>
+          </div> -->
 
           <!-- <div class="py-0" role="none">
             <a

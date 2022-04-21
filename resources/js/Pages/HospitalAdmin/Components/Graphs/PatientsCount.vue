@@ -18,7 +18,7 @@
           Number of patients presents in all hospitals in DMTS
         </div>
       </div>
-      <div class="grid grid-cols-1 gap-1 py-2">
+      <div class="grid grid-cols-1 gap-1 py-6">
         <bar-chart
           :download="true"
           :data="[
@@ -30,6 +30,12 @@
           width="600px"
           height="220px"
         ></bar-chart>
+      </div>
+
+      <div class="grid grid-cols-1 gap-1 py-6">
+        <line-chart
+          :data="{ '0-15 yrs':5,'16-30 yrs':45,'31-45 yrs':30,'48 yrs':200,}"
+        ></line-chart>
       </div>
     </div>
   </div>
