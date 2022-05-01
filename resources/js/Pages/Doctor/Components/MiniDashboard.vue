@@ -65,7 +65,7 @@
             text-gray-800
             rounded-t
           "
-          :class="securityOverviewBorderSelected"
+          :class="diagnosisBorderSelected"
         >
           <button
             class="
@@ -75,8 +75,8 @@
               duration-500
               ease-in-out
             "
-            :class="securityOverviewSelected"
-            @click="setSelectedMainTab('security-overview')"
+            :class="diagnosisSelected"
+            @click="setSelectedMainTab('diagnosis')"
           >
             <span class="flex items-center">
               <i
@@ -103,7 +103,7 @@
             text-gray-800
             rounded-t
           "
-          :class="logActivitiesBoederSelected"
+          :class="referralsBorderSelected"
         >
           <button
             class="
@@ -113,8 +113,8 @@
               duration-500
               ease-in-out
             "
-            :class="logActivitiesSelected"
-            @click="setSelectedMainTab('log-activities')"
+            :class="referralsSelected"
+            @click="setSelectedMainTab('referrals')"
           >
             <span class="flex items-center">
               <i
@@ -141,7 +141,7 @@
             text-gray-800
             rounded-t
           "
-          :class="logActivitiesBoederSelected"
+          :class="responsesBorderSelected"
         >
           <button
             class="
@@ -151,8 +151,8 @@
               duration-500
               ease-in-out
             "
-            :class="logActivitiesSelected"
-            @click="setSelectedMainTab('log-activities')"
+            :class="referralsSelected"
+            @click="setSelectedMainTab('responses')"
           >
             <span class="flex items-center">
               <i
@@ -179,26 +179,26 @@
       <general-overview
         v-if="selectedMainTab == 'general-overview'"
       ></general-overview>
-      <security-overview
-        v-else-if="selectedMainTab == 'security-overview'"
-      ></security-overview>
+      <diagnosis v-if="selectedMainTab == 'diagnosis'"></diagnosis>
 
-      <log-activities
-        v-else-if="selectedMainTab == 'log-activities'"
-      ></log-activities>
+      <referrals v-if="selectedMainTab == 'referrals'"></referrals>
+
+      <responses v-if="selectedMainTab == 'responses'"></responses>
     </main>
   </div>
 </template>
 
 <script>
 import GeneralOverview from "./MiniDashboard/GeneralOverview.vue";
-import SecurityOverview from "./MiniDashboard/SecurityOverview.vue";
-import LogActivities from "./MiniDashboard/LogActivities.vue";
+import Diagnosis from "./MiniDashboard/Diagnosis.vue";
+import Responses from "./MiniDashboard/Responses.vue";
+import Referrals from "./MiniDashboard/Referrals.vue";
 export default {
   components: {
     GeneralOverview,
-    SecurityOverview,
-    LogActivities,
+    Diagnosis,
+    Responses,
+    Referrals,
   },
   data() {
     return {
@@ -212,30 +212,38 @@ export default {
         : null;
     },
 
+    referralsSelected() {
+      return this.selectedMainTab == "referrals" ? "border-green-900" : null;
+    },
+
+    diagnosisSelected() {
+      return this.selectedMainTab == "diagnosis" ? "text-green-900" : null;
+    },
+
+    responsesSelected() {
+      return this.selectedMainTab == "responses"
+        ? "border-l-2 border-green-600"
+        : null;
+    },
+
     generalOverviewBorderSelected() {
       return this.selectedMainTab == "general-overview"
         ? "border-l-2 border-green-600"
         : null;
     },
 
-    securityOverviewSelected() {
-      return this.selectedMainTab == "security-overview"
-        ? "text-green-900"
-        : null;
-    },
-
-    securityOverviewBorderSelected() {
-      return this.selectedMainTab == "security-overview"
+    referralsBorderSelected() {
+      return this.selectedMainTab == "referrals"
         ? "border-l-2 border-green-600"
         : null;
     },
-
-    logActivitiesSelected() {
-      return this.selectedMainTab == "log-activities" ? "text-green-900" : null;
+    diagnosisBorderSelected() {
+      return this.selectedMainTab == "diagnosis"
+        ? "border-l-2 border-green-600"
+        : null;
     },
-
-    logActivitiesBoederSelected() {
-      return this.selectedMainTab == "log-activities"
+    responsesBorderSelected() {
+      return this.selectedMainTab == "responses"
         ? "border-l-2 border-green-600"
         : null;
     },

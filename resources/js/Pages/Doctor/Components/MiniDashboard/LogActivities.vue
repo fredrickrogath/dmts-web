@@ -1,3 +1,0 @@
-<template>
-    Log activities
-</template>
