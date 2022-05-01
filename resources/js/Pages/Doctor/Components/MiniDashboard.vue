@@ -83,7 +83,7 @@
                 class="fas fa-sort pt-1 hover:cursor-pointer text-green-700"
               ></i>
 
-              <span class="ml-4 capitalize">Meds & Treats</span>
+              <span class="ml-4 capitalize">Diagnosis</span>
             </span>
           </button>
         </li>
@@ -121,7 +121,7 @@
                 class="fas fa-sort pt-1 hover:cursor-pointer text-green-700"
               ></i>
 
-              <span class="ml-4 capitalize">Patients</span>
+              <span class="ml-4 capitalize">Referrals</span>
             </span>
           </button>
         </li>
