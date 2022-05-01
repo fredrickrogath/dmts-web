@@ -3,7 +3,6 @@
     <nav
       class="
         w-56
-        py-2
         select-none
         overflow-y-auto
         transition
@@ -226,23 +225,23 @@ export default {
 
     generalOverviewBorderSelected() {
       return this.selectedMainTab == "general-overview"
-        ? "border-l-2 border-green-600"
+        ? "border-l-4 border-green-600 bg-gray-200"
         : null;
     },
 
     referralsBorderSelected() {
       return this.selectedMainTab == "referrals"
-        ? "border-l-2 border-green-600"
+        ? "border-l-4 border-green-600 bg-gray-200"
         : null;
     },
     diagnosisBorderSelected() {
       return this.selectedMainTab == "diagnosis"
-        ? "border-l-2 border-green-600"
+        ? "border-l-4 border-green-600 bg-gray-200"
         : null;
     },
     responsesBorderSelected() {
       return this.selectedMainTab == "responses"
-        ? "border-l-2 border-green-600"
+        ? "border-l-4 border-green-600 bg-gray-200"
         : null;
     },
   },

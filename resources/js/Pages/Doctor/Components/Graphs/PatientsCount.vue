@@ -17,7 +17,7 @@
           ></pie-chart>
         </div>
 
-        <div class="w-40 bg-gray-300 rounded px-2 text-start">
+        <div class="w-40 h-20 bg-gray-300 rounded px-2 text-start">
           Number of patients presents in all hospitals in DMTS
         </div>
       </div>
