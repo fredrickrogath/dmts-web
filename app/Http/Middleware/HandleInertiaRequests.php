@@ -34,10 +34,25 @@ class HandleInertiaRequests extends Middleware
      */
     public function share(Request $request)
     {
+        $role = '';
+        if (auth()->user()) {
+            if (auth()->user()->role == \App\Models\User::is_super_admin) {
+                $role = \App\Models\User::is_super_admin;
+            } elseif (auth()->user()->role == \App\Models\User::is_hospital_admin) {
+                $role = \App\Models\User::is_hospital_admin;
+            } elseif (auth()->user()->role == \App\Models\User::is_a_doctor) {
+                $role = \App\Models\User::is_a_doctor;
+            } else {
+                $role = '';
+            }
+        }
+
         return array_merge(parent::share($request), [
             'ziggy' => function () {
                 return (new Ziggy)->toArray();
             },
+
+            'flash' => ['role' => $role],
         ]);
     }
 }

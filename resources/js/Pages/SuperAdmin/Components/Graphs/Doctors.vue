@@ -43,7 +43,7 @@
           Line chart representation
         </div>
         <line-chart
-        :download="true"
+          :download="true"
           :data="{
             '0-15 yrs': 5,
             '16-30 yrs': 45,

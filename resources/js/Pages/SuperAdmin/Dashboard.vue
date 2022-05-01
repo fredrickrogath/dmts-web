@@ -12,6 +12,7 @@ import Welcome from "@/Jetstream/Welcome.vue";
         </template> -->
 
     <div class="py-0">
+      <!-- {{$page.props.flash.role}} -->
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="overflow-hidden shadow-xl sm:rounded-lg">
           <!-- <Welcome /> -->
