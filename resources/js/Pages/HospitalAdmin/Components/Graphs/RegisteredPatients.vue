@@ -2,23 +2,29 @@
   <div class="mx-4">
     <div class="grid grid-rows-2 gap-8">
       <div class="flex">
-        <pie-chart
-          width="600px"
-          height="240px"
-          :download="true"
-          :data="[
-            ['0-15 yrs', 5],
-            ['16-30 yrs', 45],
-            ['31-45 yrs', 30],
-            ['48 yrs ->', 200],
-          ]"
-        ></pie-chart>
+        <div>
+          <div class="text-center text-lg py-1">Pie chart representation</div>
+          <pie-chart
+            width="600px"
+            height="240px"
+            :download="true"
+            :data="[
+              ['0-15 yrs', 5],
+              ['16-30 yrs', 45],
+              ['31-45 yrs', 30],
+              ['48 yrs ->', 200],
+            ]"
+          ></pie-chart>
+        </div>
 
-        <div class="w-40 bg-gray-300 rounded px-2 text-start">
+        <div class="w-40 h-24 bg-gray-300 rounded px-2 text-start">
           Number of patients registerd from defferent hospitals in DMTS
         </div>
       </div>
       <div class="grid grid-cols-1 gap-1 py-2">
+        <div class="text-center text-lg py-1 mr-44">
+          Bar graph representation
+        </div>
         <bar-chart
           :download="true"
           :data="[
@@ -30,6 +36,21 @@
           width="600px"
           height="220px"
         ></bar-chart>
+      </div>
+
+      <div class="grid grid-cols-1 gap-1 py-3">
+        <div class="text-center text-lg py-1 mr-44">
+          Line chart representation
+        </div>
+        <line-chart
+        :download="true"
+          :data="{
+            '0-15 yrs': 5,
+            '16-30 yrs': 45,
+            '31-45 yrs': 30,
+            '48 yrs': 200,
+          }"
+        ></line-chart>
       </div>
     </div>
   </div>

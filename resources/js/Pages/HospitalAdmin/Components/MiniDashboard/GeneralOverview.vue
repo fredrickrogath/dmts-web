@@ -139,8 +139,8 @@
               role="menuitem"
               tabindex="-1"
               id="menu-item-2"
-              :class="hospitalsSelected"
-              @click="setSelectedTab('hospitals')"
+              :class="doctorsSelected"
+              @click="setSelectedTab('doctors')"
               >DMTS Doctors</a
             >
           </div>
@@ -192,28 +192,28 @@ export default {
   computed: {
     patientsCountSelected() {
       return this.selectedTab == "patients-count"
-        ? "border-l-2 border-green-600 bg-gray-300 text-green-900"
+        ? "border-l-4 border-green-600 bg-gray-300 text-green-900"
         : null;
     },
     referredPatientsSelected() {
       return this.selectedTab == "referred-patients"
-        ? "border-l-2 border-green-600 bg-gray-300 text-green-900"
+        ? "border-l-4 border-green-600 bg-gray-300 text-green-900"
         : null;
     },
 
     registeredPatientsSelected() {
       return this.selectedTab == "registered-patients"
-        ? "border-l-2 border-green-600 bg-gray-300 text-green-900"
+        ? "border-l-4 border-green-600 bg-gray-300 text-green-900"
         : null;
     },
     hospitalsSelected() {
       return this.selectedTab == "hospitals"
-        ? "border-l-2 border-green-600 bg-gray-300 text-green-900"
+        ? "border-l-4 border-green-600 bg-gray-300 text-green-900"
         : null;
     },
     doctorsSelected() {
       return this.selectedTab == "doctors"
-        ? "border-l-2 border-green-600 bg-gray-300 text-green-900"
+        ? "border-l-4 border-green-600 bg-gray-300 text-green-900"
         : null;
     },
   },
