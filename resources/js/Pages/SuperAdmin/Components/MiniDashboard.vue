@@ -41,9 +41,9 @@
             @click="setSelectedMainTab('general-overview')"
           >
             <span class="flex items-center">
-              <i
+              <!-- <i
                 class="fas fa-sort pt-1 hover:cursor-pointer text-green-700"
-              ></i>
+              ></i> -->
 
               <span class="ml-4 capitalize">General Overview</span>
             </span>
@@ -79,9 +79,9 @@
             @click="setSelectedMainTab('security-overview')"
           >
             <span class="flex items-center">
-              <i
+              <!-- <i
                 class="fas fa-sort pt-1 hover:cursor-pointer text-green-700"
-              ></i>
+              ></i> -->
 
               <span class="ml-4 capitalize">Security Overview</span>
             </span>
@@ -117,9 +117,9 @@
             @click="setSelectedMainTab('log-activities')"
           >
             <span class="flex items-center">
-              <i
+              <!-- <i
                 class="fas fa-sort pt-1 hover:cursor-pointer text-green-700"
-              ></i>
+              ></i> -->
 
               <span class="ml-4 capitalize">Log Activities</span>
             </span>
@@ -176,7 +176,7 @@ export default {
 
     generalOverviewBorderSelected() {
       return this.selectedMainTab == "general-overview"
-        ? "border-l-2 border-green-600"
+        ? "border-l-4 border-green-600"
         : null;
     },
 
@@ -188,7 +188,7 @@ export default {
 
     securityOverviewBorderSelected() {
       return this.selectedMainTab == "security-overview"
-        ? "border-l-2 border-green-600"
+        ? "border-l-4 border-green-600"
         : null;
     },
 
@@ -198,7 +198,7 @@ export default {
 
     logActivitiesBoederSelected() {
       return this.selectedMainTab == "log-activities"
-        ? "border-l-2 border-green-600"
+        ? "border-l-4 border-green-600"
         : null;
     },
   },

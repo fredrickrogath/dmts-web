@@ -1,22 +1,32 @@
 <template>
   <div class="flex justify-center items-center">
-  <div class="relative z-0">
-    <div class="grid grid-cols-4 gap-1">
-    <!-- Hospital administrators -->
-    <hospital-admins></hospital-admins>
-    <!-- Doctors -->
-    <doctors></doctors>
-    <!-- Patients -->
-    <patients></patients>
-    <!-- Hospitals -->
-    <hospitals></hospitals>
-  </div>
-    <div v-if="false" class="bg-gray-300 absolute inset-0 flex justify-center items-center z-10">
-      <hospital-admins-expand></hospital-admins-expand>
+    <div class="relative z-0">
+      <div class="grid grid-cols-4 gap-1">
+        <!-- Hospital administrators -->
+        <hospital-admins></hospital-admins>
+        <!-- Doctors -->
+        <doctors></doctors>
+        <!-- Patients -->
+        <patients></patients>
+        <!-- Hospitals -->
+        <hospitals></hospitals>
+      </div>
+      <div
+        v-if="false"
+        class="
+          bg-gray-300
+          absolute
+          inset-0
+          flex
+          justify-center
+          items-center
+          z-10
+        "
+      >
+        <hospital-admins-expand></hospital-admins-expand>
+      </div>
     </div>
   </div>
-</div>
-
 </template>
 
 <script>
@@ -27,7 +37,13 @@ import Hospitals from "./Manages/Hospitals.vue";
 
 import HospitalAdminsExpand from "./Expands/HospitalAdmins.vue";
 export default {
-  components: { HospitalAdmins, Doctors, Patients, Hospitals , HospitalAdminsExpand},
+  components: {
+    HospitalAdmins,
+    Doctors,
+    Patients,
+    Hospitals,
+    HospitalAdminsExpand,
+  },
   created() {
     this.testDataFn();
   },

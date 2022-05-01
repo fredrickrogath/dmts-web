@@ -139,8 +139,8 @@
               role="menuitem"
               tabindex="-1"
               id="menu-item-2"
-              :class="hospitalsSelected"
-              @click="setSelectedTab('hospitals')"
+              :class="doctorsSelected"
+              @click="setSelectedTab('doctors')"
               >DMTS Doctors</a
             >
           </div>
@@ -159,8 +159,8 @@
               role="menuitem"
               tabindex="-1"
               id="menu-item-2"
-              :class="doctorsSelected"
-              @click="setSelectedTab('doctors')"
+              :class="hospitalsSelected"
+              @click="setSelectedTab('hospitals')"
               >DMTS Hospitals</a
             >
           </div>

@@ -17,7 +17,7 @@
           ></pie-chart>
         </div>
 
-        <div class="w-40 h-18 bg-gray-300 rounded px-2 text-start">
+        <div class="w-40 h-20 bg-gray-300 rounded px-2 text-start">
           Number of doctors registered in DMTS hospitals
         </div>
       </div>
