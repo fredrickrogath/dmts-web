@@ -3,7 +3,6 @@
     <nav
       class="
         w-56
-        py-2
         select-none
         overflow-y-auto
         transition
@@ -176,7 +175,7 @@ export default {
 
     generalOverviewBorderSelected() {
       return this.selectedMainTab == "general-overview"
-        ? "border-l-4 border-green-600"
+        ? "border-l-4 border-green-600 bg-gray-200"
         : null;
     },
 
@@ -188,7 +187,7 @@ export default {
 
     securityOverviewBorderSelected() {
       return this.selectedMainTab == "security-overview"
-        ? "border-l-4 border-green-600"
+        ? "border-l-4 border-green-600 bg-gray-200"
         : null;
     },
 
@@ -198,7 +197,7 @@ export default {
 
     logActivitiesBoederSelected() {
       return this.selectedMainTab == "log-activities"
-        ? "border-l-4 border-green-600"
+        ? "border-l-4 border-green-600 bg-gray-200"
         : null;
     },
   },
