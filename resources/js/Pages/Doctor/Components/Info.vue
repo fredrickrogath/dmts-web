@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class=" w-22 overflow-clip leading-5 text-sm text-gray-900 font-medium">
+    <div class="w-22 overflow-clip leading-5 text-sm text-gray-900 font-medium">
       {{ name }}
     </div>
     <div class="leading-5 text-green-700">
@@ -36,7 +36,7 @@
     </div>
     <div class="grid grid-cols-1 divide-y-2">
       <div class="leading-5 text-gray-800 pb-1">Dar es Salaam</div>
-      <div class="flex text-gray-700">
+      <div class="flex text-gray-700 py-2">
         <i
           class="fas fa-edit pt-1 hover:cursor-pointer hover:text-green-700"
           @click="toggleEditForm"
@@ -60,7 +60,7 @@
         </svg>
         <i
           class="fas fa-trash pt-1 px-7 hover:cursor-pointer hover:text-red-700"
-         @click="toggleDeleteForm"
+          @click="toggleDeleteForm"
         ></i>
       </div>
     </div>
@@ -69,7 +69,12 @@
 
 <script>
 export default {
-  inject: ["toggleFormEdit", "formEditDetails", "toggleFormDelete", "formDeleteDetails"],
+  inject: [
+    "toggleFormEdit",
+    "formEditDetails",
+    "toggleFormDelete",
+    "formDeleteDetails",
+  ],
   props: {
     id: {
       type: Number,
@@ -121,11 +126,7 @@ export default {
     },
 
     toggleDeleteForm() {
-      this.formDeleteDetails(
-        this.id,
-        this.name,
-        this.email,
-      );
+      this.formDeleteDetails(this.id, this.name, this.email);
       this.toggleFormDelete();
     },
   },

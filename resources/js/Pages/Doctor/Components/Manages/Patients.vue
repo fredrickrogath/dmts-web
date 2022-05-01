@@ -259,7 +259,7 @@ export default {
 <style scoped>
 /* animate add form */
 
-.add-form-enter-from {
+/* .add-form-enter-from {
   opacity: 0;
   transform: translateY(-70px);
 }
@@ -285,5 +285,5 @@ export default {
 .add-form-leave-to {
   opacity: 0;
   transform: translateY(-70px);
-}
+} */
 </style>

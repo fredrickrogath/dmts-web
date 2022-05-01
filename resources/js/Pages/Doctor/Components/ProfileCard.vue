@@ -5,13 +5,16 @@
       transform
       scale-100
       text-xs
-      py-1
-      border-b-2 border-blue-100
+      my-1
+      px-4
+      mx-1
+      border-2 border-green-300
       cursor-default
       bg-opacity-25
     "
   >
-    <td class="pl-4 pr-2 whitespace-no-wrap hover:cursor-pointer">
+    <td class="pl-4 pr-2
+     whitespace-no-wrap hover:cursor-pointer">
       <transition name="profile" appear>
         <profile @toggle-profile="toggleProfile"></profile>
       </transition>
