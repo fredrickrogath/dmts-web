@@ -56,7 +56,7 @@ const logout = () => {
               <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                 <JetNavLink
                   :href="route('dashboard')"
-                  :active="route().current('doctor.dashboard')"
+                  :active="route().current('admin.super.dashboard')"
                 >
                   Diabetes Management And Tracking System
                 </JetNavLink>

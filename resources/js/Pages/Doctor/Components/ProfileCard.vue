@@ -8,7 +8,8 @@
       my-1
       px-4
       mx-1
-      border-2 border-green-300
+      border-8 border-green-600
+      rounded-3xl
       cursor-default
       bg-opacity-25
     "
