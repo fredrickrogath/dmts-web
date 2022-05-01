@@ -56,45 +56,10 @@ const logout = () => {
               <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
                 <JetNavLink
                   :href="route('dashboard')"
-                  :active="route().current('admin.super.dashboard')"
+                  :active="route().current('doctor.dashboard')"
                 >
                   Diabetes Management And Tracking System
                 </JetNavLink>
-
-                <!-- <JetNavLink
-                  :href="route('management')"
-                  :active="route().current('management')"
-                >
-                  Management
-                </JetNavLink> -->
-
-                <!-- <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Reports
-                                </JetNavLink> -->
-
-                <!-- <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Referrals
-                                </JetNavLink> -->
-
-                <!-- <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard sup adm
-                                </JetNavLink> -->
-
-                <!-- <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard hop
-                                </JetNavLink> -->
-
-                <!-- <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Recommendations
-                                </JetNavLink> -->
-                <!-- 
-                                <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Treatments
-                                </JetNavLink>
-
-                                <JetNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Diagnosis
-                                </JetNavLink> -->
               </div>
             </div>
 

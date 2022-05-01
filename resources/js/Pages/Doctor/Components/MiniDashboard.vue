@@ -213,7 +213,7 @@ export default {
     },
 
     referralsSelected() {
-      return this.selectedMainTab == "referrals" ? "border-green-900" : null;
+      return this.selectedMainTab == "referrals" ? "text-green-900" : null;
     },
 
     diagnosisSelected() {
@@ -221,9 +221,7 @@ export default {
     },
 
     responsesSelected() {
-      return this.selectedMainTab == "responses"
-        ? "border-l-2 border-green-600"
-        : null;
+      return this.selectedMainTab == "responses" ? "text-green-900" : null;
     },
 
     generalOverviewBorderSelected() {
