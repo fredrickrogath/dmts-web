@@ -17,8 +17,8 @@
           ></pie-chart>
         </div>
 
-        <div class="w-40 bg-gray-300 rounded px-2 text-start">
-          Number of doctors registered in DMTS hospitals
+        <div class="w-40 h-20 bg-gray-300 rounded px-2 text-start">
+          Number of hospitals registered in DMTS hospitals
         </div>
       </div>
       <div class="grid grid-cols-1 gap-1 py-2">
