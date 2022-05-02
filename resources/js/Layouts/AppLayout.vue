@@ -38,7 +38,7 @@ const logout = () => {
 
     <JetBanner />
     <!-- Color of dashboard body -->
-    <div class="min-h-screen bg-gray-100">
+    <div class="min-h-screen bg-gray-300">
       <!-- Color of dashboard head navigations -->
       <nav class="bg-gray-200 border-b border-gray-100">
         <!-- Primary Navigation Menu -->
@@ -67,6 +67,14 @@ const logout = () => {
                 v-else-if="$page.props.flash.role == 'isDoctor'"
                   :href="route('dashboard')"
                   :active="route().current('doctor.dashboard')"
+                >
+                  Diabetes Management And Tracking System
+                </JetNavLink>
+
+                <JetNavLink
+                v-else-if="$page.props.flash.role == 'isHospitalAdmin'"
+                  :href="route('dashboard')"
+                  :active="route().current('admin.hospital.dashboard')"
                 >
                   Diabetes Management And Tracking System
                 </JetNavLink>
@@ -250,7 +258,7 @@ const logout = () => {
                     <!-- Account Management -->
                     <div class="block px-4 py-2 text-xs text-gray-600">
                       <div class="py-2 text-center">
-                        {{ $page.props.user.name }}
+                        {{ $page.props.flash.role }}
                       </div>
                       <div>Manage Account</div>
                     </div>

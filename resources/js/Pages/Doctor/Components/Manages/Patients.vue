@@ -79,7 +79,7 @@
               </div>
             </div>
 
-            <div class="w-full h-full overflow-auto shadow" id="journal-scroll">
+            <div class="bg-gray-200 w-full h-full overflow-auto shadow" id="journal-scroll">
               <div
                 v-if="emptyResult == true"
                 class="m-20 text-sm text-gray-500"
@@ -88,7 +88,7 @@
               </div>
 
               <table class="w-full">
-                <tbody class="flex flex-wrap justify-center items-center">
+                <tbody class="flex flex-wrap justify-center items-center my-2">
                   <profile-card
                     v-for="hospitaAdmin in dummyData"
                     :key="hospitaAdmin.id"

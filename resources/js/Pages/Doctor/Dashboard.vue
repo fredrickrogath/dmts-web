@@ -19,7 +19,9 @@ import Welcome from "@/Jetstream/Welcome.vue";
 
           <div class="rounded text-sm pb-2">
             <!-- Tabs -->
-            <ul id="tabs" class="inline-flex w-full px-1">
+<div class="flex">
+
+              <ul id="tabs" class="inline-flex w-full px-1">
               <li
                 class="
                   px-4
@@ -56,6 +58,13 @@ import Welcome from "@/Jetstream/Welcome.vue";
                 </button>
               </li>
             </ul>
+            <div class="flex justify-content-center align-center mt-2">
+              <i class="fas fa-bell fa-lg mt-4"></i>
+             <span class="badge mb-3 ml-2 bg-red-800  px-2 py-1 text-center object-right-top text-white text-sm mr-1">24</span>
+            </div>
+
+</div>
+
           </div>
 
           <!-- <dmts-monitoring></dmts-monitoring> -->
