@@ -35,13 +35,17 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request)
     {
         $role = '';
+        // $isSuperAdmin = false;
+        // $isHospitalAdmin = false;
+        // $isDoctor = false;
+        
         if (auth()->user()) {
             if (auth()->user()->role == \App\Models\User::is_super_admin) {
-                $role = \App\Models\User::is_super_admin;
+                $role = 'isSuperAdmin';
             } elseif (auth()->user()->role == \App\Models\User::is_hospital_admin) {
-                $role = \App\Models\User::is_hospital_admin;
+                $role = 'isHospitalAdmin';
             } elseif (auth()->user()->role == \App\Models\User::is_a_doctor) {
-                $role = \App\Models\User::is_a_doctor;
+                $role = 'isDoctor';
             } else {
                 $role = '';
             }

@@ -54,9 +54,19 @@ const logout = () => {
 
               <!-- Navigation Links -->
               <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+
                 <JetNavLink
+                v-if="$page.props.flash.role == 'isSuperAdmin'"
                   :href="route('dashboard')"
                   :active="route().current('admin.super.dashboard')"
+                >
+                  Diabetes Management And Tracking System
+                </JetNavLink>
+
+                <JetNavLink
+                v-else-if="$page.props.flash.role == 'isDoctor'"
+                  :href="route('dashboard')"
+                  :active="route().current('doctor.dashboard')"
                 >
                   Diabetes Management And Tracking System
                 </JetNavLink>
@@ -331,12 +341,12 @@ const logout = () => {
               Dashboard
             </JetResponsiveNavLink>
 
-            <JetResponsiveNavLink
+            <!-- <JetResponsiveNavLink
               :href="route('management')"
               :active="route().current('management')"
             >
               Management
-            </JetResponsiveNavLink>
+            </JetResponsiveNavLink> -->
           </div>
 
           <!-- Responsive Settings Options -->
