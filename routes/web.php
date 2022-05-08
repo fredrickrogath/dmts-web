@@ -45,6 +45,10 @@ Route::middleware([
         Route::get('/management', [\App\Http\Controllers\Doctor\TaskController::class, 'index'])->name('management');
     });
 
+    Route::group(['prefix' => 'patient', 'middleware' => 'is_patient', 'as' => 'patient.'], function () {
+        Route::get('/dashboard', [\App\Http\Controllers\Doctor\DashboardController::class, 'index'])->name('dashboard');
+    });
+
     Route::get('/dashboard', function () {
 
         if (auth()->user()->role == \App\Models\User::is_super_admin) {
@@ -53,6 +57,9 @@ Route::middleware([
             return redirect()->route('admin.hospital.dashboard');
         } elseif (auth()->user()->role == \App\Models\User::is_a_doctor) {
             return redirect()->route('doctor.dashboard');
+        } elseif (auth()->user()->role == \App\Models\User::is_a_patient) {
+            return redirect()->route('patient.dashboard');
+
         } else {
             return redirect()->back();
         }

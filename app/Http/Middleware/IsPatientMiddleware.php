@@ -16,6 +16,10 @@ class IsPatientMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
+        if (!auth()->check() || !auth()->user()->role == \App\Models\User::is_a_patient) {
+            abort(403);
+        }
+
         return $next($request);
     }
 }
