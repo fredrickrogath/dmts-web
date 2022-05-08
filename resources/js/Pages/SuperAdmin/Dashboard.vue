@@ -26,7 +26,7 @@ import Welcome from "@/Jetstream/Welcome.vue";
                   py-2
                   -mb-px
                   text-gray-800
-                  border-b-2
+                  border-b-4
                   rounded-t
                   hover:border-gray-300
                 "
@@ -45,7 +45,7 @@ import Welcome from "@/Jetstream/Welcome.vue";
                   py-2
                   -mb-px
                   text-gray-800
-                  border-b-2
+                  border-b-4
                   rounded-t
                   hover:border-gray-300
                 "
