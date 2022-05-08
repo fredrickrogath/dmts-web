@@ -38,7 +38,7 @@ class UserPolicy
     //Determine if the user is allowed ti view patient dashboard
     public function patientView(User $user){
 
-        return $user->role == \App\Models\User::is_hospital_admin
+        return $user->role == \App\Models\User::is_a_patient
                 ? Response::allow()
                 : Response::deny('From Dmts : You are not a patient.');
     }

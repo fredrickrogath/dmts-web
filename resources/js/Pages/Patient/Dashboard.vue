@@ -20,7 +20,7 @@ import Welcome from "@/Jetstream/Welcome.vue";
           <div class="rounded text-sm pb-2">
             <!-- Tabs -->
             <div class="flex">
-              <ul id="tabs" class="inline-flex w-full px-1">
+              <!-- <ul id="tabs" class="inline-flex w-full px-1">
                 <li
                   class="
                     px-4
@@ -56,7 +56,7 @@ import Welcome from "@/Jetstream/Welcome.vue";
                     General patien
                   </button>
                 </li>
-              </ul>
+              </ul> -->
               <div class="flex justify-content-center align-center mt-2">
                 <i class="fas fa-bell fa-lg mt-4"></i>
                 <span
@@ -80,69 +80,13 @@ import Welcome from "@/Jetstream/Welcome.vue";
 
           <!-- <dmts-monitoring></dmts-monitoring> -->
 
-          <transition name="monitor-manage">
+          <!-- <transition name="monitor-manage">
             <keep-alive>
               <component :is="selectedTab"></component>
             </keep-alive>
-          </transition>
+          </transition> -->
         </div>
       </div>
     </div>
   </AppLayout>
 </template>
-
-<script>
-// import GeneralManagement from "./Components/GeneralManagement.vue";
-// import DmtsMonitoring from "./Components/DmtsMonitoring.vue";
-
-export default {
-  components: {
-    DmtsMonitoring,
-    GeneralManagement,
-  },
-  created() {
-    this.testDataFn();
-  },
-  data() {
-    return {
-      dummyData: [],
-      url: "http://127.0.0.1:8000/test?page=",
-      selectedTab: "dmts-monitoring",
-    };
-  },
-  computed: {
-    dmtsMonitoringSelected() {
-      return this.selectedTab == "dmts-monitoring"
-        ? "border-green-600"
-        : "border-gray-300";
-    },
-    generalManagementSelected() {
-      return this.selectedTab == "general-management"
-        ? "border-green-600"
-        : "border-gray-300";
-    },
-  },
-  methods: {
-    setSelectedTab(tab) {
-      this.selectedTab = tab;
-    },
-    testDataFn() {
-      this.axios.get("http://127.0.0.1:8000/test").then((response) => {
-        this.dummyData = response.data;
-      });
-    },
-  },
-};
-</script>
-
-<style scoped>
-.monitor-manage-enter,
-.monitor-manage-leave-to {
-  transition: translateX(3em);
-  opacity: 0;
-}
-.monitor-manage-enter-active,
-.monitor-manage-leave-active {
-  transition: all 0.3s ease;
-}
-</style>
