@@ -16,77 +16,90 @@ import Welcome from "@/Jetstream/Welcome.vue";
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
         <div class="overflow-hidden shadow-xl sm:rounded-lg">
           <!-- <Welcome /> -->
+          
+<a class="font-bold text-blue-500" href="/patient/auth/google">dtms test</a>
 
-          <div class="rounded text-sm pb-2">
-            <!-- Tabs -->
-            <div class="flex">
-              <!-- <ul id="tabs" class="inline-flex w-full px-1">
-                <li
-                  class="
-                    px-4
-                    py-2
-                    -mb-px
-                    text-gray-800
-                    border-b-2
-                    rounded-t
-                    hover:border-gray-300
-                  "
-                  :class="dmtsMonitoringSelected"
-                >
-                  <button
-                    id="default-tab"
-                    @click="setSelectedTab('dmts-monitoring')"
-                  >
-                    DMTS Monitoring
-                  </button>
-                </li>
-                <li
-                  class="
-                    mx-4
-                    py-2
-                    -mb-px
-                    text-gray-800
-                    border-b-2
-                    rounded-t
-                    hover:border-gray-300
-                  "
-                  :class="generalManagementSelected"
-                >
-                  <button @click="setSelectedTab('general-management')">
-                    General patien
-                  </button>
-                </li>
-              </ul> -->
-              <div class="flex justify-content-center align-center mt-2">
-                <i class="fas fa-bell fa-lg mt-4"></i>
-                <span
-                  class="
-                    badge
-                    mb-3
-                    ml-2
-                    bg-red-800
-                    px-2
-                    py-1
-                    text-center
-                    object-right-top
-                    text-white text-sm
-                    mr-1
-                  "
-                  >24</span
-                >
-              </div>
-            </div>
-          </div>
 
-          <!-- <dmts-monitoring></dmts-monitoring> -->
-
-          <!-- <transition name="monitor-manage">
-            <keep-alive>
-              <component :is="selectedTab"></component>
-            </keep-alive>
-          </transition> -->
         </div>
       </div>
     </div>
   </AppLayout>
 </template>
+
+
+<script>
+/**
+ * You should first need to place these 2 lines of code in your APP ENTRY file, e.g. src/main.js
+ *
+ * import GAuth from 'vue-google-oauth2'
+ * Vue.use(GAuth, {clientId: '4584XXXXXXXX-2gqknkvdjfkdfkvb8uja2k65sldsms7qo9.apps.googleusercontent.com'})
+ *
+ */
+
+export default {
+  name: "test",
+  data() {
+    return {
+      section: "Login",
+      loading: "",
+      response: "",
+    };
+  },
+
+  methods: {
+    signIn: function () {
+      Vue.googleAuth().signIn(this.onSignInSuccess, this.onSignInError);
+    },
+    onSignInSuccess: function (authorizationCode) {
+      this.toggleLoading();
+      this.resetResponse();
+
+      this.$http
+        .post("http://your-backend-server.com/auth/google", {
+          code: authorizationCode,
+          redirect_uri: "postmessage",
+        })
+        .then(
+          function (response) {
+            if (response.body) {
+              var data = response.body;
+
+              // Save to vuex
+              var token = "Bearer " + data.token;
+              this.$store.commit("SET_USER", data.user_data);
+              this.$store.commit("SET_TOKEN", token);
+
+              // Save to local storage as well
+              // ( or you can install the vuex-persistedstate plugin so that you won't have to do this step, only store to Vuex is sufficient )
+              if (window.localStorage) {
+                window.localStorage.setItem(
+                  "user",
+                  JSON.stringify(data.user_data)
+                );
+                window.localStorage.setItem("token", token);
+              }
+
+              // redirect to the dashboard
+              this.$router.push({ name: "home" });
+            }
+          },
+          function (response) {
+            var data = response.body;
+            this.response = data.error;
+            console.log("BACKEND SERVER - SIGN-IN ERROR", data);
+          }
+        );
+    },
+    onSignInError: function (error) {
+      this.response = "Failed to sign-in";
+      console.log("GOOGLE SERVER - SIGN-IN ERROR", error);
+    },
+    toggleLoading: function () {
+      this.loading = this.loading === "" ? "loading" : "";
+    },
+    resetResponse: function () {
+      this.response = "";
+    },
+  },
+};
+</script>

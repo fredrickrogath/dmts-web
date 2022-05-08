@@ -47,6 +47,8 @@ Route::middleware([
 
     Route::group(['prefix' => 'patient', 'middleware' => 'is_patient', 'as' => 'patient.'], function () {
         Route::get('/dashboard', [\App\Http\Controllers\Patient\DashboardController::class, 'index'])->name('dashboard');
+        Route::get('/auth/google', [\App\Http\Controllers\Patient\GoogleController::class, 'redirectToGoogle'])->name('auth');
+        Route::get('auth/google/callback', [\App\Http\Controllers\Patient\GoogleController::class, 'handleGoogleCallback']);
     });
 
     Route::get('/dashboard', function () {
