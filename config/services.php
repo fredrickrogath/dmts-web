@@ -35,7 +35,7 @@ return [
 
         'client_secret' => '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',
 
-        'redirect' => 'https://shidende.herokuapp.com/patient/auth/google/callback',
+        'redirect' => 'http://localhost:8000/patient/auth/google/callback',
 
     ],
 

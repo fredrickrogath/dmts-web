@@ -6,7 +6,7 @@
           <div class="pl-4 h-full flex flex-col">
             <div
               class="
-                text-sm text-gray-500
+                text-sm text-white
                 font-bold
                 px-5
                 py-2
@@ -52,7 +52,7 @@
                         py-1
                       "
                     >
-                      <i class="fas fa-search"></i>
+                      <i class="fas fa-search text-gray-800"></i>
                     </span>
                     <input
                       type="text"
@@ -60,7 +60,6 @@
                       class="
                         px-2
                         py-1
-                        placeholder-slate-300
                         text-slate-600
                         relative
                         bg-white

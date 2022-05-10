@@ -73,6 +73,7 @@
               transition
               duration-500
               ease-in-out
+              text-white
             "
             :class="securityOverviewSelected"
             @click="setSelectedMainTab('security-overview')"
@@ -111,6 +112,7 @@
               transition
               duration-500
               ease-in-out
+              text-white
             "
             :class="logActivitiesSelected"
             @click="setSelectedMainTab('log-activities')"

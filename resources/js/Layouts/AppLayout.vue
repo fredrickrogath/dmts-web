@@ -38,17 +38,17 @@ const logout = () => {
 
     <JetBanner />
     <!-- Color of dashboard body -->
-    <div class="min-h-screen bg-gray-300">
+    <div class="min-h-screen bg-green-900">
       <!-- Color of dashboard head navigations -->
       <nav class="bg-gray-200 border-b border-gray-100">
         <!-- Primary Navigation Menu -->
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex justify-between h-14">
+          <div class="flex justify-between h-16">
             <div class="flex">
               <!-- Logo -->
               <div class="shrink-0 flex items-center">
                 <Link :href="route('dashboard')">
-                  <JetApplicationMark class="block h-9 w-auto" />
+                  <JetApplicationMark class="block h-10 w-auto" />
                 </Link>
               </div>
 
@@ -210,7 +210,7 @@ const logout = () => {
                       "
                     >
                       <img
-                        class="h-8 w-8 rounded-full object-cover"
+                        class="h-12 w-12 rounded-full object-cover"
                         :src="$page.props.user.profile_photo_url"
                         :alt="$page.props.user.name"
                       />

@@ -34,7 +34,8 @@
               w-full
               transition
               duration-500
-              ease-in-out
+              ease-in-out  
+              text-white           
             "
             :class="generalOverviewSelected"
             @click="setSelectedMainTab('general-overview')"
@@ -73,6 +74,7 @@
               transition
               duration-500
               ease-in-out
+              text-white
             "
             :class="diagnosisSelected"
             @click="setSelectedMainTab('diagnosis')"
@@ -111,6 +113,7 @@
               transition
               duration-500
               ease-in-out
+              text-white
             "
             :class="referralsSelected"
             @click="setSelectedMainTab('referrals')"
@@ -149,6 +152,7 @@
               transition
               duration-500
               ease-in-out
+              text-white
             "
             :class="referralsSelected"
             @click="setSelectedMainTab('responses')"

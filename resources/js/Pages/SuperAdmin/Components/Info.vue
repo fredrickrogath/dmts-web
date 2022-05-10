@@ -34,9 +34,9 @@
         >+255 685 501 748</span
       >
     </div>
-    <div class="grid grid-cols-1 divide-y-2">
-      <div class="leading-5 text-gray-800 pb-1">Dar es Salaam</div>
-      <div class="flex text-gray-700">
+    <div class="grid grid-cols-1 divide-y-4 divide-gray-400">
+      <div class="leading-5 text-gray-800 py-1">Dar es Salaam</div>
+      <div class="flex text-gray-700 pt-2">
         <i
           class="fas fa-edit pt-1 hover:cursor-pointer hover:text-green-700"
           @click="toggleEditForm"

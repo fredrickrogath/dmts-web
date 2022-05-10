@@ -26,8 +26,8 @@ import Welcome from "@/Jetstream/Welcome.vue";
                     px-4
                     py-2
                     -mb-px
-                    text-gray-800
-                    border-b-2
+                    text-white
+                    border-b-4
                     rounded-t
                     hover:border-gray-300
                   "
@@ -45,8 +45,8 @@ import Welcome from "@/Jetstream/Welcome.vue";
                     mx-4
                     py-2
                     -mb-px
-                    text-gray-800
-                    border-b-2
+                    text-white
+                    border-b-4
                     rounded-t
                     hover:border-gray-300
                   "
@@ -136,7 +136,7 @@ export default {
 </script>
 
 <style scoped>
-.monitor-manage-enter,
+/* .monitor-manage-enter,
 .monitor-manage-leave-to {
   transition: translateX(3em);
   opacity: 0;
@@ -144,5 +144,33 @@ export default {
 .monitor-manage-enter-active,
 .monitor-manage-leave-active {
   transition: all 0.3s ease;
+} */
+
+.monitor-manage-enter-from {
+  opacity: 0;
+  transform: translateX(0px);
+}
+
+.monitor-manage-enter-active {
+  transition: all 0.5s ease-out;
+}
+
+.monitor-manage-enter-to {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.monitor-manage-leave-from {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.monitor-manage-leave-active {
+  transition: all 0.5s ease-in;
+}
+
+.monitor-manage-leave-to {
+  opacity: 0;
+  transform: translateX(-200px);
 }
 </style>

@@ -15,7 +15,7 @@
               "
             >
               <div class="grid grid-cols-1 divide-y-2">
-                <div class="flex justify-between pb-2">
+                <div class="flex justify-between pb-2 text-white">
                   <span> My Patients </span>
                   <div class="flex justify-end">
                     <!-- <i
@@ -52,7 +52,7 @@
                         py-1
                       "
                     >
-                      <i class="fas fa-search"></i>
+                      <i class="fas fa-search text-gray-800"></i>
                     </span>
                     <input
                       type="text"
@@ -60,7 +60,6 @@
                       class="
                         px-2
                         py-1
-                        placeholder-slate-300
                         text-slate-600
                         relative
                         bg-white

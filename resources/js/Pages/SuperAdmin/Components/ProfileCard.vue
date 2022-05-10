@@ -8,10 +8,11 @@
       py-1
       border-b-2 border-blue-100
       cursor-default
-      bg-opacity-25
+      bg-gray-200
+      roundded-full
     "
   >
-    <td class="pl-4 pr-2 whitespace-no-wrap hover:cursor-pointer">
+    <td class="pl-4 pr-2 whitespace-no-wrap hover:cursor-pointer rounded-full">
       <transition name="profile" appear>
         <profile @toggle-profile="toggleProfile"></profile>
       </transition>
@@ -43,6 +44,8 @@
       </div>
     </td>
   </tr>
+
+  <tr class="h-4"></tr>
 </template>
 
 <script>
