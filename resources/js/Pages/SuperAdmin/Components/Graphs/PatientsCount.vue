@@ -8,6 +8,7 @@
           width="600px"
           height="240px"
           :download="true"
+          :colors="['#99582a', '#f35b04', '#3d348b', '#007200']"
           :data="[
             ['0-15 yrs', 5],
             ['16-30 yrs', 45],
@@ -27,6 +28,7 @@
         </div>
         <bar-chart
           :download="true"
+          :colors="[['#007200', '#007200', '#007200', '#007200']]"
           :data="[
             ['0-15 yrs', 5],
             ['16-30 yrs', 45],
@@ -44,6 +46,7 @@
         </div>
         <line-chart
         :download="true"
+        :colors="['#007200', '#007200']"
           :data="{ '0-15 yrs':5,'16-30 yrs':45,'31-45 yrs':30,'48 yrs':200,}"
         ></line-chart>
       </div>

@@ -1,7 +1,7 @@
 <template>
   <div>
     <img
-      class="h-8 w-8 rounded-full object-cover"
+      class="h-10 w-10 rounded-full object-cover"
       :src="$page.props.user.profile_photo_url"
       :alt="$page.props.user.name"
       @mouseenter="toggleProfile"

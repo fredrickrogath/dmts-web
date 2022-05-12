@@ -8,11 +8,11 @@
       py-1
       border-b-2 border-blue-100
       cursor-default
-      bg-gray-200
+      bg-green-900
       roundded-full
     "
   >
-    <td class="pl-4 pr-2 whitespace-no-wrap hover:cursor-pointer rounded-full">
+    <td class="pl-4 pr-2 whitespace-no-wrap hover:cursor-pointer rounded-full bg-blue-200">
       <transition name="profile" appear>
         <profile @toggle-profile="toggleProfile"></profile>
       </transition>
@@ -112,7 +112,7 @@ export default {
 <style scoped>
 /* animate information */
 
-.info-enter-from {
+/* .info-enter-from {
   opacity: 0;
   transform: translateY(-50px);
 }
@@ -138,11 +138,11 @@ export default {
 .info-leave-to {
   opacity: 0;
   transform: translateY(50px);
-}
+} */
 
 /* animate profile avatar */
 
-.profile-enter-from {
+/* .profile-enter-from {
   opacity: 0;
   transform: translateY(50px);
 }
@@ -168,7 +168,7 @@ export default {
 .profile-leave-to {
   opacity: 0;
   transform: translateY(-30px);
-}
+} */
 
 /* animate profile hover */
 

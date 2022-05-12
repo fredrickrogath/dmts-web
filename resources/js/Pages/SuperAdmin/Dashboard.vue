@@ -87,7 +87,7 @@ export default {
     return {
       dummyData: [],
       url: "http://127.0.0.1:8000/test?page=",
-      selectedTab: "dmts-monitoring",
+      selectedTab: "general-management",
     };
   },
   computed: {

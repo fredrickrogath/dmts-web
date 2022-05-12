@@ -23,7 +23,7 @@
             px-4
             py-2
             -mb-px
-            text-gray-800
+            text-white
             rounded-t
           "
           :class="generalOverviewBorderSelected"

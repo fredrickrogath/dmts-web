@@ -3,13 +3,13 @@
     class="
       px-2
       py-0
-      text-gray-700
-      dark:text-gray-500
+      text-gray-900
+      dark:text-gray-700
       transition
       duration-500
       ease-in-out
     "
-  >
+  > 
     <div class="flex py-2">
       <!-- <transition name="graphs"> -->
       <patients-count v-if="selectedTab == 'patients-count'"></patients-count>

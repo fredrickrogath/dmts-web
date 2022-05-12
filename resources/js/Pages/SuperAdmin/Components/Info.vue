@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="p-3 bg-gray-200 rounded-xl">
     <div class=" w-22 overflow-clip leading-5 text-sm text-gray-900 font-medium">
       {{ name }}
     </div>

@@ -10,6 +10,7 @@
                 font-bold
                 px-5
                 py-2
+                mb-4
                 shadow
                 border-b border-gray-300
               "
