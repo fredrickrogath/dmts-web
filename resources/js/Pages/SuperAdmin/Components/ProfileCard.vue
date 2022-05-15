@@ -5,14 +5,13 @@
       transform
       scale-100
       text-xs
-      py-1
-      border-b-2 border-blue-100
+      py-2
       cursor-default
       bg-green-900
       roundded-full
     "
   >
-    <td class="pl-4 pr-2 whitespace-no-wrap hover:cursor-pointer rounded-full bg-blue-200">
+    <td class="px-2 whitespace-no-wrap hover:cursor-pointer rounded-full bg-gray-200">
       <transition name="profile" appear>
         <profile @toggle-profile="toggleProfile"></profile>
       </transition>

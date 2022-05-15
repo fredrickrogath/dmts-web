@@ -1,15 +1,15 @@
 <template>
   <div>
     <img
-      class="h-10 w-10 rounded-full object-cover"
+      class="h-12 w-12 mb-2 rounded-full object-cover"
       :src="$page.props.user.profile_photo_url"
       :alt="$page.props.user.name"
       @mouseenter="toggleProfile"
       @mouseleave="toggleProfile"
     />
-    <div class="text-red-500 text-xm pt-2 py-1">OFFLINE</div>
-    <div class="text-gray-900 text-xm">Today</div>
-    <div class="text-gray-900 text-xm">07:45 AM</div>
+    <div class="text-red-500 text-xm text-center pt-2 py-1">OFFLINE</div>
+    <div class="text-gray-900 text-xm text-center">Today</div>
+    <div class="text-gray-900 text-xm text-center">07:45 AM</div>
   </div>
 </template>
 

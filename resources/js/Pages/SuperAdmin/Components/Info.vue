@@ -42,7 +42,7 @@
           @click="toggleEditForm"
         ></i>
         <i
-          class="fas fa-add px-7 pt-1 hover:cursor-pointer hover:text-green-700"
+          class="fas fa-add px-8 pt-1 hover:cursor-pointer hover:text-green-700"
         ></i>
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +59,7 @@
           />
         </svg>
         <i
-          class="fas fa-trash pt-1 px-7 hover:cursor-pointer hover:text-red-700"
+          class="fas fa-trash pt-1 px-8 hover:cursor-pointer hover:text-red-700"
          @click="toggleDeleteForm"
         ></i>
       </div>
