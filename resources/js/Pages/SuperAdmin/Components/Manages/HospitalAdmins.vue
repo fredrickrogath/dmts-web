@@ -59,9 +59,9 @@
                       class="
                         px-2
                         py-1
-                        text-slate-600
+                        text-gray-900
                         relative
-                        bg-white
+                        bg-gray-200
                         rounded
                         text-sm
                         outline-0 outline-gray-600
