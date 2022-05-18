@@ -34,6 +34,7 @@
                 items-center
                 z-10
                 h-40
+                mt-6
               "
             >
               <hover-profile :name="name"></hover-profile>

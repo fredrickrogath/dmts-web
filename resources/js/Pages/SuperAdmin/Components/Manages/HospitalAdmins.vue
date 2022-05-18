@@ -8,7 +8,7 @@
               class="
                 text-sm text-white
                 font-bold
-                px-5
+                px-2
                 py-2
                 mb-4
                 shadow

@@ -23,7 +23,9 @@ class TaskController extends Controller
     // Search for hospital administrators
     public function searchHospitalAdministrators(Request $request)
     {
-        $data = \App\Models\User::where('name', 'LIKE', '%' . $request->keyword . '%')->orWhere('email', 'LIKE', '%' . $request->keyword . '%')->orWhere('email', 'LIKE', '%' . $request->keyword . '%')->get();
+        $data = cache()->remember('test', 60 * 60 * 24, function () {
+            return \App\Models\User::where('name', 'LIKE', '%' . $request->keyword . '%')->orWhere('email', 'LIKE', '%' . $request->keyword . '%')->orWhere('email', 'LIKE', '%' . $request->keyword . '%')->get();
+        });
         return response()->json($data);
     }
 
