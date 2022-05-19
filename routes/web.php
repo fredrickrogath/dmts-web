@@ -43,6 +43,9 @@ Route::middleware([
     Route::group(['prefix' => 'doctor', 'middleware' => 'is_doctor', 'as' => 'doctor.'], function () {
         Route::get('/dashboard', [\App\Http\Controllers\Doctor\TaskController::class, 'index'])->name('dashboard');
         Route::get('/management', [\App\Http\Controllers\Doctor\TaskController::class, 'index'])->name('management');
+
+        // Route::get('/dashboard', [\App\Http\Controllers\Doctor\TaskController::class, 'index'])->name('dashboard');
+        // Route::get('/management', [\App\Http\Controllers\Doctor\TaskController::class, 'index'])->name('management');
     });
 
     Route::group(['prefix' => 'patient', 'middleware' => 'is_patient', 'as' => 'patient.'], function () {
