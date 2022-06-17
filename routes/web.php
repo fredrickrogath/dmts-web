@@ -33,6 +33,9 @@ Route::middleware([
     Route::group(['prefix' => 'super_admin', 'middleware' => 'is_super_admin', 'as' => 'admin.super.'], function () {
         // Dashboard for super admini
         Route::get('/dashboard', [\App\Http\Controllers\SuperAdmin\TaskController::class, 'index'])->name('dashboard');
+        Route::get('/management', [\App\Http\Controllers\SuperAdmin\TaskController::class, 'management'])->name('management');
+        // Route::get('/dashboard', [\App\Http\Controllers\SuperAdmin\TaskController::class, 'index'])->name('dashboard');
+        Route::get('/hospitalAdministrators', [\App\Http\Controllers\SuperAdmin\TaskController::class, 'hospitalAdministrators'])->name('hospitalAdministrators');
         Route::get('/searchHospitalAdministrators', [\App\Http\Controllers\SuperAdmin\TaskController::class, 'searchHospitalAdministrators'])->name('searchHospitalAdministrators');
     });
 
@@ -71,9 +74,9 @@ Route::middleware([
 
     })->name('dashboard');
 
-    Route::get('/management', function () {
-        return Inertia::render('Management');
-    })->name('management');
+    // Route::get('/management', function () {
+    //     return Inertia::render('Management');
+    // })->name('management');
 
     Route::get('/test', function () {
         return json_encode(\App\Models\User::latest()->get());

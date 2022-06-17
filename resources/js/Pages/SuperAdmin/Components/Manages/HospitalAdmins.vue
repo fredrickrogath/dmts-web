@@ -17,7 +17,7 @@
             >
               <div class="grid grid-cols-1 divide-y-2">
                 <div class="flex justify-between pb-2">
-                  <span> Hospital Administrators</span>
+                  <span> Hospital Administrators {{ hospitalAdmins }}</span>
                   <i
                     class="
                       fas
@@ -30,6 +30,7 @@
                   <i class="fas fa-sort pt-1 hover:cursor-pointer"></i>
                   <i class="fas fa-expand pt-1 hover:cursor-pointer"></i>
                 </div>
+
                 <div class="flex justify-between py-2">
                   <div class="relative flex w-full flex-wrap items-stretch">
                     <span
@@ -137,6 +138,7 @@
 
 
 <script>
+// import Multiselect from "vue-multiselect";
 import AddForm from "../Forms/AddForm.vue";
 import EditForm from "../Forms/EditForm.vue";
 import DeleteForm from "../Forms/DeleteForm.vue";
@@ -147,9 +149,10 @@ export default {
     AddForm,
     EditForm,
     DeleteForm,
+    // Multiselect,
   },
   created() {
-    this.testDataFn();
+    this.hospitalAdministrators();
   },
   provide() {
     return {
@@ -160,6 +163,9 @@ export default {
       formDeleteDetails: this.formDeleteDetails,
     };
   },
+
+  props: { hospitalAdmins: Object },
+
   data() {
     return {
       dummyData: [],
@@ -181,10 +187,19 @@ export default {
       formEditDOB: null,
 
       // provided data for delete form
-      
+
       formDeleteId: null,
       formDeleteName: "",
       formDeleteEmail: "",
+
+      //form info
+
+      hospital: "",
+      name: "",
+      email: "",
+      mobile1: "",
+      mobile2: "",
+      dob: "",
     };
   },
   watch: {
@@ -214,8 +229,15 @@ export default {
         .catch((error) => {});
     },
 
-    testDataFn() {
-      this.axios.get("http://127.0.0.1:8000/test").then((response) => {
+    hospitalAdministrators() {
+      this.axios.get(this.url + "hospitalAdministrators").then((response) => {
+        this.dummyData = response.data;
+      });
+    },
+
+    addHospitalAdministrator() {
+      const info = { title: "Vue POST Request Example" };
+      this.axios.post(this.url + "hospitalAdministrators").then((response) => {
         this.dummyData = response.data;
       });
     },
@@ -245,7 +267,7 @@ export default {
       this.formEditDOB = dob;
     },
 
-    formDeleteDetails(id, name, email,) {
+    formDeleteDetails(id, name, email) {
       this.formDeleteId = id;
       this.formDeleteName = name;
       this.formDeleteEmail = email;

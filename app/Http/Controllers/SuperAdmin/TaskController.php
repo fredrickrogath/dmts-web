@@ -17,7 +17,37 @@ class TaskController extends Controller
     {
         $this->authorize('adminSuperView', \App\Models\User::class);
 
-        return Inertia::render('SuperAdmin/Dashboard');
+        // $hospitalAdmins = cache()->remember('hospitalAdmin', 60 * 60 * 24, function () {
+        //     return \App\Models\User::where('role', \App\Models\User::is_super_admin)->get();
+        // });
+
+        // cache()->forget('hospitalAdmin');
+
+        // dd($hospitalAdmins);
+
+        // $hospitalAdmins = \App\Models\User::where('role', \App\Models\User::is_super_admin)->get();
+
+        return inertia('SuperAdmin/Dashboard', ['selectedTabInertia' => 'dmts-monitoring']);
+    }
+
+    public function management()
+    {
+        $this->authorize('adminSuperView', \App\Models\User::class);
+
+        // $hospitalAdmins = cache()->remember('hospitalAdmins', 60 * 60 * 24, function () {
+        //     return \App\Models\User::where('id', \App\Models\User::is_super_admin)->get();
+        // });
+
+        // $hospitalAdmins = \App\Models\User::where('role', \App\Models\User::is_super_admin)->get();
+
+        return inertia('SuperAdmin/Dashboard', ['selectedTabInertia' => 'general-management']);
+    }
+
+    // hospital administrators
+    public function hospitalAdministrators(Request $request)
+    {
+        $hospitalAdmins = \App\Models\User::where('role', \App\Models\User::is_super_admin)->get();
+        return response()->json($hospitalAdmins);
     }
 
     // Search for hospital administrators
@@ -28,6 +58,14 @@ class TaskController extends Controller
         });
         return response()->json($data);
     }
+
+    // public function searchHospitalAdministrators(Request $request)
+    // {
+    //     $data = cache()->remember('test', 60 * 60 * 24, function () {
+    //         return \App\Models\User::where('name', 'LIKE', '%' . $request->keyword . '%')->orWhere('email', 'LIKE', '%' . $request->keyword . '%')->orWhere('email', 'LIKE', '%' . $request->keyword . '%')->get();
+    //     });
+    //     return response()->json($data);
+    // }
 
     /**
      * Show the form for creating a new resource.

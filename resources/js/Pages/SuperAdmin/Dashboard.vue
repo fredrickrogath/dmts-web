@@ -32,12 +32,14 @@ import Welcome from "@/Jetstream/Welcome.vue";
                 "
                 :class="dmtsMonitoringSelected"
               >
-                <button
+                <!-- <button
                   id="default-tab"
                   @click="setSelectedTab('dmts-monitoring')"
                 >
                   DMTS Monitoring
-                </button>
+                </button> -->
+
+                <Link :href="route('admin.super.dashboard')">DMTS Monitoring</Link>
               </li>
               <li
                 class="
@@ -51,9 +53,7 @@ import Welcome from "@/Jetstream/Welcome.vue";
                 "
                 :class="generalManagementSelected"
               >
-                <button @click="setSelectedTab('general-management')">
-                  General Management
-                </button>
+              <Link :href="route('admin.super.management')">General Management</Link>
               </li>
             </ul>
           </div>
@@ -75,20 +75,37 @@ import Welcome from "@/Jetstream/Welcome.vue";
 import GeneralManagement from "./Components/GeneralManagement.vue";
 import DmtsMonitoring from "./Components/DmtsMonitoring.vue";
 
+import { Link } from "@inertiajs/inertia-vue3";
+
 export default {
   components: {
     DmtsMonitoring,
     GeneralManagement,
+    Link,
   },
   created() {
     this.testDataFn();
+    // console.log(hospitalAdmins);
   },
+  props: {
+    selectedTabInertia: {
+      type: String,
+      required: true,
+      default: "dmts-monitoring",
+    },
+  },
+
   data() {
     return {
       dummyData: [],
       url: "http://127.0.0.1:8000/test?page=",
-      selectedTab: "general-management",
+      selectedTab: this.selectedTabInertia,
     };
+  },
+  watch:{
+    selectedTabInertia: function(value){
+      this.selectedTab = value;
+    }
   },
   computed: {
     dmtsMonitoringSelected() {
