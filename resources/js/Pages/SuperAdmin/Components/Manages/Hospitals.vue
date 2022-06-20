@@ -17,21 +17,20 @@
             >
               <div class="grid grid-cols-1 divide-y-2">
                 <div class="flex justify-between pb-2">
-                  <span> Hospitals Details </span>
-                  <div class="flex justify-end">
-                    <i
-                      class="
-                        fas
-                        fa-add
-                        pt-1
-                        hover:cursor-pointer hover:text-green-700
-                      "
-                      @click="toggleAddForm"
-                    ></i>
-                    <i class="fas fa-sort pt-1 px-4 hover:cursor-pointer"></i>
-                    <i class="fas fa-expand pt-1 hover:cursor-pointer"></i>
-                  </div>
+                  <span> Hospital Administrators {{ hospitalAdmins }}</span>
+                  <i
+                    class="
+                      fas
+                      fa-add
+                      pt-1
+                      hover:cursor-pointer hover:text-green-700
+                    "
+                    @click="toggleAddForm"
+                  ></i>
+                  <i class="fas fa-sort pt-1 hover:cursor-pointer"></i>
+                  <i class="fas fa-expand pt-1 hover:cursor-pointer"></i>
                 </div>
+
                 <div class="flex justify-between py-2">
                   <div class="relative flex w-full flex-wrap items-stretch">
                     <span
@@ -57,11 +56,11 @@
                     </span>
                     <input
                       type="text"
-                      placeholder="Search Hospitals"
+                      placeholder="Search Hospital Admins"
                       class="
                         px-2
                         py-1
-                        text-slate-600
+                        text-gray-900
                         relative
                         bg-gray-200
                         rounded
@@ -93,6 +92,7 @@
                     v-for="hospitaAdmin in dummyData"
                     :key="hospitaAdmin.id"
                     :id="hospitaAdmin.id"
+                    :avatar="hospitaAdmin.profile_photo_url"
                     :name="hospitaAdmin.name"
                     :email="hospitaAdmin.email"
                   ></profile-card>
@@ -103,13 +103,22 @@
         </div>
         <transition-group name="add-form">
           <div v-if="showAddForm" class="absolute inset-0 z-10 h-70 px-4 pt-12">
-            <add-form @toggle-form-add="toggleAddForm"></add-form>
+            <add-form
+              :role="main_role"
+              :url="main_url"
+              :task="main_add_task"
+              @toggle-form-add="toggleAddForm"
+              @hospitalAdministrators="hospitalAdministrators"
+            ></add-form>
           </div>
           <div
             v-if="showEditForm"
             class="absolute inset-0 z-10 h-70 px-4 pt-12"
           >
             <edit-form
+              :role="main_role"
+              :url="main_url"
+              :task="main_edit_task"
               :id="formEditId"
               :name="formEditName"
               :email="formEditEmail"
@@ -117,6 +126,7 @@
               :mobile2="formEditMobile2"
               :dob="formEditDOB"
               @toggle-form-edit="toggleEditForm"
+              @hospitalAdministrators="hospitalAdministrators"
             ></edit-form>
           </div>
 
@@ -125,10 +135,14 @@
             class="absolute inset-0 z-10 h-70 px-8 pt-12"
           >
             <delete-form
+              :url="main_url"
+              :task="main_delete_task"
               :id="formDeleteId"
               :name="formDeleteName"
               :email="formDeleteEmail"
-              @toggle-form-edit="toggleEditForm"
+              :avatar="formDeleteAvatar"
+              @toggle-form-edit="toggleFormDelete"
+              @hospitalAdministrators="hospitalAdministrators"
             ></delete-form>
           </div>
         </transition-group>
@@ -139,6 +153,7 @@
 
 
 <script>
+// import Multiselect from "vue-multiselect";
 import AddForm from "../Forms/AddForm.vue";
 import EditForm from "../Forms/EditForm.vue";
 import DeleteForm from "../Forms/DeleteForm.vue";
@@ -149,9 +164,10 @@ export default {
     AddForm,
     EditForm,
     DeleteForm,
+    // Multiselect,
   },
   created() {
-    this.testDataFn();
+    this.hospitalAdministrators();
   },
   provide() {
     return {
@@ -160,12 +176,21 @@ export default {
 
       toggleFormDelete: this.toggleFormDelete,
       formDeleteDetails: this.formDeleteDetails,
+
+      hospitalAdministrators: this.hospitalAdministrators,
     };
   },
+
+  props: { hospitalAdmins: Object },
+
   data() {
     return {
       dummyData: [],
-      url: "http://127.0.0.1:8000/super_admin/",
+      main_role: 2,
+      main_add_task: "addHospitalAdministrator",
+      main_edit_task: "editHospitalAdministrator",
+      main_delete_task: "deleteHospitalAdministrator",
+      main_url: "http://192.168.43.163:1234/super_admin/",
       keyword: null,
       emptyResult: false,
       hideProfile: true,
@@ -184,9 +209,19 @@ export default {
 
       // provided data for delete form
 
-      formDeleteId: null,
+      formDeleteId: "",
+      formDeleteAvatar: "",
       formDeleteName: "",
       formDeleteEmail: "",
+
+      //form info
+
+      hospital: "",
+      name: "",
+      email: "",
+      mobile1: "",
+      mobile2: "",
+      dob: "",
     };
   },
   watch: {
@@ -202,7 +237,7 @@ export default {
   methods: {
     searchHospitalAdministrators() {
       axios
-        .get(this.url + "searchHospitalAdministrators", {
+        .get(this.main_url + "searchHospitalAdministrators", {
           params: { keyword: this.keyword },
         })
         .then((res) => {
@@ -216,10 +251,12 @@ export default {
         .catch((error) => {});
     },
 
-    testDataFn() {
-      this.axios.get("http://127.0.0.1:8000/test").then((response) => {
-        this.dummyData = response.data;
-      });
+    hospitalAdministrators() {
+      this.axios
+        .get(this.main_url + "hospitalAdministrators")
+        .then((response) => {
+          this.dummyData = response.data;
+        });
     },
 
     toggleProfile() {
@@ -247,10 +284,11 @@ export default {
       this.formEditDOB = dob;
     },
 
-    formDeleteDetails(id, name, email) {
+    formDeleteDetails(id, name, email, avatar) {
       this.formDeleteId = id;
       this.formDeleteName = name;
       this.formDeleteEmail = email;
+      this.formDeleteAvatar = avatar;
     },
   },
 };
@@ -261,7 +299,7 @@ export default {
 
 .add-form-enter-from {
   opacity: 0;
-  transform: translateY(-80px);
+  transform: translateY(-50px);
 }
 
 .add-form-enter-active {
@@ -284,6 +322,6 @@ export default {
 
 .add-form-leave-to {
   opacity: 0;
-  transform: translateY(-80px);
+  transform: translateY(-50px);
 }
 </style>

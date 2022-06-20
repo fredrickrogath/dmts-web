@@ -4,13 +4,13 @@
             class="rounded-3xl overflow-hidden shadow-xl max-w-xs bg-green-500"
           >
             <img
-              :src="$page.props.user.profile_photo_url"
+              :src="avatar"
               :alt="$page.props.user.name"
               class="w-full"
             />
             <div class="flex justify-center -mt-12">
               <img
-                :src="$page.props.user.profile_photo_url"
+                :src="avatar"
                 :alt="$page.props.user.name"
                 class="rounded-full border-solid border-white border-2"
               />
@@ -39,6 +39,11 @@
 export default {
   props: {
     name: {
+      type: String,
+      required: true,
+      default: "Not found",
+    },
+    avatar: {
       type: String,
       required: true,
       default: "Not found",

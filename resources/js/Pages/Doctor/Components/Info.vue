@@ -126,7 +126,7 @@ export default {
     },
 
     toggleDeleteForm() {
-      this.formDeleteDetails(this.id, this.name, this.email);
+      this.formDeleteDetails(this.id, this.name, this.email,);
       this.toggleFormDelete();
     },
   },

@@ -1,13 +1,13 @@
 <template>
   <div class="flex justify-center items-center">
     <div class="relative z-0">
-      <div class="grid grid-cols-4 gap-1">
+      <div class="grid grid-cols-2 gap-1">
         <!-- Hospital administrators -->
-        <hospital-admins></hospital-admins>
+        <!-- <hospital-admins></hospital-admins> -->
         <!-- Doctors -->
-        <doctors></doctors>
+        <!-- <doctors></doctors> -->
         <!-- Patients -->
-        <patients></patients>
+        <!-- <patients></patients> -->
         <!-- Hospitals -->
         <hospitals></hospitals>
       </div>
@@ -43,23 +43,6 @@ export default {
     Patients,
     Hospitals,
     HospitalAdminsExpand,
-  },
-  created() {
-    this.testDataFn();
-  },
-  data() {
-    return {
-      dummyData: [],
-      url: "http://127.0.0.1:8000/test?page=",
-      currentPage: 1,
-    };
-  },
-  methods: {
-    testDataFn() {
-      this.axios.get("http://127.0.0.1:8000/test").then((response) => {
-        this.dummyData = response.data;
-      });
-    },
   },
 };
 </script>

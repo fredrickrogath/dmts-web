@@ -33,9 +33,33 @@ Route::middleware([
     Route::group(['prefix' => 'super_admin', 'middleware' => 'is_super_admin', 'as' => 'admin.super.'], function () {
         // Dashboard for super admini
         Route::get('/dashboard', [\App\Http\Controllers\SuperAdmin\TaskController::class, 'index'])->name('dashboard');
+
         Route::get('/management', [\App\Http\Controllers\SuperAdmin\TaskController::class, 'management'])->name('management');
-        // Route::get('/dashboard', [\App\Http\Controllers\SuperAdmin\TaskController::class, 'index'])->name('dashboard');
+
+        Route::post('/addHospitalAdministrator', [\App\Http\Controllers\SuperAdmin\TaskController::class, 'addHospitalAdministrator'])->name('addHospitalAdministrator');
+
+        Route::post('/addDoctor', [\App\Http\Controllers\SuperAdmin\TaskController::class, 'addDoctor'])->name('addDoctor');
+
+        Route::post('/addPatient', [\App\Http\Controllers\SuperAdmin\TaskController::class, 'addPatient'])->name('addPatient');
+
+        Route::post('/editHospitalAdministrator', [\App\Http\Controllers\SuperAdmin\TaskController::class, 'editHospitalAdministrator'])->name('editHospitalAdministrator');
+
+        Route::post('/editDoctor', [\App\Http\Controllers\SuperAdmin\TaskController::class, 'editDoctor'])->name('addDoctor');
+
+        Route::post('/editPatient', [\App\Http\Controllers\SuperAdmin\TaskController::class, 'editPatient'])->name('editPatient');
+
+        Route::post('/deleteHospitalAdministrator', [\App\Http\Controllers\SuperAdmin\TaskController::class, 'deleteHospitalAdministrator'])->name('deleteHospitalAdministrator');
+
+        Route::post('/deleteDoctor', [\App\Http\Controllers\SuperAdmin\TaskController::class, 'deleteDoctor'])->name('deleteDoctor');
+
+        Route::post('/deletePatient', [\App\Http\Controllers\SuperAdmin\TaskController::class, 'deletePatient'])->name('deletePatient');
+
         Route::get('/hospitalAdministrators', [\App\Http\Controllers\SuperAdmin\TaskController::class, 'hospitalAdministrators'])->name('hospitalAdministrators');
+
+        Route::get('/hospitalDoctors', [\App\Http\Controllers\SuperAdmin\TaskController::class, 'hospitalDoctors'])->name('hospitalDoctors');
+
+        Route::get('/hospitalPatients', [\App\Http\Controllers\SuperAdmin\TaskController::class, 'hospitalPatients'])->name('hospitalPatients');
+
         Route::get('/searchHospitalAdministrators', [\App\Http\Controllers\SuperAdmin\TaskController::class, 'searchHospitalAdministrators'])->name('searchHospitalAdministrators');
     });
 
@@ -51,11 +75,11 @@ Route::middleware([
         // Route::get('/management', [\App\Http\Controllers\Doctor\TaskController::class, 'index'])->name('management');
     });
 
-    Route::group(['prefix' => 'patient', 'middleware' => 'is_patient', 'as' => 'patient.'], function () {
-        Route::get('/dashboard', [\App\Http\Controllers\Patient\DashboardController::class, 'index'])->name('dashboard');
-        Route::get('/auth/google', [\App\Http\Controllers\Patient\GoogleController::class, 'redirectToGoogle'])->name('auth');
-        Route::get('auth/google/callback', [\App\Http\Controllers\Patient\GoogleController::class, 'handleGoogleCallback']);
-    });
+    // Route::group(['prefix' => 'patient', 'middleware' => 'is_patient', 'as' => 'patient.'], function () {
+    //     Route::get('/dashboard', [\App\Http\Controllers\Patient\DashboardController::class, 'index'])->name('dashboard');
+    //     Route::get('/auth/google', [\App\Http\Controllers\Patient\GoogleController::class, 'redirectToGoogle'])->name('auth');
+    //     Route::get('auth/google/callback', [\App\Http\Controllers\Patient\GoogleController::class, 'handleGoogleCallback']);
+    // });
 
     Route::get('/dashboard', function () {
 

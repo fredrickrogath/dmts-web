@@ -103,7 +103,7 @@
         </div>
         <transition-group name="add-form">
           <div v-if="showAddForm" class="absolute inset-0 z-10 h-70 px-4 pt-12">
-            <add-form @toggle-form-add="toggleAddForm"></add-form>
+            <add-form :role="3" @toggle-form-add="toggleAddForm"></add-form>
           </div>
           <div
             v-if="showEditForm"
@@ -152,7 +152,7 @@ export default {
     DeleteForm,
   },
   created() {
-    this.testDataFn();
+    this.hospitalDoctors();
   },
   provide() {
     return {
@@ -166,7 +166,7 @@ export default {
   data() {
     return {
       dummyData: [],
-      url: "http://127.0.0.1:8000/super_admin/",
+      url: "http://192.168.43.163:1234/super_admin/",
       keyword: null,
       emptyResult: false,
       hideProfile: true,
@@ -217,8 +217,15 @@ export default {
         .catch((error) => {});
     },
 
+    hospitalDoctors() {
+      this.axios.get(this.url + "hospitalDoctors").then((response) => {
+        console.log(response);
+        this.dummyData = response.data;
+      });
+    },
+
     testDataFn() {
-      this.axios.get("http://127.0.0.1:8000/test").then((response) => {
+      this.axios.get(this.url).then((response) => {
         this.dummyData = response.data;
       });
     },

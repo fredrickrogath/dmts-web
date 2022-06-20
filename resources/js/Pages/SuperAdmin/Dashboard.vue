@@ -84,7 +84,7 @@ export default {
     Link,
   },
   created() {
-    this.testDataFn();
+    // this.testDataFn();
     // console.log(hospitalAdmins);
   },
   props: {
@@ -98,7 +98,7 @@ export default {
   data() {
     return {
       dummyData: [],
-      url: "http://127.0.0.1:8000/test?page=",
+      // url: "http://127.0.0.1:8000/test?page=",
       selectedTab: this.selectedTabInertia,
     };
   },

@@ -1,14 +1,10 @@
 <template>
   <div class="w-30">
     <div class="rounded-3xl overflow-hidden shadow-xl max-w-xs bg-green-500">
-      <img
-        :src="$page.props.user.profile_photo_url"
-        :alt="$page.props.user.name"
-        class="w-full"
-      />
+      <img :src="avatar" :alt="$page.props.user.name" class="w-full" />
       <div class="flex justify-center -mt-12">
         <img
-          :src="$page.props.user.profile_photo_url"
+          :src="avatar"
           :alt="$page.props.user.name"
           class="rounded-full border-solid border-white border-2"
         />
@@ -124,6 +120,7 @@
               h-7
               text-sm
             "
+            @click="deleteHospitalAdministrator"
           >
             Delete
           </button>
@@ -158,15 +155,71 @@
 
 <script>
 export default {
-  inject: ["toggleFormDelete"],
+  inject: ["toggleFormDelete", "hospitalAdministrators"],
   props: {
+    id: {
+      type: Number,
+      required: true,
+      default: "Not found",
+    },
     name: {
       type: String,
       required: true,
       default: "Not found",
     },
+    avatar: {
+      type: String,
+      required: true,
+      default: "Not found",
+    },
+    url: {
+      type: String,
+      required: true,
+      default: "Not found",
+    },
+    task: {
+      type: String,
+      required: true,
+      default: "Not found",
+    },
+  },
+  data() {
+    return { main_url: this.url, main_task: this.task };
   },
   methods: {
+    deleteHospitalAdministrator() {
+      axios
+        .post(
+          this.main_url + this.main_task,
+          {
+            id: this.id,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        .then((res) => {
+          // console.log(res.data.deleted);
+          if (res.data.deleted) {
+            this.toggleDeleteForm();
+            this.hospitalAdministrators();
+            alert("Successfully deleted");
+          }
+          // console.log(res.data.added);
+          // this.dummyData = res.data;
+          // if (res.data.length == 0) {
+          //   this.emptyResult = true;
+          // } else {
+          //   this.emptyResult = false;
+          // }
+        })
+        .catch((error) => {
+          console.log(error.response.data.errors);
+          // alert(error.response.data.errors.email[0] + '\n' + error.response.data.errors.name[0]);
+        });
+    },
     toggleDeleteForm() {
       this.toggleFormDelete();
     },

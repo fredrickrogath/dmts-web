@@ -2,7 +2,7 @@
   <div>
     <img
       class="h-12 w-12 mb-2 rounded-full object-cover"
-      :src="$page.props.user.profile_photo_url"
+      :src="avatar"
       :alt="$page.props.user.name"
       @mouseenter="toggleProfile"
       @mouseleave="toggleProfile"
@@ -15,18 +15,25 @@
 
 <script>
 export default {
-   emits: ['toggle-profile',],
-//   emits: {
-//     "toggle-profile": function () {
-//       if (id) {
-//         return true;
-//       } else {
-//         return false;
-//       }
-//     },
-//   },
+  emits: ["toggle-profile"],
+  //   emits: {
+  //     "toggle-profile": function () {
+  //       if (id) {
+  //         return true;
+  //       } else {
+  //         return false;
+  //       }
+  //     },
+  //   },
   data() {
     return {};
+  },
+  props: {
+    avatar: {
+      type: String,
+      required: true,
+      default: "Not found",
+    },
   },
   methods: {
     toggleProfile() {

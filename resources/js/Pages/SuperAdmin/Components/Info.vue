@@ -86,20 +86,10 @@ export default {
       required: true,
       default: "Not found",
     },
-    mobile1: {
+    avatar: {
       type: String,
       required: false,
       default: "+255 715 983 180",
-    },
-    mobile2: {
-      type: String,
-      required: false,
-      default: "+255 685 501 748",
-    },
-    dob: {
-      type: String,
-      required: false,
-      default: "01-04-1997",
     },
   },
   // provide() {
@@ -125,6 +115,7 @@ export default {
         this.id,
         this.name,
         this.email,
+        this.avatar
       );
       this.toggleFormDelete();
     },

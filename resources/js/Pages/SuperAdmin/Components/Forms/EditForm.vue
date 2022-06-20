@@ -335,6 +335,7 @@
           "
           placeholder="Birth Date"
           type="date"
+          v-model="dob"
         />
       </div>
 
@@ -356,6 +357,7 @@
             h-7
             text-sm
           "
+          @click="editHospitalAdministrator"
         >
           Update
         </button>
@@ -425,7 +427,7 @@
 
 <script>
 export default {
-  emits: ["toggle-form-edit"],
+  emits: ["toggle-form-edit", "hospitalAdministrators"],
   props: {
     id: {
       type: Number,
@@ -457,8 +459,68 @@ export default {
       required: true,
       default: "Not found",
     },
+    role: {
+      type: Number,
+      required: true,
+      default: "Not found",
+    },
+    url: {
+      type: String,
+      required: true,
+      default: "Not found",
+    },
+    task: {
+      type: String,
+      required: true,
+      default: "Not found",
+    },
+  },
+  data() {
+    return { main_url: this.url, main_role: this.role, main_task: this.task };
   },
   methods: {
+    editHospitalAdministrator() {
+      axios
+        .post(
+          this.main_url + this.main_task,
+          {
+            id: this.id,
+            name: this.name,
+            email: this.email,
+            DOB: this.dob,
+            role: this.main_role,
+          },
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
+        .then((res) => {
+          console.log(res.data);
+          if (res.data.edited) {
+            this.toggleEditForm();
+            this.hospitalAdministrators();
+            alert("Successfully Edited");
+          }
+          // console.log(res.data.added);
+          // this.dummyData = res.data;
+          // if (res.data.length == 0) {
+          //   this.emptyResult = true;
+          // } else {
+          //   this.emptyResult = false;
+          // }
+        })
+        .catch((error) => {
+          console.log(error.response.data.errors);
+          // alert(error.response.data.errors.email[0] + '\n' + error.response.data.errors.name[0]);
+        });
+    },
+
+    hospitalAdministrators() {
+      this.$emit("hospitalAdministrators");
+    },
+
     toggleEditForm() {
       this.$emit("toggle-form-edit");
     },

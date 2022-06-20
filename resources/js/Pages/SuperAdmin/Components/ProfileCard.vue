@@ -11,9 +11,17 @@
       roundded-full
     "
   >
-    <td class="px-2 whitespace-no-wrap hover:cursor-pointer rounded-full bg-gray-200">
+    <td
+      class="
+        px-2
+        whitespace-no-wrap
+        hover:cursor-pointer
+        rounded-full
+        bg-gray-200
+      "
+    >
       <transition name="profile" appear>
-        <profile @toggle-profile="toggleProfile"></profile>
+        <profile @toggle-profile="toggleProfile" :avatar="avatar"></profile>
       </transition>
     </td>
 
@@ -21,7 +29,7 @@
       <div class="flex justify-center items-center">
         <div class="relative z-0">
           <transition name="info" appear>
-            <info :id="id" :name="name" :email="email" ></info>
+            <info :id="id" :name="name" :email="email" :avatar="avatar" ></info>
           </transition>
           <transition name="profile-hover" appear>
             <div
@@ -37,7 +45,7 @@
                 mt-6
               "
             >
-              <hover-profile :name="name"></hover-profile>
+              <hover-profile :name="name" :avatar="avatar"></hover-profile>
             </div>
           </transition>
         </div>
@@ -65,6 +73,11 @@ export default {
       default: "Not found",
     },
     name: {
+      type: String,
+      required: true,
+      default: "Not found",
+    },
+    avatar: {
       type: String,
       required: true,
       default: "Not found",

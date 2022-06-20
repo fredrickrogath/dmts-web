@@ -92,6 +92,7 @@
                     v-for="hospitaAdmin in dummyData"
                     :key="hospitaAdmin.id"
                     :id="hospitaAdmin.id"
+                    :avatar="hospitaAdmin.profile_photo_url"
                     :name="hospitaAdmin.name"
                     :email="hospitaAdmin.email"
                   ></profile-card>
@@ -102,13 +103,22 @@
         </div>
         <transition-group name="add-form">
           <div v-if="showAddForm" class="absolute inset-0 z-10 h-70 px-4 pt-12">
-            <add-form @toggle-form-add="toggleAddForm"></add-form>
+            <add-form
+              :role="main_role"
+              :url="main_url"
+              :task="main_add_task"
+              @toggle-form-add="toggleAddForm"
+              @hospitalAdministrators="hospitalAdministrators"
+            ></add-form>
           </div>
           <div
             v-if="showEditForm"
             class="absolute inset-0 z-10 h-70 px-4 pt-12"
           >
             <edit-form
+              :role="main_role"
+              :url="main_url"
+              :task="main_edit_task"
               :id="formEditId"
               :name="formEditName"
               :email="formEditEmail"
@@ -116,6 +126,7 @@
               :mobile2="formEditMobile2"
               :dob="formEditDOB"
               @toggle-form-edit="toggleEditForm"
+              @hospitalAdministrators="hospitalAdministrators"
             ></edit-form>
           </div>
 
@@ -124,10 +135,14 @@
             class="absolute inset-0 z-10 h-70 px-8 pt-12"
           >
             <delete-form
+              :url="main_url"
+              :task="main_delete_task"
               :id="formDeleteId"
               :name="formDeleteName"
               :email="formDeleteEmail"
-              @toggle-form-edit="toggleEditForm"
+              :avatar="formDeleteAvatar"
+              @toggle-form-edit="toggleFormDelete"
+              @hospitalAdministrators="hospitalAdministrators"
             ></delete-form>
           </div>
         </transition-group>
@@ -161,6 +176,8 @@ export default {
 
       toggleFormDelete: this.toggleFormDelete,
       formDeleteDetails: this.formDeleteDetails,
+
+      hospitalAdministrators: this.hospitalAdministrators,
     };
   },
 
@@ -169,7 +186,11 @@ export default {
   data() {
     return {
       dummyData: [],
-      url: "http://127.0.0.1:8000/super_admin/",
+      main_role: 2,
+      main_add_task: "addHospitalAdministrator",
+      main_edit_task: "editHospitalAdministrator",
+      main_delete_task: "deleteHospitalAdministrator",
+      main_url: "http://192.168.43.163:1234/super_admin/",
       keyword: null,
       emptyResult: false,
       hideProfile: true,
@@ -188,7 +209,8 @@ export default {
 
       // provided data for delete form
 
-      formDeleteId: null,
+      formDeleteId: "",
+      formDeleteAvatar: "",
       formDeleteName: "",
       formDeleteEmail: "",
 
@@ -215,7 +237,7 @@ export default {
   methods: {
     searchHospitalAdministrators() {
       axios
-        .get(this.url + "searchHospitalAdministrators", {
+        .get(this.main_url + "searchHospitalAdministrators", {
           params: { keyword: this.keyword },
         })
         .then((res) => {
@@ -230,16 +252,11 @@ export default {
     },
 
     hospitalAdministrators() {
-      this.axios.get(this.url + "hospitalAdministrators").then((response) => {
-        this.dummyData = response.data;
-      });
-    },
-
-    addHospitalAdministrator() {
-      const info = { title: "Vue POST Request Example" };
-      this.axios.post(this.url + "hospitalAdministrators").then((response) => {
-        this.dummyData = response.data;
-      });
+      this.axios
+        .get(this.main_url + "hospitalAdministrators")
+        .then((response) => {
+          this.dummyData = response.data;
+        });
     },
 
     toggleProfile() {
@@ -267,10 +284,11 @@ export default {
       this.formEditDOB = dob;
     },
 
-    formDeleteDetails(id, name, email) {
+    formDeleteDetails(id, name, email, avatar) {
       this.formDeleteId = id;
       this.formDeleteName = name;
       this.formDeleteEmail = email;
+      this.formDeleteAvatar = avatar;
     },
   },
 };
